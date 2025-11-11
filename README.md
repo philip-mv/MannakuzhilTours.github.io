@@ -1,1 +1,0 @@
-# Mannakhuzil_Tours.github.io
