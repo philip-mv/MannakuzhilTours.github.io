@@ -1,58 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Book Alleppey Package | Mannakuzhil Tours</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alleppey Package – Mannakuzhil Tours</title>
+<link rel="icon" type="image/png" href="logo-square.png">
 <style>
-body { background:#f4f6f8; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#222; }
-.booking-container {
-  max-width: 560px; margin: 40px auto; background:#fff; border-radius:12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1); padding: 28px;
-}
-h1 { color: #005f73; text-align: center;}
-label { font-weight: 600;margin-top:10px;display:block;}
-input, textarea {
-  width:100%; padding:8px; margin-bottom:18px; border-radius: 6px;
-  border: 1px solid #ccc; font-size:1em;
-}
-button {
-  background: #0a9396; color:#fff; border:none; border-radius:6px;
-  padding: 12px 20px; cursor:pointer; font-size:1em; transition:.3s;
-}
-button:hover{background:#005f73;}
-#successMessage{color:#005f73;font-weight:bold;text-align:center;margin-top:18px;}
-a { color:#0a9396; text-decoration:underline;}
+  body,html{
+    margin:0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:linear-gradient(to bottom,#70c1ff,#2e7d32);
+    color:#123022;
+  }
+  .wrapper{max-width:1100px;margin:30px auto;padding:0 16px;}
+  header{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+  header h1{margin:0;font-size:1.9em;color:#fff;text-shadow:1px 1px 2px rgba(0,0,0,0.6);}
+  a.back{color:#f5fffb;text-decoration:none;font-size:0.95em;}
+  .hero-img{
+    width:100%;max-height:420px;border-radius:18px;
+    object-fit:cover;box-shadow:0 4px 18px rgba(0,0,0,0.35);margin-bottom:24px;
+  }
+  .content-box{
+    background:rgba(240,251,240,0.95);
+    border-radius:16px;
+    box-shadow:0 3px 14px rgba(0,0,0,0.15);
+    padding:24px;margin-bottom:28px;
+  }
+  h2{margin-top:0;color:#1b4b2b;}
+  p{line-height:1.7;font-size:1.05em;}
+  ul{margin-left:18px;}
+  form label{display:block;font-weight:600;margin:10px 0 4px;}
+  input,textarea{
+    width:100%;padding:8px;border-radius:6px;border:1px solid #b5c9b8;
+    font-size:1em;box-sizing:border-box;
+  }
+  button{
+    margin-top:14px;background:#2e7d32;color:#fff;border:none;
+    padding:10px 22px;border-radius:8px;font-size:1em;font-weight:600;
+    cursor:pointer;
+  }
+  button:hover{background:#1b5e20;}
+  #msg{margin-top:10px;color:#1b4b2b;font-weight:600;}
 </style>
 </head>
 <body>
-<div class="booking-container">
-  <h1>Book Your Alleppey Tour</h1>
-  <form id="bookingForm">
-    <input type="hidden" name="tour" value="Alleppey" />
-    <label>Name:</label>
-    <input type="text" name="name" required />
-    <label>Contact (Email or Phone):</label>
-    <input type="text" name="contact" required />
-    <label>Number of People:</label>
-    <input type="number" name="people" required min="1" />
-    <label>Additional Details:</label>
-    <textarea name="details" rows="4"></textarea>
-    <button type="submit">Submit & Pay</button>
-  </form>
-  <div id="successMessage"></div>
-  <div style="text-align:center;margin-top:20px;">
-    <a href="index.html">&#8592; Back to Home</a>
+<div class="wrapper">
+  <header>
+    <a class="back" href="index.html">&#8592; Back to Home</a>
+    <h1>Alleppey Package</h1>
+  </header>
+
+  <img class="hero-img"
+       src="https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=1200&auto=format&fit=crop&q=80"
+       alt="Alleppey backwaters and houseboats">
+
+  <div class="content-box">
+    <h2>About Alleppey</h2>
+    <p>Alleppey, often called the Venice of the East, is famous for calm backwaters, traditional houseboats and lush village life along the canals.</p>
+    <p>This package can include an overnight houseboat cruise, canoe rides through narrow canals and authentic Kerala meals served on board.</p>
+    <ul>
+      <li>Ideal trip duration: 1–2 nights</li>
+      <li>Best time to visit: August – March</li>
+      <li>Pickup available from Kochi and nearby towns</li>
+    </ul>
+  </div>
+
+  <div class="content-box">
+    <h2>Book Your Alleppey Tour</h2>
+    <form id="form">
+      <input type="hidden" name="tour" value="Alleppey">
+      <label>Name</label>
+      <input name="name" required>
+      <label>Contact (Email or Phone)</label>
+      <input name="contact" required>
+      <label>Number of People</label>
+      <input type="number" name="people" min="1" required>
+      <label>Preferred Dates / Details</label>
+      <textarea name="details" rows="4"></textarea>
+      <button type="submit">Submit Enquiry</button>
+      <div id="msg"></div>
+    </form>
   </div>
 </div>
 <script>
-document.getElementById('bookingForm').onsubmit = function(e) {
+document.getElementById('form').addEventListener('submit',function(e){
   e.preventDefault();
-  const name = this.name.value;
-  document.getElementById('successMessage').textContent = 'Thank you, ' + name + '! Your booking for "Alleppey" has been received. We will contact you soon.';
+  const name=this.name.value;
+  document.getElementById('msg').textContent=
+    'Thank you, '+name+'! Your enquiry for the Alleppey package has been received. We will contact you shortly.';
   this.reset();
-};
+});
 </script>
 </body>
 </html>
-
