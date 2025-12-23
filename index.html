@@ -6,7 +6,6 @@
   <title>Mannakuzhil Tours – Kerala Tour Packages & Backwater Trips</title>
   <meta name="description" content="Mannakuzhil Tours offers Kerala tour packages, backwater cruises, Munnar trips, Wayanad holidays and customized itineraries etc.">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="logo-square.png">
   <link rel="shortcut icon" type="image/png" href="logo-square.png">
 
@@ -78,13 +77,14 @@
     text-decoration: none;
     padding: 6px 12px;
     border-radius: 20px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.15s ease;
     font-size: 0.95rem;
   }
 
   nav a:hover {
     background-color: #a5d6a7;
     color: var(--green-dark);
+    transform: translateY(-1px);
   }
 
   main {
@@ -110,6 +110,26 @@
     border-radius: 16px;
     margin-bottom: 32px;
     padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* subtle animated gradient overlay on hero */
+  .hero::after {
+    content:"";
+    position:absolute;
+    inset:0;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 55%);
+    mix-blend-mode: screen;
+    opacity:0;
+    animation: heroGlow 6s ease-in-out infinite alternate;
+    pointer-events:none;
+  }
+
+  @keyframes heroGlow {
+    0% {opacity:0;}
+    50% {opacity:0.8;}
+    100% {opacity:0.2;}
   }
 
   .section-box {
@@ -124,6 +144,18 @@
     margin-bottom: 18px;
     font-weight: 700;
     text-align: center;
+  }
+
+  /* Base reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   /* Packages cards */
@@ -141,10 +173,32 @@
     border-radius: 12px;
     padding: 16px 16px 20px;
     text-align: center;
-    box-shadow: 0 2px 18px rgba(0,90,0,0.1);
+    box-shadow: 0 2px 16px rgba(0,90,0,0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .place-card::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    background: radial-gradient(circle at top, rgba(255,255,255,0.35), transparent 60%);
+    opacity:0;
+    transition: opacity 0.3s ease;
+    pointer-events:none;
+  }
+
+  .place-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 10px 28px rgba(0,90,0,0.25);
+  }
+
+  .place-card:hover::before {
+    opacity:1;
   }
 
   .place-card img {
@@ -154,6 +208,11 @@
     border-radius: 12px;
     margin-bottom: 12px;
     border: 3px solid #a5d6a7;
+    transition: transform 0.3s ease;
+  }
+
+  .place-card:hover img {
+    transform: scale(1.05);
   }
 
   .place-card h3 {
@@ -169,7 +228,7 @@
     line-height: 1.55;
   }
 
-  .place-card button {
+  .btn-primary {
     margin-top: 14px;
     background-color: var(--green-main);
     color: #daf5d6;
@@ -179,12 +238,19 @@
     font-size: 0.98rem;
     font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.25s, transform 0.15s;
+    transition: background-color 0.25s, transform 0.12s, box-shadow 0.12s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.18);
   }
 
-  .place-card button:hover {
+  .btn-primary:hover {
     background-color: var(--green-dark);
     transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.22);
+  }
+
+  .btn-primary:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
   }
 
   /* Services cards */
@@ -205,6 +271,7 @@
     text-align: center;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     overflow: hidden;
+    position: relative;
   }
 
   .service-card h3 {
@@ -226,11 +293,16 @@
     object-fit: cover;
     border-radius: 10px;
     border: 3px solid #a5d6a7;
+    transition: transform 0.3s ease;
   }
 
   .service-card:hover {
     box-shadow: 0 7px 26px rgba(0, 100, 0, 0.26);
     transform: translateY(-6px);
+  }
+
+  .service-card:hover .service-image img {
+    transform: scale(1.05);
   }
 
   #about p {
@@ -312,17 +384,9 @@
     }
   }
 
-  /* Very small phones */
   @media (max-width: 480px) {
-    header {
-      flex-direction: row;
-    }
     .hero {
       font-size: 1.6rem;
-    }
-    .place-card p,
-    .service-card p {
-      font-size: 0.94rem;
     }
   }
   </style>
@@ -342,39 +406,39 @@
 </nav>
 
 <main>
-  <div class="hero" id="home">Explore Kerala with Mannakuzhil Tours</div>
+  <div class="hero reveal" id="home">Explore Kerala with Mannakuzhil Tours</div>
 
-  <section id="packages" class="section-box">
+  <section id="packages" class="section-box reveal">
     <h2>Packages</h2>
     <div class="places">
       <div class="place-card">
         <img src="https://cdn.pixabay.com/photo/2025/06/09/14/30/tea-plantation-9650105_1280.jpg" alt="Munnar Hills" />
         <h3>Munnar</h3>
         <p>Rolling hills covered with tea plantations and misty mountains perfect for nature lovers.</p>
-        <button onclick="window.location='book-munnar.html'">Book Now</button>
+        <button class="btn-primary" onclick="window.location='book-munnar.html'">Book Now</button>
       </div>
       <div class="place-card">
         <img src="https://images.unsplash.com/photo-1677475455506-1e429162f44f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YWxsZXBwZXl8ZW58MHx8MHx8fDA%3D" alt="Alleppey Backwaters" />
         <h3>Alleppey</h3>
         <p>Famous for tranquil backwaters and houseboat cruises through the serene lagoons.</p>
-        <button onclick="window.location='book-alleppey.html'">Book Now</button>
+        <button class="btn-primary" onclick="window.location='book-alleppey.html'">Book Now</button>
       </div>
       <div class="place-card">
         <img src="https://images.unsplash.com/photo-1586030138336-4a854c6ddb5f?q=80&w=1944&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kovalam Beach" />
         <h3>Kovalam</h3>
         <p>Beautiful palm-lined beaches with golden sands and vibrant local culture.</p>
-        <button onclick="window.location='book-kovalam.html'">Book Now</button>
+        <button class="btn-primary" onclick="window.location='book-kovalam.html'">Book Now</button>
       </div>
       <div class="place-card">
         <img src="https://images.unsplash.com/photo-1723709431768-d749b0d814b9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d2F5YW5hZHxlbnwwfHwwfHx8MA%3D%3D" alt="Wayanad" />
         <h3>Wayanad</h3>
         <p>Lush green forests, waterfalls, and wildlife sanctuaries to explore and rejuvenate.</p>
-        <button onclick="window.location='book-wayanad.html'">Book Now</button>
+        <button class="btn-primary" onclick="window.location='book-wayanad.html'">Book Now</button>
       </div>
     </div>
   </section>
 
-  <section id="services" class="section-box">
+  <section id="services" class="section-box reveal">
     <h2>Our Services</h2>
     <div class="services-grid">
       <div class="service-card">
@@ -408,12 +472,12 @@
     </div>
   </section>
 
-  <section id="about" class="section-box">
+  <section id="about" class="section-box reveal">
     <h2>About Mannakuzhil Tours</h2>
     <p>We are a family‑run tour service based in Kerala, dedicated to providing personalized and memorable experiences. With strong local connections and on‑ground expertise, we help you discover both the famous sights and hidden gems of God's Own Country.</p>
   </section>
 
-  <section id="contact" class="section-box">
+  <section id="contact" class="section-box reveal">
     <h2>Contact Us</h2>
     <div class="contact-info">
       <p><a href="mailto:booking@mannakuzhiltours.com" class="contact-link">📧 booking@mannakuzhiltours.com</a></p>
@@ -424,5 +488,23 @@
 </main>
 
 <footer>&copy; 2025 Mannakuzhil Tours. All rights reserved.</footer>
+
+<script>
+  // Simple scroll reveal without external libraries
+  const revealEls = document.querySelectorAll('.reveal');
+
+  function handleReveal() {
+    const triggerBottom = window.innerHeight * 0.85;
+    revealEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < triggerBottom) {
+        el.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', handleReveal);
+  window.addEventListener('load', handleReveal);
+</script>
 </body>
 </html>
