@@ -1,37 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mannakuzhil Tours – Alleppey Backwater & Houseboat Tour Packages</title>
-<meta name="description" content="Sail through the serene backwaters of Alleppey with Mannakuzhil Tours. Alleppey backwater and houseboat tour packages with overnight cruises, day trips, village life and traditional Kerala food.">
-<link rel="icon" type="image/png" href="logo-square.png">
-<style>
-  body,html{margin:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(to bottom,#70c1ff,#2e7d32);color:#123022;}
-  .wrapper{max-width:1100px;margin:30px auto;padding:0 16px;}
-  header{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
-  header h1{margin:0;font-size:1.9em;color:#fff;text-shadow:1px 1px 2px rgba(0,0,0,0.6);}
-  a.back{color:#f5fffb;text-decoration:none;font-size:0.95em;}
-  .hero-img{width:100%;max-height:420px;border-radius:18px;object-fit:cover;box-shadow:0 4px 18px rgba(0,0,0,0.35);margin-bottom:24px;}
-  .content-box{background:rgba(240,251,240,0.95);border-radius:16px;box-shadow:0 3px 14px rgba(0,0,0,0.15);padding:24px;margin-bottom:28px;}
-  h2{margin-top:0;color:#1b4b2b;}
-  p{line-height:1.7;font-size:1.05em;}
-  ul{margin-left:18px;}
-  form label{display:block;font-weight:600;margin:10px 0 4px;}
-  input,textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #b5c9b8;font-size:1em;box-sizing:border-box;}
-  button{margin-top:14px;background:#2e7d32;color:#fff;border:none;padding:10px 22px;border-radius:8px;font-size:1em;font-weight:600;cursor:pointer;}
-  button:hover{background:#1b5e20;}
-  #msg{margin-top:10px;color:#1b4b2b;font-weight:600;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mannakuzhil Tours – Alleppey Backwater & Houseboat Tour Packages</title>
+  <meta name="description" content="Sail through the serene backwaters of Alleppey with Mannakuzhil Tours. Alleppey backwater and houseboat packages with overnight cruises, village life and traditional Kerala food.">
+  <link rel="icon" type="image/png" href="logo-square.png">
+  <style>
+    /* same CSS as book-munnar.html above */
+  </style>
 </head>
 <body>
 <div class="wrapper">
   <header>
-    <a class="back" href="index.html">&#8592; Back to Home</a>
+    <a class="back-link" href="index.html">&#8592; Home</a>
     <h1>Alleppey Backwater Tour Packages – Mannakuzhil Tours</h1>
   </header>
 
-  <img class="hero-img" src="https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=1200&auto=format&fit=crop&q=80" alt="Alleppey backwaters and houseboats">
+  <img class="hero-img"
+       src="https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=1200&auto=format&fit=crop&q=80"
+       alt="Alleppey backwaters and houseboats">
 
   <div class="content-box">
     <h2>Sail Through the Serene Backwaters of Alleppey – Kerala’s Houseboat Paradise</h2>
@@ -40,18 +28,18 @@
 
     <h2>Why Choose Our Alleppey Tour Packages?</h2>
     <ul>
-      <li><strong>Signature backwater cruises:</strong> Enjoy day cruises or overnight houseboat stays on well‑maintained traditional kettuvallam boats.</li>
-      <li><strong>Comfortable houseboats &amp; resorts:</strong> Choose from budget, deluxe and luxury houseboats or waterfront resorts with all modern comforts.</li>
-      <li><strong>Local flavours &amp; village life:</strong> Experience inland villages, paddy fields, toddy shops, and coir‑making units along the canals.</li>
-      <li><strong>Perfect for relaxation seekers:</strong> Ideal for couples, families and seniors looking for quiet waters, sunsets and gentle breezes instead of hectic sightseeing.</li>
-      <li><strong>Hassle‑free travel:</strong> Pre‑planned itineraries, friendly crew and guided activities ensure a smooth backwater holiday.</li>
+      <li><strong>Signature backwater cruises:</strong> Day cruises and overnight houseboat stays on well‑maintained kettuvallam boats.</li>
+      <li><strong>Comfortable houseboats &amp; resorts:</strong> Budget, deluxe and luxury houseboats or waterfront resorts with modern comforts.</li>
+      <li><strong>Local flavours &amp; village life:</strong> Inland villages, paddy fields, toddy shops and coir‑making units along the canals.</li>
+      <li><strong>Perfect for relaxation seekers:</strong> Ideal for couples, families and seniors who want quiet waters and sunsets.</li>
+      <li><strong>Hassle‑free travel:</strong> Pre‑planned itineraries, friendly crew and guided activities.</li>
     </ul>
 
-    <h2>Highlights of Our Alleppey Backwater Packages</h2>
+    <h2>Highlights of Our Alleppey Packages</h2>
     <ul>
       <li>Day cruises and overnight houseboat packages</li>
       <li>Authentic Kerala meals cooked and served on board</li>
-      <li>Village walks, canoe rides and bird‑watching experiences</li>
+      <li>Village walks, canoe rides and bird‑watching</li>
       <li>Pickup from Kochi, Aluva, Kottayam or nearby towns</li>
       <li>Budget, deluxe and premium houseboat options</li>
     </ul>
@@ -72,13 +60,18 @@
       <button type="submit">Submit Enquiry</button>
       <div id="msg"></div>
     </form>
+    <p class="contact-small">You can also email
+      <a href="mailto:booking@mannakuzhiltours.com">booking@mannakuzhiltours.com</a>
+      for custom backwater packages.
+    </p>
   </div>
 </div>
 <script>
 document.getElementById('form').addEventListener('submit',function(e){
   e.preventDefault();
-  const name=this.name.value;
-  document.getElementById('msg').textContent='Thank you, '+name+'! Your enquiry for the Alleppey package has been received. We will contact you shortly.';
+  const name=this.name.value || 'Guest';
+  document.getElementById('msg').textContent =
+    'Thank you, '+name+'! Your enquiry for the Alleppey package has been received. We will contact you shortly.';
   this.reset();
 });
 </script>
