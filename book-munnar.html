@@ -1,59 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mannakuzhil Tours – Munnar Tour Packages, Kerala Hill Station & Tea Gardens</title>
-<meta name="description" content="Explore the enchanting hills of Munnar with Mannakuzhil Tours. Customized Munnar tour packages with tea gardens, Eravikulam National Park, Echo Point, Top Station, honeymoon trips and family vacations in Kerala.">
-<link rel="icon" type="image/png" href="logo-square.png">
-<style>
-  body,html{margin:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(to bottom,#70c1ff,#2e7d32);color:#123022;}
-  .wrapper{max-width:1100px;margin:30px auto;padding:0 16px;}
-  header{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
-  header h1{margin:0;font-size:1.9em;color:#fff;text-shadow:1px 1px 2px rgba(0,0,0,0.6);}
-  a.back{color:#f5fffb;text-decoration:none;font-size:0.95em;}
-  .hero-img{width:100%;max-height:420px;border-radius:18px;object-fit:cover;box-shadow:0 4px 18px rgba(0,0,0,0.35);margin-bottom:24px;}
-  .content-box{background:rgba(240,251,240,0.95);border-radius:16px;box-shadow:0 3px 14px rgba(0,0,0,0.15);padding:24px;margin-bottom:28px;}
-  h2{margin-top:0;color:#1b4b2b;}
-  p{line-height:1.7;font-size:1.05em;}
-  ul{margin-left:18px;}
-  form label{display:block;font-weight:600;margin:10px 0 4px;}
-  input,textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #b5c9b8;font-size:1em;box-sizing:border-box;}
-  button{margin-top:14px;background:#2e7d32;color:#fff;border:none;padding:10px 22px;border-radius:8px;font-size:1em;font-weight:600;cursor:pointer;}
-  button:hover{background:#1b5e20;}
-  #msg{margin-top:10px;color:#1b4b2b;font-weight:600;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mannakuzhil Tours – Munnar Tour Packages, Kerala Hill Station & Tea Gardens</title>
+  <meta name="description" content="Explore the enchanting hills of Munnar with Mannakuzhil Tours. Customized Munnar tour packages with tea gardens, Eravikulam National Park, Echo Point, Top Station, honeymoon trips and family vacations in Kerala.">
+  <link rel="icon" type="image/png" href="logo-square.png">
+  <style>
+    :root {
+      --green-main:#2e7d32;
+      --green-dark:#145214;
+      --green-light:#d0e8d7;
+      --card-bg:rgba(240,251,240,0.98);
+    }
+    *{box-sizing:border-box;}
+    body,html{
+      margin:0;
+      font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+      background:linear-gradient(to bottom,#70c1ff,#2e7d32);
+      color:#123022;
+    }
+    a{color:inherit;}
+    .wrapper{max-width:1100px;margin:24px auto 40px;padding:0 14px;}
+    header{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+    .back-link{font-size:0.9rem;text-decoration:none;color:#eaf6e0;background:rgba(20,82,20,0.8);padding:4px 10px;border-radius:20px;}
+    h1{margin:0;font-size:1.7rem;color:#fff;text-shadow:1px 1px 2px rgba(0,0,0,0.7);}
+    .hero-img{
+      width:100%;max-height:380px;border-radius:18px;
+      object-fit:cover;box-shadow:0 4px 18px rgba(0,0,0,0.4);margin-bottom:20px;
+    }
+    .content-box{
+      background:var(--card-bg);
+      border-radius:16px;
+      box-shadow:0 3px 14px rgba(0,0,0,0.15);
+      padding:20px 18px;
+      margin-bottom:22px;
+    }
+    .content-box h2{
+      margin-top:0;
+      margin-bottom:10px;
+      color:#1b4b2b;
+      font-size:1.25rem;
+    }
+    p{line-height:1.7;font-size:1.02rem;margin:6px 0;}
+    ul{margin-left:18px;padding-left:0;}
+    li{margin-bottom:4px;}
+    form label{display:block;font-weight:600;margin:10px 0 4px;}
+    input,textarea{
+      width:100%;padding:8px;border-radius:6px;border:1px solid #b5c9b8;
+      font-size:1rem;box-sizing:border-box;
+    }
+    button{
+      margin-top:14px;background:var(--green-main);color:#fff;border:none;
+      padding:10px 22px;border-radius:999px;font-size:1rem;font-weight:600;
+      cursor:pointer;transition:background 0.25s,transform 0.15s;
+    }
+    button:hover{background:var(--green-dark);transform:translateY(-1px);}
+    #msg{margin-top:10px;color:#1b4b2b;font-weight:600;}
+    .contact-small{font-size:0.95rem;margin-top:8px;}
+    .contact-small a{text-decoration:none;color:var(--green-main);font-weight:600;}
+    @media (max-width:768px){
+      .wrapper{padding:0 10px;}
+      h1{font-size:1.45rem;}
+      .hero-img{max-height:260px;}
+      .content-box{padding:16px 14px;}
+    }
+  </style>
 </head>
 <body>
 <div class="wrapper">
   <header>
-    <a class="back" href="index.html">&#8592; Back to Home</a>
+    <a class="back-link" href="index.html">&#8592; Home</a>
     <h1>Munnar Tour Packages – Mannakuzhil Tours</h1>
   </header>
 
-  <img class="hero-img" src="https://cdn.pixabay.com/photo/2025/06/09/14/30/tea-plantation-9650105_1280.jpg" alt="Munnar tea gardens and misty hills">
+  <img class="hero-img"
+       src="https://cdn.pixabay.com/photo/2025/06/09/14/30/tea-plantation-9650105_1280.jpg"
+       alt="Munnar tea gardens and misty hills">
 
   <div class="content-box">
     <h2>Explore the Enchanting Hills of Munnar – Kerala’s Most Loved Hill Station</h2>
     <p>Escape into the misty mountains of Munnar, where rolling tea gardens, lush forests and cool breezes create the perfect getaway. Our Munnar tour packages are designed to offer a seamless travel experience with breathtaking viewpoints, scenic drives, wildlife encounters and the timeless charm of Kerala’s Western Ghats.</p>
-    <p>Whether you are planning a romantic honeymoon, a family vacation or an adventure trip with friends, Munnar promises unforgettable memories with tea plantations, waterfalls and mountain landscapes.</p>
+    <p>Whether you are planning a romantic honeymoon, a family vacation or an adventure trip, Munnar promises unforgettable memories with tea plantations, waterfalls and mountain landscapes.</p>
 
     <h2>Why Choose Our Munnar Tour Packages?</h2>
     <ul>
-      <li><strong>Customized Munnar sightseeing tours:</strong> Explore top attractions like Eravikulam National Park, Tea Museum, Mattupetty Dam, Echo Point, Top Station and more at your own pace.</li>
-      <li><strong>Handpicked resorts &amp; cottages:</strong> Stay in beautiful hill‑view resorts and cozy cottages surrounded by valleys, mist and tea gardens.</li>
-      <li><strong>Comfortable travel &amp; expert guides:</strong> Private cabs, experienced drivers and knowledgeable local guides make your Munnar trip relaxed and informative.</li>
-      <li><strong>Perfect for all travellers:</strong> We offer Munnar honeymoon packages, family tour packages, group trips and custom itineraries to match your travel style.</li>
-      <li><strong>Adventure &amp; nature experiences:</strong> Enjoy trekking, plantation walks, wildlife spotting, waterfalls and panoramic photography spots.</li>
+      <li><strong>Customized Munnar sightseeing tours:</strong> Explore Eravikulam National Park, Tea Museum, Mattupetty Dam, Echo Point, Top Station and more at your own pace.</li>
+      <li><strong>Handpicked resorts &amp; cottages:</strong> Stay in hill‑view resorts and cozy cottages surrounded by valleys, mist and tea gardens.</li>
+      <li><strong>Comfortable travel &amp; expert guides:</strong> Private cabs, experienced drivers and knowledgeable local guides.</li>
+      <li><strong>Perfect for all travellers:</strong> Honeymoon packages, family tour packages, group trips and custom itineraries.</li>
+      <li><strong>Adventure &amp; nature experiences:</strong> Trekking, plantation walks, wildlife spotting, waterfalls and photo spots.</li>
     </ul>
 
-    <h2>Highlights of Our Munnar Tour Packages</h2>
+    <h2>Highlights of Our Munnar Itineraries</h2>
     <ul>
-      <li>2D/3D and 3D/4D Munnar itineraries with flexible sightseeing</li>
-      <li>Honeymoon packages with candlelight dinner and flower‑decorated rooms</li>
+      <li>2D/3D and 3D/4D Munnar packages with flexible sightseeing</li>
+      <li>Honeymoon add‑ons like candlelight dinner and flower‑decorated rooms</li>
       <li>Tea‑plantation tours, jeep safaris and sunrise/sunset viewpoints</li>
       <li>Pickup from Kochi, Aluva or Coimbatore</li>
-      <li>Affordable, luxury and premium Kerala hill‑station packages</li>
+      <li>Affordable, luxury and premium Kerala hill‑station options</li>
     </ul>
   </div>
 
@@ -72,13 +117,18 @@
       <button type="submit">Submit Enquiry</button>
       <div id="msg"></div>
     </form>
+    <p class="contact-small">Or email us at
+      <a href="mailto:booking@mannakuzhiltours.com">booking@mannakuzhiltours.com</a>
+      for custom Kerala tour plans.
+    </p>
   </div>
 </div>
 <script>
 document.getElementById('form').addEventListener('submit',function(e){
   e.preventDefault();
-  const name=this.name.value;
-  document.getElementById('msg').textContent='Thank you, '+name+'! Your enquiry for the Munnar package has been received. We will contact you shortly.';
+  const name=this.name.value || 'Guest';
+  document.getElementById('msg').textContent =
+    'Thank you, '+name+'! Your enquiry for the Munnar package has been received. We will contact you shortly.';
   this.reset();
 });
 </script>
