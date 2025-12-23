@@ -11,6 +11,17 @@
   <link rel="shortcut icon" type="image/png" href="logo-square.png">
 
   <style>
+  :root {
+    --green-main: #2e7d32;
+    --green-dark: #145214;
+    --green-light: #d0e8d7;
+    --card-bg: rgba(240, 251, 240, 0.98);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
   body, html {
     margin: 0;
     padding: 0;
@@ -18,179 +29,223 @@
     background: linear-gradient(to bottom, #70c1ff, #2e7d32);
     color: #1a3d27;
   }
+
+  h1, h2, h3 {
+    margin: 0;
+  }
+
   h2 {
     color: #fff !important;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
   }
+
   header {
     background-color: rgba(46, 125, 50, 0.9);
     color: #daf5d6;
-    padding: 20px 40px;
-    text-align: center;
-    font-size: 2em;
-    font-weight: bold;
-    letter-spacing: 2px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
+
+  header .logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    object-fit: contain;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+
+  header .title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
   nav {
-    background: rgba(56, 142, 60, 0.9);
+    background: rgba(56, 142, 60, 0.95);
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding: 14px 0;
-    font-weight: 700;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 8px;
+    font-weight: 600;
   }
+
   nav a {
     color: #eaf6e0;
     text-decoration: none;
-    padding: 6px 14px;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 0.95rem;
   }
+
   nav a:hover {
     background-color: #a5d6a7;
-    color: #145214;
+    color: var(--green-dark);
   }
+
   main {
     max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
+    margin: 24px auto 40px;
+    padding: 0 14px;
   }
+
   .hero {
     background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80');
-    filter: brightness(85%);
+    filter: brightness(88%);
     background-size: cover;
     background-position: center;
-    height: 380px;
+    min-height: 260px;
     color: #daf5d6;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3.2em;
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
     font-weight: 700;
     text-shadow: 2px 2px 8px rgba(0,80,0,0.8);
     border-radius: 16px;
-    margin-bottom: 50px;
+    margin-bottom: 32px;
+    padding: 24px;
   }
-  .packages, .services, #about, #contact {
-    background: rgba(208, 232, 215, 0.85);
-    padding: 30px 20px;
+
+  .section-box {
+    background: var(--green-light);
+    padding: 22px 18px 26px;
     border-radius: 14px;
     box-shadow: 0 3px 15px rgba(34, 85, 34, 0.15);
-    margin-bottom: 50px;
+    margin-bottom: 32px;
   }
-  .packages h2, .services h2, #about h2, #contact h2 {
-    margin-bottom: 22px;
+
+  .section-box h2 {
+    margin-bottom: 18px;
     font-weight: 700;
     text-align: center;
   }
+
+  /* Packages cards */
   .places {
     display: flex;
-    gap: 22px;
     flex-wrap: wrap;
+    gap: 18px;
     justify-content: center;
   }
+
   .place-card {
     flex: 1 1 260px;
-    max-width: 300px;
-    background: rgba(240, 251, 240, 0.9);
+    max-width: 320px;
+    background: var(--card-bg);
     border-radius: 12px;
-    padding: 20px 20px 30px 20px;
+    padding: 16px 16px 20px;
     text-align: center;
     box-shadow: 0 2px 18px rgba(0,90,0,0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
+
   .place-card img {
     width: 100%;
     height: 170px;
     object-fit: cover;
-    border-radius: 14px;
+    border-radius: 12px;
     margin-bottom: 12px;
     border: 3px solid #a5d6a7;
   }
+
   .place-card h3 {
-    margin: 14px 0 8px;
+    margin: 10px 0 6px;
     color: #1a3d27;
+    font-size: 1.15rem;
   }
+
   .place-card p {
     flex-grow: 1;
     color: #2e4d30;
+    font-size: 0.98rem;
+    line-height: 1.55;
   }
+
   .place-card button {
-    margin-top: 18px;
-    background-color: #2e7d32;
+    margin-top: 14px;
+    background-color: var(--green-main);
     color: #daf5d6;
     border: none;
-    border-radius: 8px;
-    padding: 12px 30px;
-    font-size: 1em;
+    border-radius: 999px;
+    padding: 10px 26px;
+    font-size: 0.98rem;
     font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.25s, transform 0.15s;
   }
+
   .place-card button:hover {
-    background-color: #145214;
+    background-color: var(--green-dark);
+    transform: translateY(-1px);
   }
-  section {
-    margin-top: 40px;
-  }
-  p {
-    line-height: 1.7;
-    font-size: 1.1em;
-    color: #2e4d30;
-  }
-  .services {
+
+  /* Services cards */
+  .services-grid {
     display: flex;
-    gap: 23px;
     flex-wrap: wrap;
+    gap: 18px;
     justify-content: center;
   }
+
   .service-card {
-    background: rgba(240, 251, 240, 0.95);
-    padding: 22px;
+    background: var(--card-bg);
+    padding: 18px 16px 20px;
     box-shadow: 0 2px 14px rgba(0, 100, 0, 0.1);
     border-radius: 14px;
-    flex: 1 1 300px;
+    flex: 1 1 240px;
     max-width: 320px;
     text-align: center;
-    transition: all 0.45s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
     overflow: hidden;
-    height: 230px;
-    position: relative;
   }
-  .service-card:hover {
-    height: 420px;
-    box-shadow: 0 7px 30px rgba(0, 100, 0, 0.3);
-    transform: translateY(-12px);
+
+  .service-card h3 {
+    margin-bottom: 8px;
+    color: #1a3d27;
   }
+
+  .service-card p {
+    font-size: 0.96rem;
+  }
+
   .service-image {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.45s ease;
-    margin-top: 18px;
+    margin-top: 14px;
   }
-  .service-card:hover .service-image {
-    opacity: 1;
-    max-height: 180px;
-  }
+
   .service-image img {
     width: 100%;
-    height: 180px;
+    height: 150px;
     object-fit: cover;
     border-radius: 10px;
-    display: block;
-    margin: 0 auto;
     border: 3px solid #a5d6a7;
   }
-  .contact-info {
+
+  .service-card:hover {
+    box-shadow: 0 7px 26px rgba(0, 100, 0, 0.26);
+    transform: translateY(-6px);
+  }
+
+  #about p {
+    margin-top: 4px;
+    text-align: center;
+  }
+
+  #contact .contact-info {
     text-align: center;
     max-width: 600px;
     margin: 0 auto;
   }
+
   .contact-link {
-    color: #2e7d32;
+    color: var(--green-main);
     font-weight: 600;
     text-decoration: none;
     padding: 4px 8px;
@@ -198,36 +253,86 @@
     transition: all 0.3s ease;
     display: inline-block;
   }
+
   .contact-link:hover {
     background-color: #a5d6a7;
-    color: #145214;
+    color: var(--green-dark);
   }
-  @media (max-width: 768px) {
-    main {
-      margin: 25px 15px;
-    }
-    nav {
-      flex-direction: column;
-      gap: 12px;
-    }
-    .places, .services {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
+
   footer {
-    background-color: #145214;
+    background-color: var(--green-dark);
     color: #daf5d6;
     text-align: center;
-    padding: 14px 15px;
-    margin-top: 60px;
-    font-size: 0.95em;
+    padding: 12px 10px;
+    font-size: 0.9rem;
     letter-spacing: 0.02em;
+  }
+
+  /* ---------- Mobile tweaks ---------- */
+  @media (max-width: 768px) {
+    header {
+      padding: 12px 12px;
+    }
+    header .title {
+      font-size: 1.15rem;
+    }
+    nav {
+      gap: 6px;
+      padding: 8px 6px;
+    }
+    nav a {
+      font-size: 0.9rem;
+      padding: 5px 10px;
+    }
+    main {
+      margin-top: 18px;
+      padding: 0 10px;
+    }
+    .hero {
+      min-height: 220px;
+      margin-bottom: 24px;
+      padding: 18px;
+    }
+    .section-box {
+      padding: 18px 14px 22px;
+      margin-bottom: 24px;
+    }
+    .places, .services-grid {
+      gap: 14px;
+    }
+    .place-card, .service-card {
+      max-width: 100%;
+    }
+    .place-card img,
+    .service-image img {
+      height: 160px;
+    }
+    footer {
+      margin-top: 12px;
+    }
+  }
+
+  /* Very small phones */
+  @media (max-width: 480px) {
+    header {
+      flex-direction: row;
+    }
+    .hero {
+      font-size: 1.6rem;
+    }
+    .place-card p,
+    .service-card p {
+      font-size: 0.94rem;
+    }
   }
   </style>
 </head>
 <body>
-<header>Mannakuzhil Tours</header>
+<header>
+  <img src="logo-square.png" alt="Mannakuzhil Tours Logo" class="logo">
+  <div class="title">Mannakuzhil Tours</div>
+</header>
+
 <nav>
   <a href="#home">Home</a>
   <a href="#packages">Packages</a>
@@ -235,9 +340,11 @@
   <a href="#about">About Us</a>
   <a href="#contact">Contact</a>
 </nav>
+
 <main>
   <div class="hero" id="home">Explore Kerala with Mannakuzhil Tours</div>
-  <section id="packages" class="packages">
+
+  <section id="packages" class="section-box">
     <h2>Packages</h2>
     <div class="places">
       <div class="place-card">
@@ -266,51 +373,56 @@
       </div>
     </div>
   </section>
-  <section id="services" class="services">
+
+  <section id="services" class="section-box">
     <h2>Our Services</h2>
-    <div class="services">
+    <div class="services-grid">
       <div class="service-card">
         <h3>Guided Tours</h3>
-        <p>Experience Kerala's rich culture, history, and nature with our expert guides.</p>
+        <p>Experience Kerala's rich culture, history, and nature with our expert local guides.</p>
         <div class="service-image">
           <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=320&q=80" alt="Guided Tours" />
         </div>
       </div>
       <div class="service-card">
         <h3>Customized Itineraries</h3>
-        <p>Plans tailored to your preferences to make your trip truly unique.</p>
+        <p>Tailor‑made Kerala tour plans to match your interests, dates and budget.</p>
         <div class="service-image">
           <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=320&q=80" alt="Customized Itineraries" />
         </div>
       </div>
       <div class="service-card">
         <h3>Transportation</h3>
-        <p>Comfortable and reliable vehicles to travel around seamlessly.</p>
+        <p>Comfortable, well‑maintained vehicles with professional drivers for smooth travel.</p>
         <div class="service-image">
           <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=320&q=80" alt="Transportation" />
         </div>
       </div>
       <div class="service-card">
         <h3>Accommodation Booking</h3>
-        <p>We arrange cozy stays from budget to luxury options.</p>
+        <p>We arrange cozy homestays, resorts and hotels from budget to premium range.</p>
         <div class="service-image">
           <img src="https://images.unsplash.com/photo-1591832939387-5fb33efb2c5d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWNjb21tb2RhdGlvbiUyMGJvb2tpbmclMjBrZXJhbGF8ZW58MHx8MHx8fDA%3D" alt="Accommodation Booking" />
         </div>
       </div>
     </div>
   </section>
-  <section id="about">
+
+  <section id="about" class="section-box">
     <h2>About Mannakuzhil Tours</h2>
-    <p>We are a family-run tour service based in Kerala dedicated to providing personalized and memorable experiences to visitors. Our local knowledge and passion ensure that you discover the best hidden gems and popular destinations alike.</p>
+    <p>We are a family‑run tour service based in Kerala, dedicated to providing personalized and memorable experiences. With strong local connections and on‑ground expertise, we help you discover both the famous sights and hidden gems of God's Own Country.</p>
   </section>
-  <section id="contact">
+
+  <section id="contact" class="section-box">
     <h2>Contact Us</h2>
     <div class="contact-info">
-      <p><a href="mailto:booking@mannakuzhiltours.com?subject=Tours%20Inquiry&body=Hello%20Mannakuzhil%20Tours%2C%0A%0APlease%20share%20details%20about%20your%20services.%0A%0AThanks!" class="contact-link">📧 booking@mannakuzhiltours.com</a></p>
+      <p><a href="mailto:booking@mannakuzhiltours.com" class="contact-link">📧 booking@mannakuzhiltours.com</a></p>
       <p>📞 Phone: +91 98765 43210</p>
+      <p>📍 Address: Mannakuzhil, Kerala, India</p>
     </div>
   </section>
 </main>
+
 <footer>&copy; 2025 Mannakuzhil Tours. All rights reserved.</footer>
 </body>
 </html>
