@@ -6,8 +6,66 @@
   <title>Mannakuzhil Tours – Kovalam Beach & Lighthouse Tour Packages</title>
   <meta name="description" content="Relax at Kovalam with Mannakuzhil Tours. Kovalam beach tour packages with lighthouse views, sunsets, Ayurveda treatments and seaside resorts near Trivandrum, Kerala.">
   <link rel="icon" type="image/png" href="logo-square.png">
+
   <style>
-    /* same CSS as book-munnar.html */
+    :root {
+      --green-main:#2e7d32;
+      --green-dark:#145214;
+      --green-light:#d0e8d7;
+      --card-bg:rgba(240,251,240,0.98);
+    }
+    *{box-sizing:border-box;}
+    body,html{
+      margin:0;
+      font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+      background:linear-gradient(to bottom,#70c1ff,#2e7d32);
+      color:#123022;
+    }
+    a{color:inherit;}
+    .wrapper{max-width:1100px;margin:24px auto 40px;padding:0 14px;}
+    header{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+    .back-link{font-size:0.9rem;text-decoration:none;color:#eaf6e0;background:rgba(20,82,20,0.8);padding:4px 10px;border-radius:20px;}
+    h1{margin:0;font-size:1.7rem;color:#fff;text-shadow:1px 1px 2px rgba(0,0,0,0.7);}
+    .hero-img{
+      width:100%;max-height:380px;border-radius:18px;
+      object-fit:cover;box-shadow:0 4px 18px rgba(0,0,0,0.4);margin-bottom:20px;
+    }
+    .content-box{
+      background:var(--card-bg);
+      border-radius:16px;
+      box-shadow:0 3px 14px rgba(0,0,0,0.15);
+      padding:20px 18px;
+      margin-bottom:22px;
+    }
+    .content-box h2{
+      margin-top:0;
+      margin-bottom:10px;
+      color:#1b4b2b;
+      font-size:1.25rem;
+    }
+    p{line-height:1.7;font-size:1.02rem;margin:6px 0;}
+    ul{margin-left:18px;padding-left:0;}
+    li{margin-bottom:4px;}
+    form label{display:block;font-weight:600;margin:10px 0 4px;}
+    input,textarea{
+      width:100%;padding:8px;border-radius:6px;border:1px solid #b5c9b8;
+      font-size:1rem;box-sizing:border-box;
+    }
+    button{
+      margin-top:14px;background:var(--green-main);color:#fff;border:none;
+      padding:10px 22px;border-radius:999px;font-size:1rem;font-weight:600;
+      cursor:pointer;transition:background 0.25s,transform 0.15s;
+    }
+    button:hover{background:var(--green-dark);transform:translateY(-1px);}
+    #msg{margin-top:10px;color:#1b4b2b;font-weight:600;}
+    .contact-small{font-size:0.95rem;margin-top:8px;}
+    .contact-small a{text-decoration:none;color:var(--green-main);font-weight:600;}
+    @media (max-width:768px){
+      .wrapper{padding:0 10px;}
+      h1{font-size:1.45rem;}
+      .hero-img{max-height:260px;}
+      .content-box{padding:16px 14px;}
+    }
   </style>
 </head>
 <body>
@@ -18,7 +76,7 @@
   </header>
 
   <img class="hero-img"
-       src="https://images.unsplash.com/photo-1586030138336-4a854c6ddb5f?q=80&w=1944&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+       src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80"
        alt="Kovalam lighthouse and beach">
 
   <div class="content-box">
