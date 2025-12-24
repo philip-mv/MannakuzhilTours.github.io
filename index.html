@@ -61,36 +61,65 @@
     color: #4caf50;
   }
 
+  /* Smart sticky header */
   header {
-    background: linear-gradient(135deg, rgba(46,125,50,0.95), rgba(56,142,60,0.98));
+    background: linear-gradient(135deg, rgba(46,125,50,0.98), rgba(56,142,60,1));
     color: #daf5d6;
-    padding: 16px 20px;
+    padding: 20px 24px;
     display: flex;
     align-items: center;
-    gap: 14px;
-    position: sticky;
+    gap: 16px;
+    position: fixed;
     top: 0;
-    z-index: 100;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(0);
+  }
+
+  /* Header states */
+  header.scrolled {
+    padding: 12px 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+
+  header.hidden {
+    transform: translateY(-100%);
   }
 
   header .logo {
-    width: 48px;
-    height: 48px;
+    width: clamp(40px, 4vw, 52px);
+    height: clamp(40px, 4vw, 52px);
     border-radius: 12px;
     object-fit: contain;
     background: rgba(255,255,255,0.95);
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     border: 2px solid rgba(255,255,255,0.3);
+    transition: all 0.3s ease;
+  }
+
+  header.scrolled .logo {
+    width: 44px;
+    height: 44px;
   }
 
   header .title {
-    font-size: clamp(1.3rem, 3vw, 1.6rem);
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
     font-weight: 800;
     letter-spacing: 1.2px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
   }
 
+  header.scrolled .title {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    letter-spacing: 0.8px;
+  }
+
+  /* Nav adjustments for sticky header */
   nav {
     background: rgba(56, 142, 60, 0.97);
     display: flex;
@@ -100,6 +129,11 @@
     padding: 12px;
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-top: 80px;
+  }
+
+  header.scrolled + nav {
+    margin-top: 68px;
   }
 
   nav a {
@@ -144,7 +178,7 @@
   main {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 24px 16px;
+    padding: 140px 16px 24px; /* Extra top padding for fixed header */
   }
 
   .hero {
@@ -424,7 +458,7 @@
   /* Mobile-specific optimizations */
   @media (max-width: 768px) {
     main {
-      padding: 20px 12px;
+      padding: 120px 12px 24px;
     }
     
     .places, .services-grid {
@@ -440,6 +474,11 @@
     nav {
       gap: 6px;
       padding: 10px 8px;
+      margin-top: 72px;
+    }
+    
+    header.scrolled + nav {
+      margin-top: 60px;
     }
     
     nav a {
@@ -461,7 +500,7 @@
   </style>
 </head>
 <body class="page-transition">
-<header>
+<header id="header">
   <img src="logo-square.png" alt="Mannakuzhil Tours Logo" class="logo">
   <div class="title">Mannakuzhil Tours</div>
 </header>
@@ -561,6 +600,33 @@
 <footer>© 2025 Mannakuzhil Tours. All rights reserved.</footer>
 
 <script>
+  // Smart sticky header logic
+  let lastScrollY = 0;
+  const header = document.getElementById('header');
+  
+  function handleHeaderScroll() {
+    const currentScrollY = window.scrollY;
+    
+    // Add scrolled class after 50px
+    if (currentScrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+    
+    // Hide/show header based on scroll direction
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      header.classList.add('hidden');
+    } else {
+      header.classList.remove('hidden');
+    }
+    
+    lastScrollY = currentScrollY;
+  }
+  
+  window.addEventListener('scroll', handleHeaderScroll);
+  window.addEventListener('load', handleHeaderScroll);
+
   // Enhanced scroll reveal with staggered timing
   const revealEls = document.querySelectorAll('.reveal');
   function handleReveal() {
@@ -573,7 +639,6 @@
     });
   }
   window.addEventListener('scroll', handleReveal);
-  window.addEventListener('load', handleReveal);
 
   // Smooth page navigation
   function goToPage(url) {
