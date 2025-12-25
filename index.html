@@ -53,8 +53,10 @@
   }
 
   .header-container {
-    position: sticky;
+    position: fixed; /* Changed to fixed */
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
@@ -164,6 +166,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 24px 16px;
+    padding-top: 140px; /* Added space for fixed header */
   }
   .hero {
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)),
@@ -412,6 +415,7 @@
   @media (max-width: 768px) {
     main {
       padding: 20px 12px;
+      padding-top: 130px;
     }
    
     .places, .services-grid {
@@ -544,17 +548,17 @@
   <footer>© 2025 Mannakuzhil Tours. All rights reserved.</footer>
 
   <script>
-    // Sticky header behavior: shrink after 50px, hide on fast scroll down, show on scroll up
+    // Fixed header behavior: always follows scroll, shrinks after 50px, hides on scroll down, shows on scroll up
     const headerContainer = document.getElementById('headerContainer');
     const header = document.getElementById('header');
     const nav = document.getElementById('nav');
-    let lastScrollY = window.scrollY;
+    let lastScrollY = 0;
     let ticking = false;
 
     function updateHeader() {
       const currentScrollY = window.scrollY;
 
-      // Shrink after scrolling > 50px
+      // Shrink after 50px
       if (currentScrollY > 50) {
         headerContainer.classList.add('scrolled');
         header.classList.add('scrolled');
@@ -565,12 +569,10 @@
         nav.classList.remove('scrolled');
       }
 
-      // Hide when scrolling down fast, show when scrolling up
-      if (currentScrollY > lastScrollY && currentScrollY > 150) {
-        // Scrolling down
+      // Hide when scrolling down (after header is visible), show when scrolling up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
         headerContainer.classList.add('hidden');
       } else if (currentScrollY < lastScrollY) {
-        // Scrolling up
         headerContainer.classList.remove('hidden');
       }
 
@@ -585,7 +587,7 @@
       }
     });
 
-    // Initial check
+    // Run on load
     updateHeader();
 
     // Enhanced scroll reveal with staggered timing
@@ -616,10 +618,10 @@
     const sections = document.querySelectorAll('section, .hero');
  
     function updateActiveNav() {
-      let current = '';
+      let current = 'home';
       sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (scrollY >= sectionTop - 200) {
+        const sectionTop = section.offsetTop - 200;
+        if (window.scrollY >= sectionTop) {
           current = section.getAttribute('id');
         }
       });
@@ -633,11 +635,11 @@
     }
  
     window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav(); // Initial call
 
     // Desktop 3D tilt + Mobile touch feedback
     const cards = document.querySelectorAll('.place-card, .service-card');
     cards.forEach(card => {
-      // Desktop mouse tilt
       if (window.innerWidth >= 769) {
         card.addEventListener('mousemove', e => {
           const rect = card.getBoundingClientRect();
@@ -653,7 +655,6 @@
         });
       }
    
-      // Mobile/Desktop touch feedback
       card.addEventListener('touchstart', function(e) {
         this.style.transform = 'scale(0.98)';
       }, { passive: true });
