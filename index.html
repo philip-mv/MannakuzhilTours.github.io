@@ -68,11 +68,14 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    position: sticky;
     top: 0;
     z-index: 100;
     backdrop-filter: blur(12px);
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
   }
 
   header .logo {
@@ -458,21 +461,57 @@
       padding: 24px 20px 28px;
     }
   }
+  .header-container {
+  position: relative;
+  z-index: 1000;
+}
+
+/* base header stays as you already have, only add: */
+.header-spacer {
+  height: 92px;       /* initial header height */
+  width: 100%;
+  transition: height 0.3s ease;
+}
+header.scrolled {
+  position: fixed;
+  top: 0;
+  padding-top: 10px;   /* slightly smaller on scroll */
+  padding-bottom: 6px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+
+.header-spacer.scrolled {
+  height: 64px;        /* height when header is shrunk */
+}
+
+header.scrolled .logo {
+  width: 40px;
+  height: 40px;
+}
+
+header.scrolled .title {
+  font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+}
+    
   </style>
 </head>
+  
 <body class="page-transition">
-<header>
-  <img src="logo-square.png" alt="Mannakuzhil Tours Logo" class="logo">
-  <div class="title">Mannakuzhil Tours</div>
-</header>
+<div class="header-container">
+  <header id="header">
+    <img src="logo-square.png" alt="Mannakuzhil Tours Logo" class="logo">
+    <div class="title">Mannakuzhil Tours</div>
+    <nav id="nav">
+      <a href="#home" class="active">Home</a>
+      <a href="#packages">Packages</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <div id="headerSpacer" class="header-spacer"></div>
+</div>
 
-<nav>
-  <a href="#home" class="active">Home</a>
-  <a href="#packages">Packages</a>
-  <a href="#services">Services</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
-</nav>
 
 <main>
   <div class="hero reveal" id="home">
@@ -656,6 +695,34 @@
       }, { passive: true });
     });
   });
+// Manit-style sticky header: shrink + hide/show
+const headerEl = document.getElementById('header');
+const spacerEl = document.getElementById('headerSpacer');
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', () => {
+  const currentY = window.scrollY;
+  const goingDown = currentY > lastScrollY;
+
+  // shrink after 50px
+  if (currentY > 50) {
+    headerEl.classList.add('scrolled');
+    spacerEl.classList.add('scrolled');
+  } else {
+    headerEl.classList.remove('scrolled');
+    spacerEl.classList.remove('scrolled');
+  }
+
+  // hide on fast scroll down, show on scroll up
+  if (currentY > 120 && goingDown) {
+    headerEl.style.transform = 'translateY(-100%)';
+  } else {
+    headerEl.style.transform = 'translateY(0)';
+  }
+
+  lastScrollY = currentY;
+});
+
 </script>
 </body>
 </html>
