@@ -68,14 +68,11 @@ header {
   display: flex;
   align-items: center;
   gap: 14px;
-  position: fixed;   /* <- FIXED, not sticky/absolute */
+  position: sticky;   /* key line */
   top: 0;
-  left: 0;
-  right: 0;
   z-index: 1000;
   backdrop-filter: blur(12px);
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
 }
 
 
@@ -466,55 +463,26 @@ header {
   position: relative;
   z-index: 1000;
 }
-
-/* base header stays as you already have, only add: */
-.header-spacer {
-  height: 72px;       /* initial header height */
-  width: 100%;
-  transition: height 0.3s ease;
-}
-header.scrolled {
-  top: 0;
-  padding-top: 10px;   /* slightly smaller on scroll */
-  padding-bottom: 6px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-}
-
-.header-spacer.scrolled {
-  height: 56px;        /* height when header is shrunk */
-}
-
-header.scrolled .logo {
-  width: 40px;
-  height: 40px;
-}
-
-header.scrolled .title {
-  font-size: clamp(1.1rem, 2.8vw, 1.4rem);
-}
-    
+ 
   </style>
 </head>
   
 <body class="page-transition">
-<div class="header-container">
-  <header id="header">
-    <img src="logo-square.png" alt="Mannakuzhil Tours Logo" class="logo">
-    <div class="title">Mannakuzhil Tours</div>
-    <nav id="nav">
-      <a href="#home" class="active">Home</a>
-      <a href="#packages">Packages</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-  
-  <!-- ADD THIS: spacer for header height -->
-  <div id="headerSpacer" class="header-spacer"></div>
-</div>
+<header>
+  <img src="logo-square.png" alt="Mannakuzhil Tours Logo" class="logo">
+  <div class="title">Mannakuzhil Tours</div>
+</header>
+
+<nav id="nav">
+  <a href="#home" class="active">Home</a>
+  <a href="#packages">Packages</a>
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
 
 <main>
+
   <div class="hero reveal" id="home">
     <span class="hero-title">Explore Kerala with Mannakuzhil Tours</span>
   </div>
@@ -696,22 +664,6 @@ header.scrolled .title {
       }, { passive: true });
     });
   });
-// Simple shrink-on-scroll sticky header
-const headerEl = document.getElementById('header');
-const spacerEl = document.getElementById('headerSpacer');
-
-window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-
-  if (y > 50) {
-    headerEl.classList.add('scrolled');
-    spacerEl.classList.add('scrolled');
-  } else {
-    headerEl.classList.remove('scrolled');
-    spacerEl.classList.remove('scrolled');
-  }
-});
-
 
 </script>
 </body>
