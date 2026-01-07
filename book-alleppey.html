@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alleppey Backwater & Houseboat Tour Packages – Mannakuzhil Tours</title>
-  <meta name="description" content="Experience serene Alleppey backwaters with overnight houseboat cruises, authentic Kerala meals & village life. Book securely now!">
+  <title>Book Alleppey Houseboat Tour – Mannakuzhil Tours</title>
+  <meta name="description" content="Professional booking for Alleppey backwater houseboat cruise. Select package, enter passenger details & pay securely.">
   <link rel="icon" type="image/png" href="logo-square.png">
   <style>
     :root {
@@ -12,7 +12,7 @@
       --green-dark: #145214;
       --green-light: #d0e8d7;
       --bg-gradient: linear-gradient(to bottom, #70c1ff, #2e7d32);
-      --card-bg: rgba(255,255,255,0.92);
+      --card-bg: rgba(255,255,255,0.94);
     }
     * { box-sizing: border-box; margin:0; padding:0; }
     body {
@@ -21,122 +21,36 @@
       color: #123022;
       line-height: 1.6;
     }
-    .wrapper {
-      max-width: 1100px;
-      margin: 30px auto 60px;
-      padding: 0 16px;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
+    .wrapper { max-width: 1100px; margin: 30px auto 60px; padding: 0 16px; }
+    header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
     .back-link {
-      font-size: 0.95rem;
-      text-decoration: none;
-      color: white;
-      background: rgba(20,82,20,0.85);
-      padding: 6px 14px;
-      border-radius: 30px;
-      transition: 0.3s;
+      font-size: 0.95rem; text-decoration: none; color: white; background: rgba(20,82,20,0.85);
+      padding: 6px 14px; border-radius: 30px; transition: 0.3s;
     }
     .back-link:hover { background: var(--green-dark); }
-    h1 {
-      font-size: clamp(1.6rem, 5vw, 2.1rem);
-      color: white;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-    }
-    .hero-img {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-      border-radius: 16px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.35);
-      margin-bottom: 28px;
-    }
+    h1 { font-size: clamp(1.6rem, 5vw, 2.1rem); color: white; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
+    .hero-img { width: 100%; max-height: 380px; object-fit: cover; border-radius: 16px; box-shadow: 0 6px 24px rgba(0,0,0,0.35); margin-bottom: 28px; }
     .content-box {
-      background: var(--card-bg);
-      backdrop-filter: blur(8px);
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.18);
-      padding: 24px;
-      margin-bottom: 32px;
+      background: var(--card-bg); backdrop-filter: blur(8px); border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.18); padding: 24px; margin-bottom: 32px;
     }
-    h2 { color: var(--green-dark); margin: 0 0 16px; font-size: 1.5rem; }
-    ul { padding-left: 22px; margin: 12px 0; }
-    li { margin-bottom: 10px; }
-    .packages-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin: 28px 0;
+    h2 { color: var(--green-dark); margin-bottom: 16px; font-size: 1.5rem; }
+    form label { display: block; font-weight: 600; margin: 12px 0 6px; font-size: 0.95rem; }
+    input, select, textarea {
+      width: 100%; padding: 10px; border: 1px solid #b5c9b8; border-radius: 6px; font-size: 1rem;
     }
-    .package-card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-    .package-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.22);
-    }
-    .package-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .package-info {
-      padding: 16px;
-      text-align: center;
-    }
-    .price {
-      font-size: 1.6rem;
-      font-weight: bold;
-      color: var(--green-main);
-      margin: 8px 0;
-    }
+    .passenger-section { margin: 24px 0; border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9fcf9; }
+    .passenger-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    .total-price { font-size: 1.4rem; font-weight: bold; color: var(--green-dark); margin: 24px 0; text-align: center; padding: 12px; background: var(--green-light); border-radius: 8px; }
     .pay-btn {
-      background: var(--green-main);
-      color: white;
-      border: none;
-      padding: 12px 28px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: 0.3s;
-      margin-top: 12px;
-      display: inline-block;
-      text-decoration: none;
+      background: var(--green-main); color: white; border: none; padding: 16px 40px;
+      font-size: 1.2rem; font-weight: 600; border-radius: 50px; cursor: pointer; display: block;
+      margin: 28px auto 0; transition: 0.3s;
     }
-    .pay-btn:hover {
-      background: var(--green-dark);
-      transform: translateY(-2px);
-    }
-    .form-section { margin-top: 40px; }
-    form label { display: block; font-weight: 600; margin: 12px 0 6px; }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #b5c9b8;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-    .note {
-      font-size: 0.9rem;
-      color: #444;
-      margin-top: 16px;
-      text-align: center;
-    }
-    @media (max-width: 768px) {
-      .wrapper { padding: 0 12px; }
-      .content-box { padding: 18px; }
-      h1 { font-size: 1.8rem; }
-    }
+    .pay-btn:hover { background: var(--green-dark); transform: translateY(-2px); }
+    .pay-btn:disabled { background: #aaa; cursor: not-allowed; }
+    .note { font-size: 0.9rem; color: #444; margin-top: 20px; text-align: center; }
+    @media (max-width: 768px) { .wrapper { padding: 0 12px; } .content-box { padding: 18px; } }
   </style>
 </head>
 <body>
@@ -144,7 +58,7 @@
 <div class="wrapper">
   <header>
     <a href="index.html" class="back-link">← Home</a>
-    <h1>Alleppey Backwater & Houseboat Tour Packages</h1>
+    <h1>Alleppey Houseboat Booking – Mannakuzhil Tours</h1>
   </header>
 
   <img class="hero-img"
@@ -152,88 +66,125 @@
        alt="Serene Alleppey backwaters with houseboat">
 
   <div class="content-box">
-    <h2>Sail the Serene Backwaters of Alleppey</h2>
-    <p>Experience the magical Venice of the East — tranquil canals, coconut groves, village life & authentic Kerala cuisine on traditional kettuvallam houseboats.</p>
+    <h2>Booking Details</h2>
 
-    <h2>Choose Your Perfect Package</h2>
-    <div class="packages-grid">
-
-      <!-- Replace href with your actual Razorpay Payment Links -->
-      <div class="package-card">
-        <img src="https://images.unsplash.com/photo-1582462781995-9d4e2a8e0d2c?auto=format&fit=crop&q=80" alt="Day Cruise">
-        <div class="package-info">
-          <h3>Day Cruise (6-7 hrs)</h3>
-          <div class="price">₹ 6,999</div>
-          <p>Perfect for a relaxing day outing with lunch</p>
-          <a href="https://rzp.io/l/YOUR_DAY_CRUISE_LINK_HERE" target="_blank" class="pay-btn">Pay & Book Now</a>
-        </div>
-      </div>
-
-      <div class="package-card">
-        <img src="https://images.unsplash.com/photo-1569261676778-3e6b0c2e8c4f?auto=format&fit=crop&q=80" alt="1 Night Deluxe">
-        <div class="package-info">
-          <h3>1 Night Deluxe Houseboat</h3>
-          <div class="price">₹ 14,999</div>
-          <p>Overnight stay, dinner & breakfast, village walk</p>
-          <a href="https://rzp.io/l/YOUR_1NIGHT_DELUXE_LINK_HERE" target="_blank" class="pay-btn">Pay & Book Now</a>
-        </div>
-      </div>
-
-      <div class="package-card">
-        <img src="https://images.unsplash.com/photo-1625508335918-8c3d5b0c2e0f?auto=format&fit=crop&q=80" alt="2 Nights Premium">
-        <div class="package-info">
-          <h3>2 Nights Premium Houseboat</h3>
-          <div class="price">₹ 28,999</div>
-          <p>Luxury boat, all meals, canoe ride & more</p>
-          <a href="https://rzp.io/l/YOUR_2NIGHTS_PREMIUM_LINK_HERE" target="_blank" class="pay-btn">Pay & Book Now</a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="note">
-      Secure payments via Razorpay • UPI, Cards, Wallets • Instant confirmation after payment • Contact us for custom dates/groups
-    </div>
-  </div>
-
-  <!-- Optional: Keep enquiry form as backup -->
-  <div class="content-box form-section">
-    <h2>Custom Enquiry (if you need special dates/pricing)</h2>
-    <form id="enquiryForm">
-      <label>Name</label>
-      <input name="name" required placeholder="Your full name">
-
-      <label>Contact (Phone or Email)</label>
-      <input name="contact" required placeholder="+91... or email">
-
-      <label>Package Interested In</label>
-      <select name="package" required>
-        <option value="">Select package</option>
-        <option value="Day Cruise">Day Cruise (₹6,999)</option>
-        <option value="1 Night Deluxe">1 Night Deluxe (₹14,999)</option>
-        <option value="2 Nights Premium">2 Nights Premium (₹28,999)</option>
-        <option value="Custom">Custom Requirements</option>
+    <form id="bookingForm">
+      <!-- Package Selection -->
+      <label for="package">Select Houseboat Package</label>
+      <select id="package" name="package" required>
+        <option value="">-- Select Package --</option>
+        <option value="day" data-price="12000">Day Cruise (6-7 hrs) – Approx ₹12,000 total</option>
+        <option value="1night" data-price="15000">1 Night Deluxe Houseboat – Approx ₹15,000 total</option>
+        <option value="2nights" data-price="32000">2 Nights Premium Houseboat – Approx ₹32,000 total</option>
       </select>
 
-      <label>Message / Preferred Dates</label>
-      <textarea name="message" rows="4" placeholder="Number of people, dates, any special requests..."></textarea>
+      <!-- Number of People -->
+      <label for="totalPeople">Total Number of Travellers (Adults + Children)</label>
+      <input type="number" id="totalPeople" min="1" max="12" value="2" required>
 
-      <button type="submit" style="margin-top:20px;">Send Enquiry</button>
-      <p id="formMsg" style="margin-top:12px; font-weight:600; min-height:24px;"></p>
+      <!-- Dynamic Passenger Details -->
+      <div class="passenger-section">
+        <h2>Passenger Details</h2>
+        <div id="passengersContainer" class="passenger-grid"></div>
+      </div>
+
+      <!-- Primary Contact -->
+      <label for="primaryContact">Primary Contact Person (Phone / Email)</label>
+      <input type="text" id="primaryContact" name="primaryContact" required placeholder="+91... or email@example.com">
+
+      <!-- Preferred Dates / Requests -->
+      <label for="dates">Preferred Travel Dates & Special Requests</label>
+      <textarea id="dates" name="dates" rows="3" placeholder="e.g., 15-17 Jan 2026, vegetarian meals, pickup from Alleppey..."></textarea>
+
+      <!-- Total Price Display -->
+      <div class="total-price" id="totalPrice">Estimated Total: ₹0 (Private boat basis)</div>
+
+      <!-- Payment Button -->
+      <button type="button" id="payButton" class="pay-btn" disabled>Proceed to Secure Payment</button>
     </form>
+
+    <p class="note">
+      Prices are approximate (fixed per boat, excl. 5% GST & seasonal variations). Secure payment via Razorpay.<br>
+      After payment, we will confirm availability & dates within 24 hours.
+    </p>
   </div>
 </div>
 
 <script>
-  // Simple enquiry form handler (still useful as backup)
-  document.getElementById('enquiryForm')?.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = this.name.value || 'Guest';
-    document.getElementById('formMsg').style.color = '#1b4b2b';
-    document.getElementById('formMsg').textContent = 
-      `Thank you, ${name}! Your custom enquiry has been sent. We'll contact you soon.`;
-    this.reset();
+  const form = document.getElementById('bookingForm');
+  const packageSelect = document.getElementById('package');
+  const totalPeopleInput = document.getElementById('totalPeople');
+  const passengersContainer = document.getElementById('passengersContainer');
+  const totalDisplay = document.getElementById('totalPrice');
+  const payBtn = document.getElementById('payButton');
+
+  // Razorpay payment links (REPLACE WITH YOUR REAL LINKS!)
+  const paymentLinks = {
+    day: "https://rzp.io/l/YOUR_DAY_CRUISE_LINK",
+    '1night': "https://rzp.io/l/YOUR_1NIGHT_DELUXE_LINK",
+    '2nights': "https://rzp.io/l/YOUR_2NIGHTS_PREMIUM_LINK"
+  };
+
+  function updatePassengers() {
+    const count = parseInt(totalPeopleInput.value) || 1;
+    const pkg = packageSelect.value;
+
+    passengersContainer.innerHTML = '';
+
+    if (count > 0) {
+      for (let i = 1; i <= count; i++) {
+        const div = document.createElement('div');
+        div.innerHTML = `
+          <strong>Passenger ${i}</strong>
+          <input type="text" placeholder="Full Name*" required name="p${i}_name">
+          <input type="number" placeholder="Age*" min="1" required name="p${i}_age">
+          <select required name="p${i}_gender">
+            <option value="">Gender*</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Transgender">Transgender</option>
+          </select>
+          <select name="p${i}_nationality">
+            <option value="Indian">Indian</option>
+            <option value="Foreign">Foreign</option>
+          </select>
+        `;
+        passengersContainer.appendChild(div);
+      }
+    }
+
+    updatePrice();
+  }
+
+  function updatePrice() {
+    const pkg = packageSelect.value;
+    if (!pkg) {
+      totalDisplay.textContent = "Estimated Total: ₹0 (Private boat basis)";
+      payBtn.disabled = true;
+      return;
+    }
+
+    const basePrice = parseInt(packageSelect.options[packageSelect.selectedIndex].dataset.price);
+    totalDisplay.textContent = `Estimated Total: ₹${basePrice.toLocaleString()} (for up to ${totalPeopleInput.value} people)`;
+    payBtn.disabled = false;
+  }
+
+  packageSelect.addEventListener('change', updatePassengers);
+  totalPeopleInput.addEventListener('input', updatePassengers);
+
+  // Payment handler
+  payBtn.addEventListener('click', () => {
+    const pkg = packageSelect.value;
+    if (paymentLinks[pkg]) {
+      window.open(paymentLinks[pkg], '_blank');
+      // Optionally: alert("Redirecting to secure Razorpay payment. Please confirm dates after payment!");
+    } else {
+      alert("Payment link not set up yet. Contact us directly.");
+    }
   });
+
+  // Initial setup
+  updatePassengers();
 </script>
 
 </body>
