@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book Alleppey Houseboat Tour – Mannakuzhil Tours</title>
-  <meta name="description" content="Professional booking for Alleppey backwater houseboat cruise. Select package, enter passenger details & pay securely.">
+  <meta name="description" content="Professional booking for Alleppey backwater houseboat cruise with detailed itineraries. Enter passenger details & pay securely.">
   <link rel="icon" type="image/png" href="logo-square.png">
   <style>
     :root {
@@ -35,6 +35,8 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.18); padding: 24px; margin-bottom: 32px;
     }
     h2 { color: var(--green-dark); margin-bottom: 16px; font-size: 1.5rem; }
+    .itinerary { margin: 20px 0; padding: 16px; background: #f9fcf9; border-radius: 8px; border: 1px solid #d0e8d7; }
+    .itinerary ul { list-style-type: disc; padding-left: 24px; margin: 12px 0; }
     form label { display: block; font-weight: 600; margin: 12px 0 6px; font-size: 0.95rem; }
     input, select, textarea {
       width: 100%; padding: 10px; border: 1px solid #b5c9b8; border-radius: 6px; font-size: 1rem;
@@ -66,16 +68,53 @@
        alt="Serene Alleppey backwaters with houseboat">
 
   <div class="content-box">
-    <h2>Booking Details</h2>
+    <h2>Trip Details & Typical Itinerary</h2>
+    <p>All packages are **private houseboat** (exclusive for your group). Prices are fixed per boat (common for Alleppey), not per person. Includes onboard Kerala meals, staff, and cruise. Routes may vary slightly based on water levels/weather for safety.</p>
+
+    <div class="itinerary">
+      <strong>Day Cruise (6-7 hours)</strong> – Approx ₹12,000 total<br>
+      <ul>
+        <li>Check-in: 11:00 AM (e.g., Pallathuruthy / Finishing Point Jetty)</li>
+        <li>Cruise through palm-fringed canals, Vembanad Lake, Punchiri Jetty, R/C Blocks (man-made paddy fields)</li>
+        <li>Lunch break (~1 hour) at scenic spot (e.g., Marthandom Kayal) – Fresh Kerala cuisine (fish/chicken/veg curry)</li>
+        <li>Relax, watch village life, coir making, paddy fields, coconut groves</li>
+        <li>Disembark: ~5:00–5:30 PM</li>
+      </ul>
+    </div>
+
+    <div class="itinerary">
+      <strong>1 Night Deluxe (~21-22 hours)</strong> – Approx ₹15,000 total<br>
+      <ul>
+        <li>Check-in: 12:00 Noon</li>
+        <li>Cruise through Punnamada Lake (Nehru Trophy venue), Vembanad Lake, narrow canals, Kainakary village</li>
+        <li>Lunch onboard, afternoon relaxation, tea/snacks</li>
+        <li>Anchor ~5:30 PM in scenic riverside spot for sunset</li>
+        <li>Dinner onboard (authentic Kerala thali)</li>
+        <li>Overnight stay on boat</li>
+        <li>Early morning cruise (~7:30–9:00 AM), breakfast, check-out ~9:00–9:30 AM</li>
+      </ul>
+    </div>
+
+    <div class="itinerary">
+      <strong>2 Nights Premium (~45-48 hours)</strong> – Approx ₹32,000 total<br>
+      <ul>
+        <li>Day 1: Check-in 12:00 Noon → Cruise Vembanad Lake, Pamba River, SNDP Canal → Overnight in scenic spot</li>
+        <li>Day 2: Full day deeper backwaters (Kuttanad region, lesser-known canals, village life, optional canoe ride) → Sunset views → Overnight</li>
+        <li>Day 3: Sunrise/morning cruise → Breakfast onboard → Check-out ~9:00 AM</li>
+        <li>Includes all meals, more relaxation, village walks (optional)</li>
+      </ul>
+    </div>
+
+    <h2>Booking Form</h2>
 
     <form id="bookingForm">
       <!-- Package Selection -->
-      <label for="package">Select Houseboat Package</label>
+      <label for="package">Select Package</label>
       <select id="package" name="package" required>
         <option value="">-- Select Package --</option>
         <option value="day" data-price="12000">Day Cruise (6-7 hrs) – Approx ₹12,000 total</option>
-        <option value="1night" data-price="15000">1 Night Deluxe Houseboat – Approx ₹15,000 total</option>
-        <option value="2nights" data-price="32000">2 Nights Premium Houseboat – Approx ₹32,000 total</option>
+        <option value="1night" data-price="15000">1 Night Deluxe – Approx ₹15,000 total</option>
+        <option value="2nights" data-price="32000">2 Nights Premium – Approx ₹32,000 total</option>
       </select>
 
       <!-- Number of People -->
@@ -104,8 +143,8 @@
     </form>
 
     <p class="note">
-      Prices are approximate (fixed per boat, excl. 5% GST & seasonal variations). Secure payment via Razorpay.<br>
-      After payment, we will confirm availability & dates within 24 hours.
+      Prices approximate (fixed per boat, excl. 5% GST & seasonal changes). Secure payment via Razorpay.<br>
+      We confirm availability & dates within 24 hours after payment. Routes/weather-dependent.
     </p>
   </div>
 </div>
@@ -177,7 +216,6 @@
     const pkg = packageSelect.value;
     if (paymentLinks[pkg]) {
       window.open(paymentLinks[pkg], '_blank');
-      // Optionally: alert("Redirecting to secure Razorpay payment. Please confirm dates after payment!");
     } else {
       alert("Payment link not set up yet. Contact us directly.");
     }
