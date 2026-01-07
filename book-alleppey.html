@@ -48,7 +48,7 @@
     input, select, textarea {
       width: 100%; padding: 10px; border: 1px solid #b5c9b8; border-radius: 6px; font-size: 1rem;
     }
-    input:invalid:focus { border-color: var(--error-red); }
+    input:invalid:focus, input.error { border-color: var(--error-red); }
     .error-message { color: var(--error-red); font-size: 0.85rem; margin-top: 4px; display: none; }
     .passenger-section { margin: 24px 0; border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9fcf9; }
     .passenger-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
@@ -158,6 +158,8 @@
 </div>
 
 <script>
+  const MAX_AGE = 122;
+
   const packageSelect = document.getElementById('package');
   const totalPeopleInput = document.getElementById('totalPeople');
   const passengersContainer = document.getElementById('passengersContainer');
@@ -180,8 +182,8 @@
         <strong>Passenger ${i}</strong>
         <input type="text" placeholder="Full Name*" required name="p${i}_name">
         <div style="position: relative;">
-          <input type="number" placeholder="Age*" min="1" required name="p${i}_age" class="age-input">
-          <span class="error-message" id="ageError${i}">Age must be 1 or more</span>
+          <input type="number" placeholder="Age*" min="1" max="${MAX_AGE}" required name="p${i}_age" class="age-input">
+          <span class="error-message" id="ageError${i}">Age must be between 1 and ${MAX_AGE}</span>
         </div>
         <select required name="p${i}_gender">
           <option value="">Gender*</option>
@@ -197,15 +199,16 @@
       passengersContainer.appendChild(div);
     }
 
-    // Add real-time age validation
+    // Real-time age validation
     document.querySelectorAll('.age-input').forEach(input => {
       input.addEventListener('input', function() {
+        const value = parseInt(this.value);
         const errorEl = this.nextElementSibling;
-        if (this.value < 1 || this.value === '') {
-          this.style.borderColor = 'var(--error-red)';
+        if (isNaN(value) || value < 1 || value > MAX_AGE) {
+          this.classList.add('error');
           errorEl.style.display = 'block';
         } else {
-          this.style.borderColor = '#b5c9b8';
+          this.classList.remove('error');
           errorEl.style.display = 'none';
         }
       });
@@ -230,9 +233,10 @@
   function validateAges() {
     let valid = true;
     document.querySelectorAll('.age-input').forEach(input => {
-      if (parseInt(input.value) < 1 || input.value === '') {
+      const value = parseInt(input.value);
+      if (isNaN(value) || value < 1 || value > MAX_AGE) {
         valid = false;
-        input.style.borderColor = 'var(--error-red)';
+        input.classList.add('error');
         input.nextElementSibling.style.display = 'block';
       }
     });
@@ -244,7 +248,7 @@
 
   payBtn.addEventListener('click', () => {
     if (!validateAges()) {
-      alert("Please enter valid ages (1 or more) for all passengers.");
+      alert("Please enter valid ages for all passengers (1 to 122 years).");
       return;
     }
 
