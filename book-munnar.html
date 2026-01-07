@@ -2,135 +2,235 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mannakuzhil Tours – Munnar Tour Packages, Kerala Hill Station & Tea Gardens</title>
-  <meta name="description" content="Explore the enchanting hills of Munnar with Mannakuzhil Tours. Customized Munnar tour packages with tea gardens, Eravikulam National Park, Echo Point, Top Station, honeymoon trips and family vacations in Kerala.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Munnar Tour Booking – Mannakuzhil Tours</title>
+  <meta name="description" content="Book Munnar hill station tour with Mannakuzhil Tours: tea gardens, Eravikulam Park, Top Station & honeymoon packages in Kerala.">
   <link rel="icon" type="image/png" href="logo-square.png">
   <style>
     :root {
-      --green-main:#2e7d32;
-      --green-dark:#145214;
-      --green-light:#d0e8d7;
-      --card-bg:rgba(240,251,240,0.98);
+      --green-main: #2e7d32;
+      --green-dark: #145214;
+      --green-light: #d0e8d7;
+      --card-bg: rgba(240,251,240,0.98);
+      --bg-gradient: linear-gradient(135deg, #70c1ff 0%, #2e7d32 50%, #145214 100%);
+      --text: #1a3d27;
+      --error-red: #c62828;
+      --shadow-sm: 0 4px 15px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.18);
     }
-    *{box-sizing:border-box;}
-    body,html{
-      margin:0;
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
       font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-      background:linear-gradient(to bottom,#70c1ff,#2e7d32);
-      color:#123022;
+      background:var(--bg-gradient);
+      color:var(--text);
+      line-height:1.6;
+      min-height:100vh;
     }
-    a{color:inherit;}
-    .wrapper{max-width:1100px;margin:24px auto 40px;padding:0 14px;}
-    header{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
-    .back-link{font-size:0.9rem;text-decoration:none;color:#eaf6e0;background:rgba(20,82,20,0.8);padding:4px 10px;border-radius:20px;}
-    h1{margin:0;font-size:1.7rem;color:#fff;text-shadow:1px 1px 2px rgba(0,0,0,0.7);}
-    .hero-img{
-      width:100%;max-height:380px;border-radius:18px;
-      object-fit:cover;box-shadow:0 4px 18px rgba(0,0,0,0.4);margin-bottom:20px;
-    }
-    .content-box{
-      background:var(--card-bg);
-      border-radius:16px;
-      box-shadow:0 3px 14px rgba(0,0,0,0.15);
-      padding:20px 18px;
-      margin-bottom:22px;
-    }
-    .content-box h2{
-      margin-top:0;
-      margin-bottom:10px;
-      color:#1b4b2b;
-      font-size:1.25rem;
-    }
-    p{line-height:1.7;font-size:1.02rem;margin:6px 0;}
-    ul{margin-left:18px;padding-left:0;}
-    li{margin-bottom:4px;}
-    form label{display:block;font-weight:600;margin:10px 0 4px;}
-    input,textarea{
-      width:100%;padding:8px;border-radius:6px;border:1px solid #b5c9b8;
-      font-size:1rem;box-sizing:border-box;
-    }
-    button{
-      margin-top:14px;background:var(--green-main);color:#fff;border:none;
-      padding:10px 22px;border-radius:999px;font-size:1rem;font-weight:600;
-      cursor:pointer;transition:background 0.25s,transform 0.15s;
-    }
-    button:hover{background:var(--green-dark);transform:translateY(-1px);}
-    #msg{margin-top:10px;color:#1b4b2b;font-weight:600;}
-    .contact-small{font-size:0.95rem;margin-top:8px;}
-    .contact-small a{text-decoration:none;color:var(--green-main);font-weight:600;}
-    @media (max-width:768px){
-      .wrapper{padding:0 10px;}
-      h1{font-size:1.45rem;}
-      .hero-img{max-height:260px;}
-      .content-box{padding:16px 14px;}
-    }
+    .wrapper { max-width:1180px; margin:0 auto; padding:2rem 1rem; }
+    header { display:flex; align-items:center; gap:1rem; margin-bottom:2.5rem; flex-wrap:wrap; }
+    .back-link { color:white; background:rgba(20,82,20,0.9); padding:0.5rem 1.1rem; border-radius:50px; text-decoration:none; font-weight:600; transition:all 0.3s ease; }
+    .back-link:hover { background:var(--green-dark); transform:translateY(-1px); }
+    h1 { font-size:clamp(1.8rem,5vw,2.5rem); color:white; font-weight:800; text-shadow:0 2px 10px rgba(0,0,0,0.45); }
+    .hero-img { width:100%; height:clamp(280px,45vh,420px); object-fit:cover; border-radius:16px; box-shadow:var(--shadow-lg); margin-bottom:2.5rem; opacity:0; transform:scale(0.96); transition:all 1s ease-out; }
+    .hero-img.loaded { opacity:1; transform:scale(1); }
+    .content-box { background:var(--card-bg); backdrop-filter:blur(10px); border-radius:20px; padding:2.5rem; box-shadow:var(--shadow-lg); margin-bottom:3rem; opacity:0; transform:translateY(40px); transition:all 0.9s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .content-box.visible { opacity:1; transform:translateY(0); }
+    h2 { color:var(--green-main); margin-bottom:1.2rem; font-size:1.9rem; font-weight:700; }
+    h3 { color:var(--green-main); margin:2rem 0 1rem; font-size:1.45rem; }
+    .itinerary { background:rgba(208,232,215,0.7); border-radius:14px; padding:1.6rem; margin:1.3rem 0; border:1px solid var(--green-light); transition:transform 0.3s ease; }
+    .itinerary:hover { transform:translateY(-4px); }
+    ul { padding-left:1.6rem; margin:0.8rem 0; }
+    li { margin-bottom:0.6rem; }
+    form label { font-weight:600; margin:1.3rem 0 0.6rem; display:block; font-size:0.98rem; }
+    input, select, textarea { width:100%; padding:0.95rem; border:1px solid var(--green-light); border-radius:10px; font-size:1rem; transition:all 0.25s ease; }
+    input:focus, select:focus, textarea:focus { outline:none; border-color:var(--green-main); box-shadow:0 0 0 3px rgba(46,125,50,0.15); }
+    input.error { border-color:var(--error-red); background:#ffebee; }
+    .error-message { color:var(--error-red); font-size:0.84rem; margin-top:0.3rem; display:none; }
+    .passenger-section { margin:2.2rem 0; padding:1.8rem; background:rgba(255,255,255,0.7); border-radius:14px; border:1px solid var(--green-light); }
+    .passenger-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.4rem; }
+    .total-price { font-size:1.55rem; font-weight:700; color:var(--green-main); text-align:center; padding:1.3rem; background:var(--green-light); border-radius:12px; margin:2.2rem 0; }
+    .pay-btn { background:var(--green-main); color:white; border:none; padding:1.2rem 3.5rem; font-size:1.25rem; font-weight:700; border-radius:50px; cursor:pointer; display:block; margin:2.8rem auto 0; transition:all 0.35s cubic-bezier(0.25,0.46,0.45,0.94); box-shadow:0 6px 20px rgba(46,125,50,0.35); }
+    .pay-btn:hover:not(:disabled) { background:var(--green-dark); transform:translateY(-4px) scale(1.03); box-shadow:0 14px 35px rgba(46,125,50,0.5); }
+    .pay-btn:disabled { background:#9e9e9e; cursor:not-allowed; box-shadow:none; }
+    .note { font-size:0.94rem; color:#444; text-align:center; margin-top:2.2rem; opacity:0.9; }
+    @media (max-width:768px) { .wrapper { padding:1.2rem; } .content-box { padding:2rem; } .pay-btn { padding:1rem 2.5rem; font-size:1.1rem; } }
   </style>
 </head>
 <body>
 <div class="wrapper">
   <header>
-    <a class="back-link" href="index.html">&#8592; Home</a>
-    <h1>Munnar Tour Packages – Mannakuzhil Tours</h1>
+    <a href="index.html" class="back-link">← Back to Home</a>
+    <h1>Munnar Tour Booking</h1>
   </header>
 
   <img class="hero-img"
        src="https://cdn.pixabay.com/photo/2025/06/09/14/30/tea-plantation-9650105_1280.jpg"
-       alt="Munnar tea gardens and misty hills">
+       alt="Munnar misty tea gardens and rolling hills"
+       onload="this.classList.add('loaded')">
 
   <div class="content-box">
-    <h2>Explore the Enchanting Hills of Munnar – Kerala’s Most Loved Hill Station</h2>
-    <p>Escape into the misty mountains of Munnar, where rolling tea gardens, lush forests and cool breezes create the perfect getaway. Our Munnar tour packages are designed to offer a seamless travel experience with breathtaking viewpoints, scenic drives, wildlife encounters and the timeless charm of Kerala’s Western Ghats.</p>
-    <p>Whether you are planning a romantic honeymoon, a family vacation or an adventure trip, Munnar promises unforgettable memories with tea plantations, waterfalls and mountain landscapes.</p>
+    <h2>Munnar – Kerala’s Most Loved Hill Station</h2>
+    <p>Escape into the misty mountains of Munnar with rolling tea gardens, lush forests & cool breezes. Packages include scenic drives, wildlife & perfect honeymoon stays.</p>
 
-    <h2>Why Choose Our Munnar Tour Packages?</h2>
-    <ul>
-      <li><strong>Customized Munnar sightseeing tours:</strong> Explore Eravikulam National Park, Tea Museum, Mattupetty Dam, Echo Point, Top Station and more at your own pace.</li>
-      <li><strong>Handpicked resorts &amp; cottages:</strong> Stay in hill‑view resorts and cozy cottages surrounded by valleys, mist and tea gardens.</li>
-      <li><strong>Comfortable travel &amp; expert guides:</strong> Private cabs, experienced drivers and knowledgeable local guides.</li>
-      <li><strong>Perfect for all travellers:</strong> Honeymoon packages, family tour packages, group trips and custom itineraries.</li>
-      <li><strong>Adventure &amp; nature experiences:</strong> Trekking, plantation walks, wildlife spotting, waterfalls and photo spots.</li>
-    </ul>
+    <h3>Typical Munnar Tour Itinerary</h3>
+    <div class="itinerary">
+      <strong>3 Days / 2 Nights • Approx ₹22,000–₹45,000 total</strong><br><br>
+      <ul>
+        <li><strong>Day 1:</strong> Arrival • Check-in to hill resort • Evening tea garden walk</li>
+        <li><strong>Day 2:</strong> Eravikulam National Park (Nilgiri Tahr) • Mattupetty Dam • Echo Point • Tea Museum</li>
+        <li><strong>Day 3:</strong> Top Station sunrise • Optional spice plantation • Departure</li>
+      </ul>
+    </div>
 
-    <h2>Highlights of Our Munnar Itineraries</h2>
-    <ul>
-      <li>2D/3D and 3D/4D Munnar packages with flexible sightseeing</li>
-      <li>Honeymoon add‑ons like candlelight dinner and flower‑decorated rooms</li>
-      <li>Tea‑plantation tours, jeep safaris and sunrise/sunset viewpoints</li>
-      <li>Pickup from Kochi, Aluva or Coimbatore</li>
-      <li>Affordable, luxury and premium Kerala hill‑station options</li>
-    </ul>
-  </div>
+    <h2>Booking Details</h2>
 
-  <div class="content-box">
-    <h2>Book Your Munnar Tour</h2>
-    <form id="form">
-      <input type="hidden" name="tour" value="Munnar">
-      <label>Name</label>
-      <input name="name" required>
-      <label>Contact (Email or Phone)</label>
-      <input name="contact" required>
-      <label>Number of People</label>
-      <input type="number" name="people" min="1" required>
-      <label>Preferred Dates / Details</label>
-      <textarea name="details" rows="4"></textarea>
-      <button type="submit">Submit Enquiry</button>
-      <div id="msg"></div>
+    <form id="bookingForm">
+      <label for="package">Choose Your Munnar Package</label>
+      <select id="package" name="package" required>
+        <option value="">Select package…</option>
+        <option value="3days" data-price="30000">3 Days / 2 Nights – ₹30,000 approx</option>
+        <option value="4days" data-price="42000">4 Days / 3 Nights – ₹42,000 approx</option>
+      </select>
+
+      <label for="totalPeople">Number of Travellers</label>
+      <input type="number" id="totalPeople" min="1" max="12" value="2" required>
+
+      <div class="passenger-section">
+        <h2>Passenger Information</h2>
+        <div id="passengersContainer" class="passenger-grid"></div>
+      </div>
+
+      <label for="primaryContact">Primary Contact</label>
+      <input type="text" id="primaryContact" name="primaryContact" required placeholder="Phone or Email">
+
+      <label for="dates">Travel Dates & Requests</label>
+      <textarea id="dates" name="dates" rows="3" placeholder="Preferred dates, honeymoon add-ons..."></textarea>
+
+      <div class="total-price" id="totalPrice">Total: ₹0 (approx package rate)</div>
+
+      <button type="button" id="payButton" class="pay-btn" disabled>Proceed to Payment</button>
     </form>
-    <p class="contact-small">Or email us at
-      <a href="mailto:booking@mannakuzhiltours.com">booking@mannakuzhiltours.com</a>
-      for custom Kerala tour plans.
+
+    <p class="note">
+      Prices approximate (per package, excl. GST) • Secure payment via Razorpay<br>
+      Confirmation within 24 hours
     </p>
   </div>
 </div>
+
 <script>
-document.getElementById('form').addEventListener('submit',function(e){
-  e.preventDefault();
-  const name=this.name.value || 'Guest';
-  document.getElementById('msg').textContent =
-    'Thank you, '+name+'! Your enquiry for the Munnar package has been received. We will contact you shortly.';
-  this.reset();
-});
+const MAX_AGE = 122;
+
+const packageSelect = document.getElementById('package');
+const totalPeopleInput = document.getElementById('totalPeople');
+const passengersContainer = document.getElementById('passengersContainer');
+const totalDisplay = document.getElementById('totalPrice');
+const payBtn = document.getElementById('payButton');
+
+const paymentLinks = {
+  '3days': "https://rzp.io/l/YOUR_3DAYS_MUNNAR_LINK",
+  '4days': "https://rzp.io/l/YOUR_4DAYS_MUNNAR_LINK"
+};
+
+function updatePassengers() {
+  const count = Math.max(1, parseInt(totalPeopleInput.value) || 1);
+  passengersContainer.innerHTML = '';
+
+  for (let i = 1; i <= count; i++) {
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <strong>Passenger ${i}</strong>
+      <input type="text" placeholder="Full Name*" required name="p${i}_name">
+      <div style="position:relative;">
+        <input type="number" placeholder="Age*" min="1" max="${MAX_AGE}" required class="age-input" name="p${i}_age">
+        <span class="error-message">Age must be 1–${MAX_AGE}</span>
+      </div>
+      <select required name="p${i}_gender">
+        <option value="">Gender *</option>
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+        <option value="T">Transgender</option>
+      </select>
+      <select name="p${i}_nationality">
+        <option value="Indian">Indian</option>
+        <option value="Other">Other</option>
+      </select>
+    `;
+    passengersContainer.appendChild(div);
+  }
+
+  document.querySelectorAll('.age-input').forEach(el => {
+    el.addEventListener('input', function() {
+      const v = parseInt(this.value);
+      const err = this.nextElementSibling;
+      if (isNaN(v) || v < 1 || v > MAX_AGE) {
+        this.classList.add('error');
+        err.style.display = 'block';
+      } else {
+        this.classList.remove('error');
+        err.style.display = 'none';
+      }
+    });
+  });
+
+  updatePrice();
+}
+
+function updatePrice() {
+  if (!packageSelect.value) {
+    totalDisplay.textContent = "Total: ₹0 (approx package rate)";
+    payBtn.disabled = true;
+    return;
+  }
+  const price = parseInt(packageSelect.selectedOptions[0].dataset.price);
+  totalDisplay.textContent = `Total: ₹${price.toLocaleString()} (approx)`;
+  payBtn.disabled = false;
+}
+
+function allAgesValid() {
+  let ok = true;
+  document.querySelectorAll('.age-input').forEach(input => {
+    const v = parseInt(input.value);
+    if (isNaN(v) || v < 1 || v > MAX_AGE) {
+      ok = false;
+      input.classList.add('error');
+      input.nextElementSibling.style.display = 'block';
+    }
+  });
+  return ok;
+}
+
+packageSelect.onchange = updatePassengers;
+totalPeopleInput.oninput = updatePassengers;
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.content-box').forEach(box => observer.observe(box));
+
+payBtn.onclick = () => {
+  if (!allAgesValid()) {
+    alert("Please correct the age fields (1–122 years).");
+    return;
+  }
+  const pkg = packageSelect.value;
+  if (paymentLinks[pkg]) {
+    payBtn.textContent = "Redirecting...";
+    payBtn.disabled = true;
+    setTimeout(() => {
+      window.open(paymentLinks[pkg], '_blank');
+      payBtn.textContent = "Proceed to Payment";
+      payBtn.disabled = false;
+    }, 700);
+  } else {
+    alert("Payment gateway not configured yet.");
+  }
+};
+
+updatePassengers();
 </script>
 </body>
 </html>
