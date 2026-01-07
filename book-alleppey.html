@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alleppey Houseboat Booking 2026 – Detailed Itineraries | Mannakuzhil Tours</title>
+  <title>Alleppey Houseboat Booking with Detailed Itineraries | Mannakuzhil Tours</title>
   <meta name="description" content="Book your Alleppey houseboat tour with complete itinerary details: day cruise, 1 night deluxe, 2 nights premium packages. Private backwater cruise on Vembanad Lake with authentic Kerala meals and village views.">
   <meta name="keywords" content="Alleppey houseboat booking, Alleppey backwater itinerary, Kerala houseboat cruise, 1 night houseboat package, Alleppey day cruise, Vembanad Lake houseboat, Kerala houseboat tour 2026">
-  <!-- Open Graph for social sharing -->
   <meta property="og:title" content="Book Alleppey Houseboat Tour with Full Itinerary – Mannakuzhil Tours">
   <meta property="og:description" content="Experience serene Alleppey backwaters with detailed itineraries: day trips, overnight stays & premium 2-night packages. Secure booking & private houseboat.">
   <meta property="og:image" content="https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=1200&auto=format&fit=crop&q=80">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourdomain.com/alleppey-booking.html">
   <link rel="icon" type="image/png" href="logo-square.png">
   <style>
     :root {
@@ -20,6 +18,7 @@
       --green-light: #d0e8d7;
       --bg-gradient: linear-gradient(to bottom, #70c1ff, #2e7d32);
       --card-bg: rgba(255,255,255,0.94);
+      --error-red: #c62828;
     }
     * { box-sizing: border-box; margin:0; padding:0; }
     body {
@@ -49,6 +48,8 @@
     input, select, textarea {
       width: 100%; padding: 10px; border: 1px solid #b5c9b8; border-radius: 6px; font-size: 1rem;
     }
+    input:invalid:focus { border-color: var(--error-red); }
+    .error-message { color: var(--error-red); font-size: 0.85rem; margin-top: 4px; display: none; }
     .passenger-section { margin: 24px 0; border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9fcf9; }
     .passenger-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
     .total-price { font-size: 1.4rem; font-weight: bold; color: var(--green-dark); margin: 24px 0; text-align: center; padding: 12px; background: var(--green-light); border-radius: 8px; }
@@ -88,7 +89,6 @@
         <li><strong>Cruise Route:</strong> Vembanad Lake → Punnamada Lake → Punchiri Jetty → R/C Blocks paddy fields</li>
         <li><strong>Highlights:</strong> Palm-fringed canals, village life, coir-making units, toddy shops, traditional Kerala fishing</li>
         <li><strong>Lunch:</strong> Fresh onboard Kerala meal (fish/chicken/veg options)</li>
-        <li><strong>Relaxation:</strong> Scenic views, bird watching, photography</li>
         <li><strong>Check-out:</strong> 5:00–5:30 PM</li>
       </ul>
     </div>
@@ -158,7 +158,6 @@
 </div>
 
 <script>
-  // Same script as before – no changes needed
   const packageSelect = document.getElementById('package');
   const totalPeopleInput = document.getElementById('totalPeople');
   const passengersContainer = document.getElementById('passengersContainer');
@@ -174,12 +173,16 @@
   function updatePassengers() {
     const count = parseInt(totalPeopleInput.value) || 1;
     passengersContainer.innerHTML = '';
+
     for (let i = 1; i <= count; i++) {
       const div = document.createElement('div');
       div.innerHTML = `
         <strong>Passenger ${i}</strong>
         <input type="text" placeholder="Full Name*" required name="p${i}_name">
-        <input type="number" placeholder="Age*" min="1" required name="p${i}_age">
+        <div style="position: relative;">
+          <input type="number" placeholder="Age*" min="1" required name="p${i}_age" class="age-input">
+          <span class="error-message" id="ageError${i}">Age must be 1 or more</span>
+        </div>
         <select required name="p${i}_gender">
           <option value="">Gender*</option>
           <option value="Male">Male</option>
@@ -193,6 +196,21 @@
       `;
       passengersContainer.appendChild(div);
     }
+
+    // Add real-time age validation
+    document.querySelectorAll('.age-input').forEach(input => {
+      input.addEventListener('input', function() {
+        const errorEl = this.nextElementSibling;
+        if (this.value < 1 || this.value === '') {
+          this.style.borderColor = 'var(--error-red)';
+          errorEl.style.display = 'block';
+        } else {
+          this.style.borderColor = '#b5c9b8';
+          errorEl.style.display = 'none';
+        }
+      });
+    });
+
     updatePrice();
   }
 
@@ -203,18 +221,39 @@
       payBtn.disabled = true;
       return;
     }
+
     const basePrice = parseInt(packageSelect.options[packageSelect.selectedIndex].dataset.price);
     totalDisplay.textContent = `Estimated Total: ₹${basePrice.toLocaleString()} (for up to ${totalPeopleInput.value} people)`;
     payBtn.disabled = false;
+  }
+
+  function validateAges() {
+    let valid = true;
+    document.querySelectorAll('.age-input').forEach(input => {
+      if (parseInt(input.value) < 1 || input.value === '') {
+        valid = false;
+        input.style.borderColor = 'var(--error-red)';
+        input.nextElementSibling.style.display = 'block';
+      }
+    });
+    return valid;
   }
 
   packageSelect.addEventListener('change', updatePassengers);
   totalPeopleInput.addEventListener('input', updatePassengers);
 
   payBtn.addEventListener('click', () => {
+    if (!validateAges()) {
+      alert("Please enter valid ages (1 or more) for all passengers.");
+      return;
+    }
+
     const pkg = packageSelect.value;
-    if (paymentLinks[pkg]) window.open(paymentLinks[pkg], '_blank');
-    else alert("Payment link not configured. Contact us!");
+    if (paymentLinks[pkg]) {
+      window.open(paymentLinks[pkg], '_blank');
+    } else {
+      alert("Payment link not configured. Contact us!");
+    }
   });
 
   updatePassengers();
