@@ -3,214 +3,333 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kovalam Beach Booking • Mannakuzhil Tours</title>
-  <meta name="description" content="Book your Kovalam beach holiday: lighthouse views, golden sands, Ayurveda & seaside resorts near Trivandrum, Kerala."/>
+  <title>Kovalam Beach Enquiry 2026 • Mannakuzhil Tours</title>
+  <meta name="description" content="Enquire for Kovalam beach packages: lighthouse views, Ayurveda spas, seaside resorts. Personalized Kerala beach holiday quote."/>
+  <meta name="keywords" content="Kovalam beach package, Kovalam Ayurveda, Kerala beach tour 2026"/>
   <link rel="icon" type="image/png" href="logo-square.png"/>
-
+ 
   <style>
     :root {
-      --green-main:    #2e7d32;
-      --green-dark:    #145214;
-      --green-light:   #d0e8d7;
-      --card-bg:       rgba(240,251,240,0.98);
-      --bg-gradient:   linear-gradient(135deg, #70c1ff 0%, #2e7d32 50%, #145214 100%);
-      --text:          #1a3d27;
-      --error-red:     #c62828;
-      --shadow-sm:     0 4px 15px rgba(0,0,0,0.08);
-      --shadow-lg:     0 12px 40px rgba(0,0,0,0.18);
+      --green-main: #2e7d32;
+      --green-dark: #145214;
+      --green-light: #d0e8d7;
+      --card-bg: rgba(240,251,240,0.98);
+      --bg-gradient: linear-gradient(135deg, #70c1ff 0%, #2e7d32 50%, #145214 100%);
+      --text: #1a3d27;
+      --error-red: #c62828;
+      --success-green: #2e7d32;
+      --shadow-sm: 0 4px 15px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.18);
     }
-
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-      background:var(--bg-gradient);
-      color:var(--text);
-      line-height:1.6;
-      min-height:100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
     }
-
-    .wrapper { max-width:1180px; margin:0 auto; padding:2rem 1rem; }
-    header { display:flex; align-items:center; gap:1rem; margin-bottom:2.5rem; flex-wrap:wrap; }
+    .wrapper {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
     .back-link {
-      color:white; background:rgba(20,82,20,0.9); padding:0.5rem 1.1rem;
-      border-radius:50px; text-decoration:none; font-weight:600; transition:all 0.3s ease;
+      color: white;
+      background: rgba(20,82,20,0.9);
+      padding: 0.5rem 1.1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
     }
-    .back-link:hover { background:var(--green-dark); transform:translateY(-1px); }
-
-    h1 { font-size:clamp(1.8rem,5vw,2.5rem); color:white; font-weight:800; text-shadow:0 2px 10px rgba(0,0,0,0.45); }
-
+    .back-link:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+    }
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      color: white;
+      font-weight: 800;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.45);
+    }
     .hero-img {
-      width:100%; height:clamp(280px,45vh,420px); object-fit:cover;
-      border-radius:16px; box-shadow:var(--shadow-lg); margin-bottom:2.5rem;
-      opacity:0; transform:scale(0.96); transition:all 1s ease-out;
+      width: 100%;
+      height: clamp(280px, 45vh, 420px);
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: scale(0.96);
+      transition: all 1s ease-out;
     }
-    .hero-img.loaded { opacity:1; transform:scale(1); }
-
+    .hero-img.loaded {
+      opacity: 1;
+      transform: scale(1);
+    }
     .content-box {
-      background:var(--card-bg); backdrop-filter:blur(10px); border-radius:20px;
-      padding:2.5rem; box-shadow:var(--shadow-lg); margin-bottom:3rem;
-      opacity:0; transform:translateY(40px); transition:all 0.9s cubic-bezier(0.25,0.46,0.45,0.94);
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    .content-box.visible { opacity:1; transform:translateY(0); }
-
-    h2 { color:var(--green-main); margin-bottom:1.2rem; font-size:1.9rem; font-weight:700; }
-    h3 { color:var(--green-main); margin:2rem 0 1rem; font-size:1.45rem; }
-
+    .content-box.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 { color: var(--green-main); margin-bottom: 1.2rem; font-size: 1.9rem; font-weight: 700; }
+    h3 { color: var(--green-main); margin: 2rem 0 1rem; font-size: 1.45rem; }
     .itinerary {
-      background:rgba(208,232,215,0.7); border-radius:14px; padding:1.6rem; margin:1.3rem 0;
-      border:1px solid var(--green-light); transition:transform 0.3s ease;
+      background: rgba(208,232,215,0.7);
+      border-radius: 14px;
+      padding: 1.6rem;
+      margin: 1.3rem 0;
+      border: 1px solid var(--green-light);
+      transition: transform 0.3s ease;
     }
-    .itinerary:hover { transform:translateY(-4px); }
-
-    ul { padding-left:1.6rem; margin:0.8rem 0; }
-    li { margin-bottom:0.6rem; }
-
-    form label { font-weight:600; margin:1.3rem 0 0.6rem; display:block; font-size:0.98rem; }
+    .itinerary:hover {
+      transform: translateY(-4px);
+    }
+    ul { padding-left: 1.6rem; margin: 0.8rem 0; }
+    li { margin-bottom: 0.6rem; }
+    form label {
+      font-weight: 600;
+      margin: 1.3rem 0 0.6rem;
+      display: block;
+      font-size: 0.98rem;
+    }
     input, select, textarea {
-      width:100%; padding:0.95rem; border:1px solid var(--green-light);
-      border-radius:10px; font-size:1rem; transition:all 0.25s ease;
+      width: 100%;
+      padding: 0.95rem;
+      border: 1px solid var(--green-light);
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: all 0.25s ease;
     }
     input:focus, select:focus, textarea:focus {
-      outline:none; border-color:var(--green-main); box-shadow:0 0 0 3px rgba(46,125,50,0.15);
+      outline: none;
+      border-color: var(--green-main);
+      box-shadow: 0 0 0 3px rgba(46,125,50,0.15);
     }
-    input.error { border-color:var(--error-red); background:#ffebee; }
-    .error-message { color:var(--error-red); font-size:0.84rem; margin-top:0.3rem; display:none; }
-
-    .passenger-section { margin:2.2rem 0; padding:1.8rem; background:rgba(255,255,255,0.7); border-radius:14px; border:1px solid var(--green-light); }
-    .passenger-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.4rem; }
-
+    input.error, select.error {
+      border-color: var(--error-red);
+      background: #ffebee;
+    }
+    .error-message {
+      color: var(--error-red);
+      font-size: 0.84rem;
+      margin-top: 0.3rem;
+      display: none;
+    }
+    .passenger-section {
+      margin: 2.2rem 0;
+      padding: 1.8rem;
+      background: rgba(255,255,255,0.7);
+      border-radius: 14px;
+      border: 1px solid var(--green-light);
+    }
+    .passenger-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.4rem;
+    }
     .total-price {
-      font-size:1.55rem; font-weight:700; color:var(--green-main); text-align:center;
-      padding:1.3rem; background:var(--green-light); border-radius:12px; margin:2.2rem 0;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--green-main);
+      text-align: center;
+      padding: 1.3rem;
+      border-radius: 12px;
+      margin: 2.2rem 0;
     }
-
-    .pay-btn {
-      background:var(--green-main); color:white; border:none; padding:1.2rem 3.5rem;
-      font-size:1.25rem; font-weight:700; border-radius:50px; cursor:pointer; display:block;
-      margin:2.8rem auto 0; transition:all 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
-      box-shadow:0 6px 20px rgba(46,125,50,0.35);
+    .enquiry-btn {
+      background: var(--green-main);
+      color: white;
+      border: none;
+      padding: 1.2rem 3.5rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      display: block;
+      margin: 2.8rem auto 0;
+      transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 6px 20px rgba(46,125,50,0.35);
     }
-    .pay-btn:hover:not(:disabled) {
-      background:var(--green-dark); transform:translateY(-4px) scale(1.03);
-      box-shadow:0 14px 35px rgba(46,125,50,0.5);
+    .enquiry-btn:hover:not(:disabled) {
+      background: var(--green-dark);
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 14px 35px rgba(46,125,50,0.5);
     }
-    .pay-btn:disabled { background:#9e9e9e; cursor:not-allowed; box-shadow:none; }
-
-    .note { font-size:0.94rem; color:#444; text-align:center; margin-top:2.2rem; opacity:0.9; }
-
-    @media (max-width:768px) {
-      .wrapper { padding:1.2rem; }
-      .content-box { padding:2rem; }
-      .pay-btn { padding:1rem 2.5rem; font-size:1.1rem; }
+    .enquiry-btn:disabled {
+      background: #9e9e9e;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    .success-message {
+      background: rgba(208,232,215,0.9);
+      color: var(--green-dark);
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 600;
+      margin: 2rem 0;
+      display: none;
+      border: 1px solid var(--green-main);
+    }
+    .contact-info {
+      text-align: center;
+      margin: 2rem 0 1rem;
+      font-size: 1.1rem;
+    }
+    .contact-info a {
+      color: var(--green-main);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+    .note {
+      font-size: 0.94rem;
+      color: #444;
+      text-align: center;
+      margin-top: 2.2rem;
+      opacity: 0.9;
+    }
+    @media (max-width: 768px) {
+      .wrapper { padding: 1.2rem; }
+      .content-box { padding: 2rem; }
+      .enquiry-btn { padding: 1rem 2.5rem; font-size: 1.1rem; }
     }
   </style>
 </head>
 <body>
-
 <div class="wrapper">
   <header>
     <a href="index.html" class="back-link">← Back to Home</a>
-    <h1>Kovalam Beach Booking</h1>
+    <h1>Kovalam Beach Enquiry</h1>
   </header>
-
   <img class="hero-img"
        src="https://images.unsplash.com/photo-1586030138336-4a854c6ddb5f?w=1600&auto=format&fit=crop&q=90"
        alt="Kovalam lighthouse and golden beach at sunset"
        onload="this.classList.add('loaded')">
-
   <div class="content-box">
-    <h2>Kovalam Beach – Kerala’s Iconic Seaside Retreat</h2>
-    <p>Relax on golden sands with crashing waves and iconic lighthouse views. Packages include beach stays, sunset walks, Ayurveda & optional Trivandrum sightseeing.</p>
-
-    <h3>Typical Kovalam Beach Package Itinerary</h3>
+    <h2>Kovalam Beach Packages • 2026</h2>
+    <p>Relax on golden sands with lighthouse views, Ayurveda spas & seaside resorts near Trivandrum.</p>
+    <h3>1. 2 Nights / 3 Days Relaxation</h3>
     <div class="itinerary">
-      <strong>2 Nights / 3 Days • Approx ₹18,000–₹35,000 total (depending on resort)</strong><br><br>
+      <strong>₹25,000 total (2 persons)</strong><br><br>
       <ul>
-        <li><strong>Day 1:</strong> Arrival • Check-in to beachfront resort • Evening walk on Lighthouse Beach & Hawa Beach</li>
-        <li><strong>Day 2:</strong> Sunrise at lighthouse viewpoint • Full day beach relaxation • Optional Ayurveda massage or spa session</li>
-        <li><strong>Day 3:</strong> Morning beach time • Optional Trivandrum city tour (Padmanabhaswamy Temple, Napier Museum) • Departure</li>
+        <li>Beachfront resort stay</li>
+        <li>Lighthouse Beach & Hawa Beach walks</li>
+        <li>Optional Ayurveda massage</li>
+        <li>Trivandrum sightseeing add-on</li>
       </ul>
     </div>
-
-    <h2>Booking Details</h2>
-
-    <form id="bookingForm">
-      <label for="package">Choose Your Kovalam Package</label>
+    <h3>2. 3 Nights / 4 Days Premium</h3>
+    <div class="itinerary">
+      <strong>₹38,000 total (2 persons)</strong><br><br>
+      <ul>
+        <li>All relaxation inclusions</li>
+        <li>Daily spa sessions</li>
+        <li>Private beach dinner</li>
+        <li>Full Trivandrum tour</li>
+      </ul>
+    </div>
+    <div class="contact-info">
+      <p>Call or WhatsApp us directly: <a href="tel:+919876543210">+91 98765 43210</a></p>
+      <p>Email: <a href="mailto:booking@mannakuzhiltours.com">booking@mannakuzhiltours.com</a></p>
+    </div>
+    <h2>Enquiry Form</h2>
+    <div class="success-message" id="successMessage">
+      Thank you! Your enquiry has been sent successfully. We will contact you shortly via phone or WhatsApp.
+    </div>
+    <form id="enquiryForm" action="https://formspree.io/f/your-form-id" method="POST">
+      <label for="package">Interested Package</label>
       <select id="package" name="package" required>
         <option value="">Select package…</option>
-        <option value="2nights" data-price="25000">2 Nights Beach Stay – ₹25,000 approx</option>
-        <option value="3nights" data-price="38000">3 Nights Premium – ₹38,000 approx</option>
+        <option value="2 Nights / 3 Days Relaxation – ₹25,000">2 Nights / 3 Days Relaxation – ₹25,000</option>
+        <option value="3 Nights / 4 Days Premium – ₹38,000">3 Nights / 4 Days Premium – ₹38,000</option>
       </select>
-
       <label for="totalPeople">Number of Travellers</label>
-      <input type="number" id="totalPeople" min="1" max="12" value="2" required/>
-
+      <input type="number" id="totalPeople" name="totalPeople" min="1" max="12" value="2" required/>
       <div class="passenger-section">
-        <h2>Passenger Information</h2>
+        <h3>Passenger Details (optional but helpful)</h3>
         <div id="passengersContainer" class="passenger-grid"></div>
       </div>
-
-      <label for="primaryContact">Primary Contact</label>
-      <input type="text" id="primaryContact" name="primaryContact" required placeholder="Phone or Email"/>
-
-      <label for="dates">Travel Dates & Requests</label>
-      <textarea id="dates" name="dates" rows="3" placeholder="Preferred dates, dietary needs, Ayurveda session..."></textarea>
-
-      <div class="total-price" id="totalPrice">Total: ₹0 (approx package rate)</div>
-
-      <button type="button" id="payButton" class="pay-btn" disabled>
-        Proceed to Payment
+      <label for="name">Your Name *</label>
+      <input type="text" id="name" name="name" required placeholder="Full name"/>
+      <label for="phone">Phone Number (WhatsApp preferred) *</label>
+      <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210"/>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="optional"/>
+      <label for="dates">Preferred Dates & Special Requests</label>
+      <textarea id="dates" name="dates" rows="4" placeholder="Travel dates, Ayurveda preferences, etc."></textarea>
+      <div class="total-price" id="totalPrice">Indicative Price: ₹0</div>
+      <button type="submit" id="enquiryBtn" class="enquiry-btn">
+        Submit Enquiry
       </button>
     </form>
-
     <p class="note">
-      Prices approximate (per room/package, excl. GST) • Secure payment via Razorpay<br>
-      Confirmation within 24 hours
+      Prices are indicative (excl. 5% GST) for 2 persons • We will reply with availability, exact quote & payment link within 24 hours<br>
+      Direct contact: <strong><a href="tel:+919876543210">+91 98765 43210</a> (Call / WhatsApp)</strong> •
+      <strong><a href="mailto:booking@mannakuzhiltours.com">booking@mannakuzhiltours.com</a></strong>
     </p>
   </div>
 </div>
-
 <script>
 const MAX_AGE = 122;
-
 const packageSelect = document.getElementById('package');
 const totalPeopleInput = document.getElementById('totalPeople');
 const passengersContainer = document.getElementById('passengersContainer');
 const totalDisplay = document.getElementById('totalPrice');
-const payBtn = document.getElementById('payButton');
-
-const paymentLinks = {
-  '2nights': "https://rzp.io/l/YOUR_2NIGHTS_KOVALAM_LINK",
-  '3nights': "https://rzp.io/l/YOUR_3NIGHTS_KOVALAM_LINK"
+const form = document.getElementById('enquiryForm');
+const successMsg = document.getElementById('successMessage');
+const enquiryBtn = document.getElementById('enquiryBtn');
+const prices = {
+  "2 Nights / 3 Days Relaxation – ₹25,000": 25000,
+  "3 Nights / 4 Days Premium – ₹38,000": 38000
 };
-
 function updatePassengers() {
   const count = Math.max(1, parseInt(totalPeopleInput.value) || 1);
   passengersContainer.innerHTML = '';
-
   for (let i = 1; i <= count; i++) {
     const div = document.createElement('div');
     div.innerHTML = `
       <strong>Passenger ${i}</strong>
-      <input type="text" placeholder="Full Name*" required name="p${i}_name">
+      <input type="text" placeholder="Full Name" name="p${i}_name">
       <div style="position:relative;">
-        <input type="number" placeholder="Age*" min="1" max="${MAX_AGE}" required class="age-input" name="p${i}_age">
+        <input type="number" placeholder="Age" min="1" max="${MAX_AGE}"
+               class="age-input" name="p${i}_age">
         <span class="error-message">Age: 1 – ${MAX_AGE} years</span>
       </div>
-      <select required name="p${i}_gender">
-        <option value="">Gender *</option>
-        <option value="M">Male</option>
-        <option value="F">Female</option>
-        <option value="T">Transgender</option>
-      </select>
-      <select name="p${i}_nationality">
-        <option value="Indian">Indian</option>
-        <option value="Other">Other</option>
+      <select name="p${i}_gender">
+        <option value="">Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Transgender">Transgender</option>
       </select>
     `;
     passengersContainer.appendChild(div);
   }
-
   document.querySelectorAll('.age-input').forEach(el => {
     el.addEventListener('input', function() {
       const v = parseInt(this.value);
@@ -224,65 +343,37 @@ function updatePassengers() {
       }
     });
   });
-
   updatePrice();
 }
-
 function updatePrice() {
-  if (!packageSelect.value) {
-    totalDisplay.textContent = "Total: ₹0 (approx package rate)";
-    payBtn.disabled = true;
-    return;
+  const selected = packageSelect.value;
+  if (selected && prices[selected]) {
+    totalDisplay.textContent = `Indicative Price: ₹${prices[selected].toLocaleString()}`;
+  } else {
+    totalDisplay.textContent = "Indicative Price: ₹0";
   }
-  const price = parseInt(packageSelect.selectedOptions[0].dataset.price);
-  totalDisplay.textContent = `Total: ₹${price.toLocaleString()} (approx)`;
-  payBtn.disabled = false;
 }
-
-function allAgesValid() {
-  let ok = true;
-  document.querySelectorAll('.age-input').forEach(input => {
-    const v = parseInt(input.value);
-    if (isNaN(v) || v < 1 || v > MAX_AGE) {
-      ok = false;
-      input.classList.add('error');
-      input.nextElementSibling.style.display = 'block';
-    }
-  });
-  return ok;
-}
-
-packageSelect.onchange = updatePassengers;
+packageSelect.onchange = updatePrice;
 totalPeopleInput.oninput = updatePassengers;
-
+form.addEventListener('submit', function(e) {
+  enquiryBtn.disabled = true;
+  enquiryBtn.textContent = "Sending...";
+  setTimeout(() => {
+    successMsg.style.display = 'block';
+    form.style.display = 'none';
+    window.scrollTo(0, successMsg.offsetTop - 100);
+  }, 1000);
+});
+updatePassengers();
+updatePrice();
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
   });
 }, { threshold: 0.12 });
-
 document.querySelectorAll('.content-box').forEach(box => observer.observe(box));
-
-payBtn.onclick = () => {
-  if (!allAgesValid()) {
-    alert("Please correct the age fields (1–122 years).");
-    return;
-  }
-  const pkg = packageSelect.value;
-  if (paymentLinks[pkg]) {
-    payBtn.textContent = "Redirecting...";
-    payBtn.disabled = true;
-    setTimeout(() => {
-      window.open(paymentLinks[pkg], '_blank');
-      payBtn.textContent = "Proceed to Payment";
-      payBtn.disabled = false;
-    }, 700);
-  } else {
-    alert("Payment gateway not configured yet.");
-  }
-};
-
-updatePassengers();
 </script>
 </body>
 </html>
