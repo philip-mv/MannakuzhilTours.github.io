@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wayanad Tour Booking – Mannakuzhil Tours</title>
-  <meta name="description" content="Book Wayanad nature tour: hills, forests, waterfalls, viewpoints & wildlife in Kerala Western Ghats.">
-  <link rel="icon" type="image/png" href="logo-square.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wayanad Tour Enquiry 2026 • Mannakuzhil Tours</title>
+  <meta name="description" content="Enquire for Wayanad hill station packages: wildlife safaris, tea estates, waterfalls. Personalized quote for your Kerala adventure."/>
+  <meta name="keywords" content="Wayanad tour package, Wayanad wildlife safari, Edakkal Caves, Kerala hill station 2026"/>
+  <link rel="icon" type="image/png" href="logo-square.png"/>
+ 
   <style>
     :root {
       --green-main: #2e7d32;
@@ -15,150 +17,330 @@
       --bg-gradient: linear-gradient(135deg, #70c1ff 0%, #2e7d32 50%, #145214 100%);
       --text: #1a3d27;
       --error-red: #c62828;
+      --success-green: #2e7d32;
       --shadow-sm: 0 4px 15px rgba(0,0,0,0.08);
       --shadow-lg: 0 12px 40px rgba(0,0,0,0.18);
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-      background:var(--bg-gradient);
-      color:var(--text);
-      line-height:1.6;
-      min-height:100vh;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .wrapper { max-width:1180px; margin:0 auto; padding:2rem 1rem; }
-    header { display:flex; align-items:center; gap:1rem; margin-bottom:2.5rem; flex-wrap:wrap; }
-    .back-link { color:white; background:rgba(20,82,20,0.9); padding:0.5rem 1.1rem; border-radius:50px; text-decoration:none; font-weight:600; transition:all 0.3s ease; }
-    .back-link:hover { background:var(--green-dark); transform:translateY(-1px); }
-    h1 { font-size:clamp(1.8rem,5vw,2.5rem); color:white; font-weight:800; text-shadow:0 2px 10px rgba(0,0,0,0.45); }
-    .hero-img { width:100%; height:clamp(280px,45vh,420px); object-fit:cover; border-radius:16px; box-shadow:var(--shadow-lg); margin-bottom:2.5rem; opacity:0; transform:scale(0.96); transition:all 1s ease-out; }
-    .hero-img.loaded { opacity:1; transform:scale(1); }
-    .content-box { background:var(--card-bg); backdrop-filter:blur(10px); border-radius:20px; padding:2.5rem; box-shadow:var(--shadow-lg); margin-bottom:3rem; opacity:0; transform:translateY(40px); transition:all 0.9s cubic-bezier(0.25,0.46,0.45,0.94); }
-    .content-box.visible { opacity:1; transform:translateY(0); }
-    h2 { color:var(--green-main); margin-bottom:1.2rem; font-size:1.9rem; font-weight:700; }
-    h3 { color:var(--green-main); margin:2rem 0 1rem; font-size:1.45rem; }
-    .itinerary { background:rgba(208,232,215,0.7); border-radius:14px; padding:1.6rem; margin:1.3rem 0; border:1px solid var(--green-light); transition:transform 0.3s ease; }
-    .itinerary:hover { transform:translateY(-4px); }
-    ul { padding-left:1.6rem; margin:0.8rem 0; }
-    li { margin-bottom:0.6rem; }
-    form label { font-weight:600; margin:1.3rem 0 0.6rem; display:block; font-size:0.98rem; }
-    input, select, textarea { width:100%; padding:0.95rem; border:1px solid var(--green-light); border-radius:10px; font-size:1rem; transition:all 0.25s ease; }
-    input:focus, select:focus, textarea:focus { outline:none; border-color:var(--green-main); box-shadow:0 0 0 3px rgba(46,125,50,0.15); }
-    input.error { border-color:var(--error-red); background:#ffebee; }
-    .error-message { color:var(--error-red); font-size:0.84rem; margin-top:0.3rem; display:none; }
-    .passenger-section { margin:2.2rem 0; padding:1.8rem; background:rgba(255,255,255,0.7); border-radius:14px; border:1px solid var(--green-light); }
-    .passenger-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.4rem; }
-    .total-price { font-size:1.55rem; font-weight:700; color:var(--green-main); text-align:center; padding:1.3rem; background:var(--green-light); border-radius:12px; margin:2.2rem 0; }
-    .pay-btn { background:var(--green-main); color:white; border:none; padding:1.2rem 3.5rem; font-size:1.25rem; font-weight:700; border-radius:50px; cursor:pointer; display:block; margin:2.8rem auto 0; transition:all 0.35s cubic-bezier(0.25,0.46,0.45,0.94); box-shadow:0 6px 20px rgba(46,125,50,0.35); }
-    .pay-btn:hover:not(:disabled) { background:var(--green-dark); transform:translateY(-4px) scale(1.03); box-shadow:0 14px 35px rgba(46,125,50,0.5); }
-    .pay-btn:disabled { background:#9e9e9e; cursor:not-allowed; box-shadow:none; }
-    .note { font-size:0.94rem; color:#444; text-align:center; margin-top:2.2rem; opacity:0.9; }
-    @media (max-width:768px) { .wrapper { padding:1.2rem; } .content-box { padding:2rem; } .pay-btn { padding:1rem 2.5rem; font-size:1.1rem; } }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .wrapper {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .back-link {
+      color: white;
+      background: rgba(20,82,20,0.9);
+      padding: 0.5rem 1.1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .back-link:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+    }
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      color: white;
+      font-weight: 800;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.45);
+    }
+    .hero-img {
+      width: 100%;
+      height: clamp(280px, 45vh, 420px);
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: scale(0.96);
+      transition: all 1s ease-out;
+    }
+    .hero-img.loaded {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .content-box {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .content-box.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 { color: var(--green-main); margin-bottom: 1.2rem; font-size: 1.9rem; font-weight: 700; }
+    h3 { color: var(--green-main); margin: 2rem 0 1rem; font-size: 1.45rem; }
+    .itinerary {
+      background: rgba(208,232,215,0.7);
+      border-radius: 14px;
+      padding: 1.6rem;
+      margin: 1.3rem 0;
+      border: 1px solid var(--green-light);
+      transition: transform 0.3s ease;
+    }
+    .itinerary:hover {
+      transform: translateY(-4px);
+    }
+    ul { padding-left: 1.6rem; margin: 0.8rem 0; }
+    li { margin-bottom: 0.6rem; }
+    form label {
+      font-weight: 600;
+      margin: 1.3rem 0 0.6rem;
+      display: block;
+      font-size: 0.98rem;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.95rem;
+      border: 1px solid var(--green-light);
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: all 0.25s ease;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--green-main);
+      box-shadow: 0 0 0 3px rgba(46,125,50,0.15);
+    }
+    input.error, select.error {
+      border-color: var(--error-red);
+      background: #ffebee;
+    }
+    .error-message {
+      color: var(--error-red);
+      font-size: 0.84rem;
+      margin-top: 0.3rem;
+      display: none;
+    }
+    .passenger-section {
+      margin: 2.2rem 0;
+      padding: 1.8rem;
+      background: rgba(255,255,255,0.7);
+      border-radius: 14px;
+      border: 1px solid var(--green-light);
+    }
+    .passenger-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.4rem;
+    }
+    .total-price {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--green-main);
+      text-align: center;
+      padding: 1.3rem;
+      border-radius: 12px;
+      margin: 2.2rem 0;
+    }
+    .enquiry-btn {
+      background: var(--green-main);
+      color: white;
+      border: none;
+      padding: 1.2rem 3.5rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      display: block;
+      margin: 2.8rem auto 0;
+      transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 6px 20px rgba(46,125,50,0.35);
+    }
+    .enquiry-btn:hover:not(:disabled) {
+      background: var(--green-dark);
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 14px 35px rgba(46,125,50,0.5);
+    }
+    .enquiry-btn:disabled {
+      background: #9e9e9e;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    .success-message {
+      background: rgba(208,232,215,0.9);
+      color: var(--green-dark);
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 600;
+      margin: 2rem 0;
+      display: none;
+      border: 1px solid var(--green-main);
+    }
+    .contact-info {
+      text-align: center;
+      margin: 2rem 0 1rem;
+      font-size: 1.1rem;
+    }
+    .contact-info a {
+      color: var(--green-main);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+    .note {
+      font-size: 0.94rem;
+      color: #444;
+      text-align: center;
+      margin-top: 2.2rem;
+      opacity: 0.9;
+    }
+    @media (max-width: 768px) {
+      .wrapper { padding: 1.2rem; }
+      .content-box { padding: 2rem; }
+      .enquiry-btn { padding: 1rem 2.5rem; font-size: 1.1rem; }
+    }
   </style>
 </head>
 <body>
 <div class="wrapper">
   <header>
     <a href="index.html" class="back-link">← Back to Home</a>
-    <h1>Wayanad Tour Booking</h1>
+    <h1>Wayanad Tour Enquiry</h1>
   </header>
-
   <img class="hero-img"
-       src="https://images.unsplash.com/photo-1723709431768-d749b0d814b9?w=1600&auto=format&fit=crop&q=90"
-       alt="Wayanad lush forests, waterfalls and hills"
+       src="https://images.unsplash.com/photo-1589924691995-400dc9ecc0af?w=1600&auto=format&fit=crop&q=90"
+       alt="Lush green tea estates and misty hills in Wayanad"
        onload="this.classList.add('loaded')">
-
   <div class="content-box">
-    <h2>Wayanad – Kerala’s Green Mountain Escape</h2>
-    <p>Lush forests, rolling hills, waterfalls & wildlife in the Western Ghats. Packages include viewpoints, nature stays & light adventure.</p>
-
-    <h3>Typical Wayanad Tour Itinerary</h3>
+    <h2>Wayanad Hill Station Packages • 2026</h2>
+    <p>Private tours with comfortable stays, wildlife safaris, trekking & authentic Kerala experiences.</p>
+    <h3>1. 2 Nights / 3 Days Standard</h3>
     <div class="itinerary">
-      <strong>3 Days / 2 Nights • Approx ₹20,000–₹40,000 total</strong><br><br>
+      <strong>₹18,000 total (2-4 persons)</strong><br><br>
       <ul>
-        <li><strong>Day 1:</strong> Arrival • Check-in to nature resort • Evening viewpoint sunset</li>
-        <li><strong>Day 2:</strong> Edakkal Caves • Soochipara Waterfalls • Banasura Sagar Dam • Wildlife sanctuary</li>
-        <li><strong>Day 3:</strong> Pookode Lake • Chembra Peak trek (optional) • Departure</li>
+        <li>Pickup from Kozhikode/Calicut</li>
+        <li>Edakkal Caves, Wayanad Wildlife Sanctuary safari</li>
+        <li>Pookode Lake, tea estate visit</li>
+        <li>2 nights homestay/resort</li>
       </ul>
     </div>
-
-    <h2>Booking Details</h2>
-
-    <form id="bookingForm">
-      <label for="package">Choose Your Wayanad Package</label>
+    <h3>2. 3 Nights / 4 Days Deluxe</h3>
+    <div class="itinerary">
+      <strong>₹28,000 total (2-4 persons)</strong><br><br>
+      <ul>
+        <li>Chembra Peak trek, Banasura Sagar Dam</li>
+        <li>Muthanga Wildlife Sanctuary jeep safari</li>
+        <li>Sochipara Waterfalls</li>
+        <li>3 nights deluxe resort</li>
+      </ul>
+    </div>
+    <h3>3. 4 Nights / 5 Days Premium</h3>
+    <div class="itinerary">
+      <strong>₹42,000 total (2-4 persons)</strong><br><br>
+      <ul>
+        <li>All deluxe inclusions + Kuruva Island</li>
+        <li>Bamboo rafting, tribal village visit</li>
+        <li>4 nights premium resort with views</li>
+      </ul>
+    </div>
+    <div class="contact-info">
+      <p>Call or WhatsApp us directly: <a href="tel:+919876543210">+91 98765 43210</a></p>
+      <p>Email: <a href="mailto:booking@mannakuzhiltours.com">booking@mannakuzhiltours.com</a></p>
+    </div>
+    <h2>Enquiry Form</h2>
+    <div class="success-message" id="successMessage">
+      Thank you! Your enquiry has been sent successfully. We will contact you shortly via phone or WhatsApp.
+    </div>
+    <form id="enquiryForm" action="https://formspree.io/f/your-form-id" method="POST">
+      <label for="package">Interested Package</label>
       <select id="package" name="package" required>
         <option value="">Select package…</option>
-        <option value="3days" data-price="28000">3 Days / 2 Nights – ₹28,000 approx</option>
-        <option value="4days" data-price="38000">4 Days / 3 Nights – ₹38,000 approx</option>
+        <option value="2 Nights / 3 Days Standard – ₹18,000">2 Nights / 3 Days Standard – ₹18,000</option>
+        <option value="3 Nights / 4 Days Deluxe – ₹28,000">3 Nights / 4 Days Deluxe – ₹28,000</option>
+        <option value="4 Nights / 5 Days Premium – ₹42,000">4 Nights / 5 Days Premium – ₹42,000</option>
       </select>
-
       <label for="totalPeople">Number of Travellers</label>
-      <input type="number" id="totalPeople" min="1" max="12" value="2" required>
-
+      <input type="number" id="totalPeople" name="totalPeople" min="1" max="12" value="2" required/>
       <div class="passenger-section">
-        <h2>Passenger Information</h2>
+        <h3>Passenger Details (optional but helpful)</h3>
         <div id="passengersContainer" class="passenger-grid"></div>
       </div>
-
-      <label for="primaryContact">Primary Contact</label>
-      <input type="text" id="primaryContact" name="primaryContact" required placeholder="Phone or Email">
-
-      <label for="dates">Travel Dates & Requests</label>
-      <textarea id="dates" name="dates" rows="3" placeholder="Preferred dates, adventure activities..."></textarea>
-
-      <div class="total-price" id="totalPrice">Total: ₹0 (approx package rate)</div>
-
-      <button type="button" id="payButton" class="pay-btn" disabled>Proceed to Payment</button>
+      <label for="name">Your Name *</label>
+      <input type="text" id="name" name="name" required placeholder="Full name"/>
+      <label for="phone">Phone Number (WhatsApp preferred) *</label>
+      <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210"/>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="optional"/>
+      <label for="dates">Preferred Dates & Special Requests</label>
+      <textarea id="dates" name="dates" rows="4" placeholder="Travel dates, children info, pickup location, etc."></textarea>
+      <div class="total-price" id="totalPrice">Indicative Price: ₹0</div>
+      <button type="submit" id="enquiryBtn" class="enquiry-btn">
+        Submit Enquiry
+      </button>
     </form>
-
     <p class="note">
-      Prices approximate (per package, excl. GST) • Secure payment via Razorpay<br>
-      Confirmation within 24 hours
+      Prices are indicative (excl. 5% GST) for 2-4 persons • We will reply with availability, exact quote & payment link within 24 hours<br>
+      Direct contact: <strong><a href="tel:+919876543210">+91 98765 43210</a> (Call / WhatsApp)</strong> •
+      <strong><a href="mailto:booking@mannakuzhiltours.com">booking@mannakuzhiltours.com</a></strong>
     </p>
   </div>
 </div>
-
 <script>
 const MAX_AGE = 122;
-
 const packageSelect = document.getElementById('package');
 const totalPeopleInput = document.getElementById('totalPeople');
 const passengersContainer = document.getElementById('passengersContainer');
 const totalDisplay = document.getElementById('totalPrice');
-const payBtn = document.getElementById('payButton');
-
-const paymentLinks = {
-  '3days': "https://rzp.io/l/YOUR_3DAYS_WAYANAD_LINK",
-  '4days': "https://rzp.io/l/YOUR_4DAYS_WAYANAD_LINK"
+const form = document.getElementById('enquiryForm');
+const successMsg = document.getElementById('successMessage');
+const enquiryBtn = document.getElementById('enquiryBtn');
+const prices = {
+  "2 Nights / 3 Days Standard – ₹18,000": 18000,
+  "3 Nights / 4 Days Deluxe – ₹28,000": 28000,
+  "4 Nights / 5 Days Premium – ₹42,000": 42000
 };
-
 function updatePassengers() {
   const count = Math.max(1, parseInt(totalPeopleInput.value) || 1);
   passengersContainer.innerHTML = '';
-
   for (let i = 1; i <= count; i++) {
     const div = document.createElement('div');
     div.innerHTML = `
       <strong>Passenger ${i}</strong>
-      <input type="text" placeholder="Full Name*" required name="p${i}_name">
+      <input type="text" placeholder="Full Name" name="p${i}_name">
       <div style="position:relative;">
-        <input type="number" placeholder="Age*" min="1" max="${MAX_AGE}" required class="age-input" name="p${i}_age">
-        <span class="error-message">Age must be 1–${MAX_AGE}</span>
+        <input type="number" placeholder="Age" min="1" max="${MAX_AGE}"
+               class="age-input" name="p${i}_age">
+        <span class="error-message">Age: 1 – ${MAX_AGE} years</span>
       </div>
-      <select required name="p${i}_gender">
-        <option value="">Gender *</option>
-        <option value="M">Male</option>
-        <option value="F">Female</option>
-        <option value="T">Transgender</option>
-      </select>
-      <select name="p${i}_nationality">
-        <option value="Indian">Indian</option>
-        <option value="Other">Other</option>
+      <select name="p${i}_gender">
+        <option value="">Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Transgender">Transgender</option>
       </select>
     `;
     passengersContainer.appendChild(div);
   }
-
   document.querySelectorAll('.age-input').forEach(el => {
     el.addEventListener('input', function() {
       const v = parseInt(this.value);
@@ -172,65 +354,37 @@ function updatePassengers() {
       }
     });
   });
-
   updatePrice();
 }
-
 function updatePrice() {
-  if (!packageSelect.value) {
-    totalDisplay.textContent = "Total: ₹0 (approx package rate)";
-    payBtn.disabled = true;
-    return;
+  const selected = packageSelect.value;
+  if (selected && prices[selected]) {
+    totalDisplay.textContent = `Indicative Price: ₹${prices[selected].toLocaleString()}`;
+  } else {
+    totalDisplay.textContent = "Indicative Price: ₹0";
   }
-  const price = parseInt(packageSelect.selectedOptions[0].dataset.price);
-  totalDisplay.textContent = `Total: ₹${price.toLocaleString()} (approx)`;
-  payBtn.disabled = false;
 }
-
-function allAgesValid() {
-  let ok = true;
-  document.querySelectorAll('.age-input').forEach(input => {
-    const v = parseInt(input.value);
-    if (isNaN(v) || v < 1 || v > MAX_AGE) {
-      ok = false;
-      input.classList.add('error');
-      input.nextElementSibling.style.display = 'block';
-    }
-  });
-  return ok;
-}
-
-packageSelect.onchange = updatePassengers;
+packageSelect.onchange = updatePrice;
 totalPeopleInput.oninput = updatePassengers;
-
+form.addEventListener('submit', function(e) {
+  enquiryBtn.disabled = true;
+  enquiryBtn.textContent = "Sending...";
+  setTimeout(() => {
+    successMsg.style.display = 'block';
+    form.style.display = 'none';
+    window.scrollTo(0, successMsg.offsetTop - 100);
+  }, 1000);
+});
+updatePassengers();
+updatePrice();
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
   });
 }, { threshold: 0.12 });
-
 document.querySelectorAll('.content-box').forEach(box => observer.observe(box));
-
-payBtn.onclick = () => {
-  if (!allAgesValid()) {
-    alert("Please correct the age fields (1–122 years).");
-    return;
-  }
-  const pkg = packageSelect.value;
-  if (paymentLinks[pkg]) {
-    payBtn.textContent = "Redirecting...";
-    payBtn.disabled = true;
-    setTimeout(() => {
-      window.open(paymentLinks[pkg], '_blank');
-      payBtn.textContent = "Proceed to Payment";
-      payBtn.disabled = false;
-    }, 700);
-  } else {
-    alert("Payment gateway not configured yet.");
-  }
-};
-
-updatePassengers();
 </script>
 </body>
 </html>
