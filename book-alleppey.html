@@ -6,29 +6,27 @@
   <title>Alleppey Houseboat Enquiry 2026 • Mannakuzhil Tours</title>
   <meta name="description" content="Enquire for your private Alleppey houseboat cruise: day trip, 1-night deluxe & 2-night premium. Get personalized quote • Serene Kerala backwaters."/>
   <meta name="keywords" content="Alleppey houseboat booking, Kerala backwater cruise, Alleppey houseboat package, Vembanad Lake houseboat, Kerala houseboat tour 2026"/>
-  
+ 
   <link rel="icon" type="image/png" href="logo-square.png"/>
-  
+ 
   <style>
     :root {
-      --green-main:    #2e7d32;
-      --green-dark:    #145214;
-      --green-light:   #d0e8d7;
-      --card-bg:       rgba(240,251,240,0.98);
-      --bg-gradient:   linear-gradient(135deg, #70c1ff 0%, #2e7d32 50%, #145214 100%);
-      --text:          #1a3d27;
-      --error-red:     #c62828;
+      --green-main: #2e7d32;
+      --green-dark: #145214;
+      --green-light: #d0e8d7;
+      --card-bg: rgba(240,251,240,0.98);
+      --bg-gradient: linear-gradient(135deg, #70c1ff 0%, #2e7d32 50%, #145214 100%);
+      --text: #1a3d27;
+      --error-red: #c62828;
       --success-green: #2e7d32;
-      --shadow-sm:     0 4px 15px rgba(0,0,0,0.08);
-      --shadow-lg:     0 12px 40px rgba(0,0,0,0.18);
+      --shadow-sm: 0 4px 15px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.18);
     }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: var(--bg-gradient);
@@ -36,13 +34,11 @@
       line-height: 1.6;
       min-height: 100vh;
     }
-
     .wrapper {
       max-width: 1180px;
       margin: 0 auto;
       padding: 2rem 1rem;
     }
-
     header {
       display: flex;
       align-items: center;
@@ -50,7 +46,6 @@
       margin-bottom: 2.5rem;
       flex-wrap: wrap;
     }
-
     .back-link {
       color: white;
       background: rgba(20,82,20,0.9);
@@ -60,19 +55,16 @@
       font-weight: 600;
       transition: all 0.3s ease;
     }
-
     .back-link:hover {
       background: var(--green-dark);
       transform: translateY(-1px);
     }
-
     h1 {
       font-size: clamp(1.8rem, 5vw, 2.5rem);
       color: white;
       font-weight: 800;
       text-shadow: 0 2px 10px rgba(0,0,0,0.45);
     }
-
     .hero-img {
       width: 100%;
       height: clamp(280px, 45vh, 420px);
@@ -84,12 +76,10 @@
       transform: scale(0.96);
       transition: all 1s ease-out;
     }
-
     .hero-img.loaded {
       opacity: 1;
       transform: scale(1);
     }
-
     .content-box {
       background: var(--card-bg);
       backdrop-filter: blur(10px);
@@ -101,15 +91,12 @@
       transform: translateY(40px);
       transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-
     .content-box.visible {
       opacity: 1;
       transform: translateY(0);
     }
-
     h2 { color: var(--green-main); margin-bottom: 1.2rem; font-size: 1.9rem; font-weight: 700; }
     h3 { color: var(--green-main); margin: 2rem 0 1rem; font-size: 1.45rem; }
-
     .itinerary {
       background: rgba(208,232,215,0.7);
       border-radius: 14px;
@@ -118,21 +105,17 @@
       border: 1px solid var(--green-light);
       transition: transform 0.3s ease;
     }
-
     .itinerary:hover {
       transform: translateY(-4px);
     }
-
     ul { padding-left: 1.6rem; margin: 0.8rem 0; }
     li { margin-bottom: 0.6rem; }
-
     form label {
       font-weight: 600;
       margin: 1.3rem 0 0.6rem;
       display: block;
       font-size: 0.98rem;
     }
-
     input, select, textarea {
       width: 100%;
       padding: 0.95rem;
@@ -141,25 +124,21 @@
       font-size: 1rem;
       transition: all 0.25s ease;
     }
-
     input:focus, select:focus, textarea:focus {
       outline: none;
       border-color: var(--green-main);
       box-shadow: 0 0 0 3px rgba(46,125,50,0.15);
     }
-
     input.error, select.error {
       border-color: var(--error-red);
       background: #ffebee;
     }
-
     .error-message {
       color: var(--error-red);
       font-size: 0.84rem;
       margin-top: 0.3rem;
       display: none;
     }
-
     .passenger-section {
       margin: 2.2rem 0;
       padding: 1.8rem;
@@ -167,13 +146,11 @@
       border-radius: 14px;
       border: 1px solid var(--green-light);
     }
-
     .passenger-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.4rem;
     }
-
     .total-price {
       font-size: 1.55rem;
       font-weight: 700;
@@ -183,7 +160,6 @@
       border-radius: 12px;
       margin: 2.2rem 0;
     }
-
     .enquiry-btn {
       background: var(--green-main);
       color: white;
@@ -198,19 +174,16 @@
       transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       box-shadow: 0 6px 20px rgba(46,125,50,0.35);
     }
-
     .enquiry-btn:hover:not(:disabled) {
       background: var(--green-dark);
       transform: translateY(-4px) scale(1.03);
       box-shadow: 0 14px 35px rgba(46,125,50,0.5);
     }
-
     .enquiry-btn:disabled {
       background: #9e9e9e;
       cursor: not-allowed;
       box-shadow: none;
     }
-
     .success-message {
       background: rgba(208,232,215,0.9);
       color: var(--green-dark);
@@ -222,23 +195,19 @@
       display: none;
       border: 1px solid var(--green-main);
     }
-
     .contact-info {
       text-align: center;
       margin: 2rem 0 1rem;
       font-size: 1.1rem;
     }
-
     .contact-info a {
       color: var(--green-main);
       text-decoration: none;
       font-weight: 600;
     }
-
     .contact-info a:hover {
       text-decoration: underline;
     }
-
     .note {
       font-size: 0.94rem;
       color: #444;
@@ -246,7 +215,6 @@
       margin-top: 2.2rem;
       opacity: 0.9;
     }
-
     @media (max-width: 768px) {
       .wrapper { padding: 1.2rem; }
       .content-box { padding: 2rem; }
@@ -255,22 +223,18 @@
   </style>
 </head>
 <body>
-
 <div class="wrapper">
   <header>
     <a href="index.html" class="back-link">← Back to Home</a>
     <h1>Alleppey Houseboat Enquiry</h1>
   </header>
-
   <img class="hero-img"
        src="https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=1600&auto=format&fit=crop&q=90"
        alt="Traditional Kerala houseboat cruising through blue-green backwaters"
        onload="this.classList.add('loaded')">
-
   <div class="content-box">
     <h2>Private Alleppey Houseboat Experiences • 2026</h2>
     <p>Exclusive kettuvallam cruises with private crew, authentic Kerala cuisine & breathtaking backwater views.</p>
-
     <h3>1. Day Cruise • 6–7 Hours</h3>
     <div class="itinerary">
       <strong>₹12,000 total • Private boat</strong><br><br>
@@ -282,7 +246,6 @@
         <li>~5:00–5:30 PM finish</li>
       </ul>
     </div>
-
     <h3>2. 1 Night Deluxe • ~21–22 Hours</h3>
     <div class="itinerary">
       <strong>₹15,000 total • Private boat</strong><br><br>
@@ -294,7 +257,6 @@
         <li>Morning cruise + breakfast • ~9:30 AM checkout</li>
       </ul>
     </div>
-
     <h3>3. 2 Nights Premium • ~45–48 Hours</h3>
     <div class="itinerary">
       <strong>₹32,000 total • Private boat</strong><br><br>
@@ -305,19 +267,15 @@
         <li>Day 3: Morning cruise + breakfast • ~9:00 AM checkout</li>
       </ul>
     </div>
-
     <div class="contact-info">
       <p>Call or WhatsApp us directly: <a href="tel:+919876543210">+91 98765 43210</a></p>
       <p>Email: <a href="mailto:booking@mannakuzhiltours.com">booking@mannakuzhiltours.com</a></p>
     </div>
-
     <h2>Enquiry Form</h2>
-
     <div class="success-message" id="successMessage">
       Thank you! Your enquiry has been sent successfully. We will contact you shortly via phone or WhatsApp on +91 98765 43210 or email.
     </div>
-
-    <form id="enquiryForm" action="https://formspree.io/f/your-form-id" method="POST">
+    <form id="enquiryForm">
       <label for="package">Interested Package</label>
       <select id="package" name="package" required>
         <option value="">Select package…</option>
@@ -325,139 +283,169 @@
         <option value="1 Night Deluxe – ₹15,000">1 Night Deluxe – ₹15,000</option>
         <option value="2 Nights Premium – ₹32,000">2 Nights Premium – ₹32,000</option>
       </select>
-
       <label for="totalPeople">Number of Travellers</label>
       <input type="number" id="totalPeople" name="totalPeople" min="1" max="12" value="2" required/>
-
       <div class="passenger-section">
         <h3>Passenger Details (optional but helpful)</h3>
         <div id="passengersContainer" class="passenger-grid"></div>
       </div>
-
       <label for="name">Your Name *</label>
       <input type="text" id="name" name="name" required placeholder="Full name"/>
-
       <label for="phone">Phone Number (WhatsApp preferred) *</label>
       <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210"/>
-
       <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" placeholder="booking@mannakuzhiltours.com (optional)"/>
-
+      <input type="email" id="email" name="email" placeholder="yourname@example.com (optional)"/>
       <label for="dates">Preferred Dates & Special Requests</label>
       <textarea id="dates" name="dates" rows="4" placeholder="Travel dates, dietary preferences, pickup location, children info, etc."></textarea>
-
       <div class="total-price" id="totalPrice">Indicative Price: ₹0 (private boat)</div>
-
       <button type="submit" id="enquiryBtn" class="enquiry-btn">
         Submit Enquiry
       </button>
     </form>
-
     <p class="note">
       Prices are indicative per boat (excl. 5% GST) • We will reply with availability, exact quote & payment link within 24 hours<br>
-      Direct contact: <strong><a href="tel:+919876543210">+91 98765 43210</a> (Call / WhatsApp)</strong> • 
+      Direct contact: <strong><a href="tel:+919876543210">+91 98765 43210</a> (Call / WhatsApp)</strong> •
       <strong><a href="mailto:booking@mannakuzhiltours.com">booking@mannakuzhiltours.com</a></strong><br>
       Routes weather dependent
     </p>
   </div>
 </div>
 
-<script>
-const MAX_AGE = 122;
+<!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-const packageSelect = document.getElementById('package');
-const totalPeopleInput = document.getElementById('totalPeople');
-const passengersContainer = document.getElementById('passengersContainer');
-const totalDisplay = document.getElementById('totalPrice');
-const form = document.getElementById('enquiryForm');
-const successMsg = document.getElementById('successMessage');
-const enquiryBtn = document.getElementById('enquiryBtn');
+<script type="text/javascript">
+  (function(){
+    emailjs.init({
+      publicKey: "L50sUoOjIR8z3kVMu"   // Your Public Key
+    });
+  })();
 
-const prices = {
-  "Day Cruise – ₹12,000": 12000,
-  "1 Night Deluxe – ₹15,000": 15000,
-  "2 Nights Premium – ₹32,000": 32000
-};
+  const MAX_AGE = 122;
+  const packageSelect = document.getElementById('package');
+  const totalPeopleInput = document.getElementById('totalPeople');
+  const passengersContainer = document.getElementById('passengersContainer');
+  const totalDisplay = document.getElementById('totalPrice');
+  const form = document.getElementById('enquiryForm');
+  const successMsg = document.getElementById('successMessage');
+  const enquiryBtn = document.getElementById('enquiryBtn');
 
-function updatePassengers() {
-  const count = Math.max(1, parseInt(totalPeopleInput.value) || 1);
-  passengersContainer.innerHTML = '';
+  const prices = {
+    "Day Cruise – ₹12,000": 12000,
+    "1 Night Deluxe – ₹15,000": 15000,
+    "2 Nights Premium – ₹32,000": 32000
+  };
 
-  for (let i = 1; i <= count; i++) {
-    const div = document.createElement('div');
-    div.innerHTML = `
-      <strong>Passenger ${i}</strong>
-      <input type="text" placeholder="Full Name" name="p${i}_name">
-      <div style="position:relative;">
-        <input type="number" placeholder="Age" min="1" max="${MAX_AGE}" 
-               class="age-input" name="p${i}_age">
-        <span class="error-message">Age: 1 – ${MAX_AGE} years</span>
-      </div>
-      <select name="p${i}_gender">
-        <option value="">Gender</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Transgender">Transgender</option>
-      </select>
-    `;
-    passengersContainer.appendChild(div);
+  function updatePassengers() {
+    const count = Math.max(1, parseInt(totalPeopleInput.value) || 1);
+    passengersContainer.innerHTML = '';
+    for (let i = 1; i <= count; i++) {
+      const div = document.createElement('div');
+      div.innerHTML = `
+        <strong>Passenger ${i}</strong>
+        <input type="text" placeholder="Full Name" name="p${i}_name">
+        <div style="position:relative;">
+          <input type="number" placeholder="Age" min="1" max="${MAX_AGE}"
+                 class="age-input" name="p${i}_age">
+          <span class="error-message">Age: 1 – ${MAX_AGE} years</span>
+        </div>
+        <select name="p${i}_gender">
+          <option value="">Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Transgender">Transgender</option>
+        </select>
+      `;
+      passengersContainer.appendChild(div);
+    }
+
+    document.querySelectorAll('.age-input').forEach(el => {
+      el.addEventListener('input', function() {
+        const v = parseInt(this.value);
+        const err = this.nextElementSibling;
+        if (isNaN(v) || v < 1 || v > MAX_AGE) {
+          this.classList.add('error');
+          err.style.display = 'block';
+        } else {
+          this.classList.remove('error');
+          err.style.display = 'none';
+        }
+      });
+    });
+
+    updatePrice();
   }
 
-  document.querySelectorAll('.age-input').forEach(el => {
-    el.addEventListener('input', function() {
-      const v = parseInt(this.value);
-      const err = this.nextElementSibling;
-      if (isNaN(v) || v < 1 || v > MAX_AGE) {
-        this.classList.add('error');
-        err.style.display = 'block';
-      } else {
-        this.classList.remove('error');
-        err.style.display = 'none';
+  function updatePrice() {
+    const selected = packageSelect.value;
+    if (selected && prices[selected]) {
+      totalDisplay.textContent = `Indicative Price: ₹${prices[selected].toLocaleString()} (private boat)`;
+    } else {
+      totalDisplay.textContent = "Indicative Price: ₹0 (private boat)";
+    }
+  }
+
+  packageSelect.onchange = updatePrice;
+  totalPeopleInput.oninput = updatePassengers;
+
+  // EmailJS Form Submission
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    enquiryBtn.disabled = true;
+    enquiryBtn.textContent = "Sending...";
+
+    const formData = {
+      name: document.getElementById('name').value || 'Guest',
+      phone: document.getElementById('phone').value,
+      email: document.getElementById('email').value || 'Not provided',
+      package: document.getElementById('package').value || 'Not selected',
+      totalPeople: document.getElementById('totalPeople').value,
+      dates: document.getElementById('dates').value || 'No details',
+      date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+    };
+
+    // Collect optional passenger details
+    document.querySelectorAll('#passengersContainer > div').forEach((div, index) => {
+      const name = div.querySelector(`input[name="p${index+1}_name"]`)?.value || '';
+      const age = div.querySelector(`input[name="p${index+1}_age"]`)?.value || '';
+      const gender = div.querySelector(`select[name="p${index+1}_gender"]`)?.value || '';
+      if (name || age || gender) {
+        formData[`Passenger ${index+1}`] = `${name} (Age: ${age}, Gender: ${gender})`;
       }
+    });
+
+    emailjs.send(
+      'service_34xnret',              // ← Your Service ID
+      'template_x842qt7',             // ← Replace with your real Template ID !!!
+      formData
+    )
+    .then(function(response) {
+      successMsg.style.display = 'block';
+      form.style.display = 'none';
+      window.scrollTo({ top: successMsg.offsetTop - 100, behavior: 'smooth' });
+      enquiryBtn.disabled = false;
+      enquiryBtn.textContent = "Submit Enquiry";
+    }, function(error) {
+      alert('Failed to send enquiry. Please try again or email us directly at booking@mannakuzhiltours.com');
+      console.log('EmailJS error:', error);
+      enquiryBtn.disabled = false;
+      enquiryBtn.textContent = "Submit Enquiry";
     });
   });
 
+  // Scroll reveal animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.content-box').forEach(box => observer.observe(box));
+
+  updatePassengers();
   updatePrice();
-}
-
-function updatePrice() {
-  const selected = packageSelect.value;
-  if (selected && prices[selected]) {
-    totalDisplay.textContent = `Indicative Price: ₹${prices[selected].toLocaleString()} (private boat)`;
-  } else {
-    totalDisplay.textContent = "Indicative Price: ₹0 (private boat)";
-  }
-}
-
-packageSelect.onchange = updatePrice;
-totalPeopleInput.oninput = updatePassengers;
-
-form.addEventListener('submit', function(e) {
-  enquiryBtn.disabled = true;
-  enquiryBtn.textContent = "Sending...";
-
-  // Actual submission handled by Formspree
-  // Simulated success message (remove timeout in production if not needed)
-  setTimeout(() => {
-    successMsg.style.display = 'block';
-    form.style.display = 'none';
-    window.scrollTo(0, successMsg.offsetTop - 100);
-  }, 1000);
-});
-
-updatePassengers();
-updatePrice();
-
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.content-box').forEach(box => observer.observe(box));
 </script>
 </body>
 </html>
