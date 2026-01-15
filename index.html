@@ -359,6 +359,27 @@
         gap: 24px;
       }
     }
+    .service-image {
+  width: 100%;
+  height: 200px; /* Fixed height for uniformity */
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  border: 4px solid #a5d6a7;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Perfect fit – crops intelligently without distortion */
+  object-position: center;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.service-card:hover .service-image img {
+  transform: scale(1.1);
+}
   </style>
 </head>
 <body class="page-transition">
@@ -454,32 +475,39 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section-box reveal">
-      <h2>✨ Our Services</h2>
-      <div class="services-grid">
-        <div class="service-card">
-           <img src="logo-square.png" alt="Guided Tours" />
-          <h3>🧭 Guided Tours</h3>
-          <p>Experience Kerala's rich culture, history, and nature with our expert local guides.</p>
-        </div>
-        <div class="service-card">
-           <img src="7876122[1].jpg" alt="Ayurveda" />
-          <h3>🎯 Custom Itineraries</h3>
-          <p>Tailor-made Kerala tour plans to match your interests, dates and budget.</p>
-        </div>
-        <div class="service-card">
-           <img src="3d-car-with-minimal-background.jpg" alt="Ayurveda" />
-          <h3>🚗 Transportation</h3>
-          <p>Comfortable, well-maintained vehicles with professional drivers for smooth travel.</p>
-        </div>
-        <div class="service-card">
-           <img src="https://thumbs.dreamstime.com/b/high-resolution-image-traditional-southern-indian-style-vintage-house-rural-kerala-glimpse-architectural-heritage-385189513.jpg" alt="Ayurveda" />
-          <h3>🏨 Accommodation</h3>
-          <p>Cozy homestays, resorts and hotels from budget to premium range.</p>
-        </div>
+<section id="services" class="section-box reveal">
+  <h2>✨ Our Services</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-image">
+        <img src="logo-square.png" alt="Expert Guided Tours in Kerala" />
       </div>
-    </section>
-
+      <h3>🧭 Guided Tours</h3>
+      <p>Experience Kerala's rich culture, history, and nature with our expert local guides.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-image">
+        <img src="7876122[1].jpg" alt="Customized Kerala Tour Itineraries" />
+      </div>
+      <h3>🎯 Custom Itineraries</h3>
+      <p>Tailor-made Kerala tour plans to match your interests, dates and budget.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-image">
+        <img src="3d-car-with-minimal-background.jpg" alt="Comfortable Transportation in Kerala" />
+      </div>
+      <h3>🚗 Transportation</h3>
+      <p>Comfortable, well-maintained vehicles with professional drivers for smooth travel.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-image">
+        <img src="https://thumbs.dreamstime.com/b/high-resolution-image-traditional-southern-indian-style-vintage-house-rural-kerala-glimpse-architectural-heritage-385189513.jpg" alt="Best Accommodations in Kerala – Homestays & Resorts" />
+      </div>
+      <h3>🏨 Accommodation</h3>
+      <p>Cozy homestays, resorts and hotels from budget to premium range.</p>
+    </div>
+  </div>
+</section>
     <!-- About Section -->
     <section id="about" class="section-box reveal">
       <h2>❤️ About Us</h2>
