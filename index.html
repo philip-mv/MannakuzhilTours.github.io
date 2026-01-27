@@ -25,6 +25,7 @@
       --green-dark: #145214;
       --green-light: #d0e8d7;
       --card-bg: rgba(240, 251, 240, 0.98);
+      --accent-gold: #ffc107;
     }
 
     * {
@@ -38,6 +39,7 @@
       background: linear-gradient(135deg, #70c1ff 0%, #2e7d32 50%, #145214 100%);
       color: #1a3d27;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     .page-transition {
@@ -55,7 +57,7 @@
     .carousel {
       position: relative;
       width: 100%;
-      height: clamp(300px, 50vh, 500px);
+      height: clamp(320px, 55vh, 520px);
       overflow: hidden;
       margin-bottom: 36px;
       border-radius: 24px;
@@ -84,21 +86,72 @@
     .carousel-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4));
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.4));
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       color: white;
       padding: 20px;
+      flex-direction: column;
+      gap: 12px;
     }
 
     .carousel-title {
-      font-size: clamp(2rem, 6vw, 4rem);
+      font-size: clamp(2rem, 6vw, 3.6rem);
       font-weight: 900;
       text-shadow: 3px 3px 12px rgba(0,0,0,0.8);
       max-width: 90%;
       line-height: 1.2;
+      margin: 0;
+    }
+
+    .carousel-subtitle {
+      max-width: 720px;
+      font-size: clamp(0.95rem, 2.4vw, 1.1rem);
+      line-height: 1.6;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      margin: 0;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .btn-hero,
+    .btn-hero-outline {
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.98rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+      text-decoration: none;
+      color: white;
+    }
+
+    .btn-hero {
+      background: linear-gradient(135deg, var(--accent-gold), #ff8f00);
+    }
+
+    .btn-hero-outline {
+      background: transparent;
+      border: 2px solid rgba(255,255,255,0.8);
+    }
+
+    .btn-hero:hover,
+    .btn-hero-outline:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.45);
     }
 
     .carousel-controls {
@@ -183,6 +236,8 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       border: 2px solid rgba(255,255,255,0.3);
       transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
     }
 
     .header-container.scrolled .logo {
@@ -195,10 +250,24 @@
       transform: scale(1.1) rotate(5deg);
     }
 
+    .header-text-block {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
     header .title {
       font-size: clamp(1.4rem, 3.5vw, 1.7rem);
       font-weight: 800;
       letter-spacing: 1.2px;
+      margin: 0;
+    }
+
+    .header-tagline {
+      font-size: clamp(0.82rem, 2.4vw, 0.9rem);
+      margin-top: 2px;
+      opacity: 0.9;
     }
 
     .header-container.scrolled .title {
@@ -254,6 +323,18 @@
       border: 1px solid rgba(255,255,255,0.3);
     }
 
+    .section-box h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      margin-top: 4px;
+      margin-bottom: 18px;
+      color: #446851;
+      font-size: 0.95rem;
+    }
+
     .reveal {
       opacity: 0;
       transform: translateY(40px) scale(0.95);
@@ -284,6 +365,7 @@
       flex: 1 1 clamp(260px, 45vw, 320px);
       min-height: 420px;
       cursor: pointer;
+      border: 1px solid rgba(165,214,167,0.4);
     }
 
     .place-card:hover {
@@ -320,13 +402,24 @@
       flex-grow: 1;
     }
 
+    .package-meta {
+      font-size: 0.9rem;
+      color: #355540;
+      margin-bottom: 10px;
+    }
+
+    .price-tag {
+      font-weight: 800;
+      color: var(--green-dark);
+    }
+
     .btn-primary {
       background: linear-gradient(135deg, var(--green-main), var(--green-dark));
       color: white;
       border: none;
       border-radius: 50px;
       padding: 16px 32px;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 800;
       cursor: pointer;
       transition: all 0.3s;
@@ -340,6 +433,230 @@
       box-shadow: 0 12px 32px rgba(46,125,50,0.5);
     }
 
+    /* Services cards */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: clamp(18px, 3vw, 24px);
+      justify-content: center;
+    }
+
+    .service-card {
+      background: linear-gradient(135deg, var(--card-bg), rgba(208,232,215,0.9));
+      border-radius: 20px;
+      padding: clamp(20px, 3vw, 28px);
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0,90,0,0.15);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border: 1px solid rgba(165,214,167,0.4);
+      min-height: 380px;
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 20px 50px rgba(0,90,0,0.3);
+    }
+
+    .service-image {
+      width: 180px;
+      height: 180px;
+      overflow: hidden;
+      border-radius: 16px;
+      margin: 0 auto 16px;
+      border: 4px solid #a5d6a7;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    .service-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover .service-image img {
+      transform: scale(1.12);
+    }
+
+    .service-card h3 {
+      margin: 12px 0 8px;
+      color: #1a3d27;
+      font-size: clamp(1.15rem, 3vw, 1.4rem);
+      font-weight: 800;
+    }
+
+    .service-card p {
+      color: #2e4d30;
+      font-size: clamp(0.95rem, 2.5vw, 1rem);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    /* Why Us strip */
+    .why-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .why-item {
+      background: rgba(240, 251, 240, 0.95);
+      border-radius: 16px;
+      padding: 14px 16px;
+      border: 1px dashed rgba(76,175,80,0.5);
+      font-size: 0.9rem;
+    }
+
+    .why-item-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .testimonial-card {
+      background: rgba(240, 251, 240, 0.98);
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(165,214,167,0.7);
+      box-shadow: 0 6px 20px rgba(0,60,0,0.15);
+      font-size: 0.95rem;
+    }
+
+    .testimonial-name {
+      margin-top: 10px;
+      font-weight: 700;
+      color: #1a3d27;
+    }
+
+    /* Contact / enquiry */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .contact-info p {
+      margin: 6px 0;
+    }
+
+    .contact-link {
+      color: var(--green-dark);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+
+    .enquiry-box {
+      background: rgba(240, 251, 240, 0.98);
+      border-radius: 18px;
+      padding: 18px 18px 20px;
+      border: 1px solid rgba(165,214,167,0.7);
+      box-shadow: 0 6px 18px rgba(0,60,0,0.14);
+    }
+
+    .enquiry-box h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+
+    .enquiry-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .enquiry-field {
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.9rem;
+    }
+
+    .enquiry-field input,
+    .enquiry-field textarea,
+    .enquiry-field select {
+      border-radius: 999px;
+      border: 1px solid #c5e1a5;
+      padding: 8px 12px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .enquiry-field textarea {
+      border-radius: 14px;
+      min-height: 70px;
+      resize: vertical;
+    }
+
+    .enquiry-field input:focus,
+    .enquiry-field textarea:focus,
+    .enquiry-field select:focus {
+      border-color: var(--green-main);
+      box-shadow: 0 0 0 2px rgba(76,175,80,0.18);
+    }
+
+    .enquiry-submit {
+      margin-top: 6px;
+      width: 100%;
+      border-radius: 999px;
+      border: none;
+      padding: 10px 16px;
+      background: linear-gradient(135deg, var(--green-main), var(--green-dark));
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,60,0,0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .enquiry-submit:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(0,60,0,0.3);
+    }
+
+    /* Floating WhatsApp button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 18px;
+      right: 16px;
+      z-index: 1500;
+      background: #25D366;
+      color: #fff;
+      border-radius: 999px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+    }
+
     footer {
       background: linear-gradient(135deg, var(--green-dark), #1b5e20);
       color: #daf5d6;
@@ -349,78 +666,31 @@
       margin-top: 40px;
     }
 
+    @media (max-width: 900px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 768px) {
       main {
         padding: 20px 12px;
         padding-top: 150px;
       }
+
       .places {
         flex-direction: column;
         gap: 24px;
       }
+
+      .hero-cta-group {
+        flex-direction: column;
+      }
+
+      .whatsapp-float span:last-child {
+        display: none; /* Keep only icon + WA text on very small screens */
+      }
     }
-  /* Service cards - match style of booking cards above */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: clamp(18px, 3vw, 24px);
-  justify-content: center;
-}
-
-.service-card {
-  background: linear-gradient(135deg, var(--card-bg), rgba(208,232,215,0.9));
-  border-radius: 20px;
-  padding: clamp(20px, 3vw, 28px);
-  text-align: center;
-  box-shadow: 0 8px 32px rgba(0,90,0,0.15);
-  display: flex;
-  flex-direction: column;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  border: 1px solid rgba(165,214,167,0.4);
-  min-height: 380px; /* Slightly shorter than booking cards */
-  cursor: pointer;
-}
-
-.service-card:hover {
-  transform: translateY(-12px) scale(1.03);
-  box-shadow: 0 20px 50px rgba(0,90,0,0.3);
-}
-
-.service-image {
-  width: 180px;
-  height: 180px;
-  overflow: hidden;
-  border-radius: 16px;
-  margin: 0 auto 16px;
-  border: 4px solid #a5d6a7;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-}
-
-.service-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.4s ease;
-}
-
-.service-card:hover .service-image img {
-  transform: scale(1.12);
-}
-
-.service-card h3 {
-  margin: 12px 0 8px;
-  color: #1a3d27;
-  font-size: clamp(1.15rem, 3vw, 1.4rem);
-  font-weight: 800;
-}
-
-.service-card p {
-  color: #2e4d30;
-  font-size: clamp(0.95rem, 2.5vw, 1rem);
-  line-height: 1.6;
-  flex-grow: 1;
-}
   </style>
 </head>
 <body class="page-transition">
@@ -429,7 +699,10 @@
   <div class="header-container" id="headerContainer">
     <header id="header">
       <img src="logo-square.png" alt="Mannakuzhil Tours Logo" class="logo">
-      <div class="title">Mannakuzhil Tours</div>
+      <div class="header-text-block">
+        <div class="title">Mannakuzhil Tours</div>
+        <div class="header-tagline">Family-run Kerala tour operator – backwaters, hills & beaches</div>
+      </div>
     </header>
     <nav id="nav">
       <a href="#home" class="active">Home</a>
@@ -440,14 +713,23 @@
     </nav>
   </div>
 
-  <main>
-    <!-- Carousel -->
+  <main id="home">
+    <!-- Carousel / Hero -->
     <div class="carousel" id="carousel">
       <div class="carousel-slides">
-        <!-- Your provided banner as first slide -->
+        <!-- Slide 1 -->
         <div class="carousel-slide active" style="background-image: url('https://www.myticketstoindia.com/front-end/uploads/2025/09/Gods-Own-Country-Through-Amazing-Images.webp');">
           <div class="carousel-overlay">
             <h1 class="carousel-title">Explore Kerala with Mannakuzhil Tours</h1>
+            <p class="carousel-subtitle">
+              Customized Kerala holidays across Munnar, Alleppey, Wayanad, Kovalam, and more – with local experts, cozy stays, and smooth transport from arrival to departure.
+            </p>
+            <div class="hero-cta-group">
+              <button class="btn-hero" onclick="scrollToSection('packages')">View tour packages</button>
+              <a class="btn-hero-outline" href="https://wa.me/917006860319?text=Hi%20Mannakuzhil%20Tours%2C%20I%27d%20like%20to%20plan%20a%20Kerala%20trip." target="_blank" rel="noopener">
+                💬 WhatsApp for quote
+              </a>
+            </div>
           </div>
         </div>
 
@@ -455,6 +737,9 @@
         <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=1600&auto=format&fit=crop&q=90')">
           <div class="carousel-overlay">
             <h1 class="carousel-title">Serene Kerala Backwaters & Houseboats</h1>
+            <p class="carousel-subtitle">
+              Glide through quiet canals, paddy fields, and village life on curated Alleppey houseboat experiences with home-style Kerala food.
+            </p>
           </div>
         </div>
 
@@ -462,6 +747,9 @@
         <div class="carousel-slide" style="background-image: url('https://cdn.pixabay.com/photo/2025/06/09/14/30/tea-plantation-9650105_1280.jpg');">
           <div class="carousel-overlay">
             <h1 class="carousel-title">Misty Munnar Tea Gardens & Hills</h1>
+            <p class="carousel-subtitle">
+              Wake up to cool mountain air, tea estates, waterfalls, and viewpoints designed for families, couples, and nature lovers.
+            </p>
           </div>
         </div>
 
@@ -469,6 +757,9 @@
         <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1586030138336-4a854c6ddb5f?w=1600&auto=format&fit=crop&q=90');">
           <div class="carousel-overlay">
             <h1 class="carousel-title">Golden Beaches of Kovalam</h1>
+            <p class="carousel-subtitle">
+              Relax at palm-lined beaches, sunsets, and seafront stays – with optional day trips to Trivandrum and nearby attractions.
+            </p>
           </div>
         </div>
       </div>
@@ -481,94 +772,213 @@
       </div>
     </div>
 
-    <!-- Packages Section (bottom grid / table) -->
+    <!-- Why travel with us -->
+    <section class="section-box reveal">
+      <h2>💚 Why travel with Mannakuzhil Tours</h2>
+      <p class="section-subtitle">Local expertise, personal care, and flexible planning for every type of traveler.</p>
+      <div class="why-strip">
+        <div class="why-item">
+          <div class="why-item-title">Local & family-run</div>
+          <div>Plan and support handled directly by a Kerala-based family team who know the routes, seasons, and genuine experiences.</div>
+        </div>
+        <div class="why-item">
+          <div class="why-item-title">Custom itineraries</div>
+          <div>Trips tailored for families, honeymooners, senior citizens, and groups with the right pace and activities.</div>
+        </div>
+        <div class="why-item">
+          <div class="why-item-title">End-to-end support</div>
+          <div>Airport/station pickup, hotels, houseboats, sightseeing and transport – arranged as a single, smooth plan.</div>
+        </div>
+        <div class="why-item">
+          <div class="why-item-title">Transparent pricing</div>
+          <div>Clear inclusions, no hidden charges, and easy communication by phone and WhatsApp.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Packages Section -->
     <section id="packages" class="section-box reveal">
       <h2>🏞️ Tour Packages</h2>
+      <p class="section-subtitle">Popular Kerala routes – can be customized for your travel dates, budget, and trip duration.</p>
       <div class="places">
         <div class="place-card">
           <img src="https://cdn.pixabay.com/photo/2025/06/09/14/30/tea-plantation-9650105_1280.jpg" alt="Munnar Hills" />
           <h3>🌿 Munnar</h3>
-          <p>Rolling hills covered with tea plantations and misty mountains perfect for nature lovers.</p>
-          <button class="btn-primary" onclick="goToPage('book-munnar.html')">Book Now</button>
+          <p>Rolling hills, tea plantations, viewpoints, waterfalls, and cool weather ideal for 2–3 night stays.</p>
+          <div class="package-meta">
+            Ideal for couples & families · 2–3 nights · <span class="price-tag">From ₹X,XXX per person*</span>
+          </div>
+          <button class="btn-primary" onclick="goToPage('book-munnar.html')">View / Book</button>
         </div>
 
         <div class="place-card">
           <img src="https://images.unsplash.com/photo-1677475455506-1e429162f44f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YWxsZXBwZXl8ZW58MHx8MHx8fDA%3D" alt="Alleppey Backwaters" />
-          <h3>🚤 Alleppey</h3>
-          <p>Famous for tranquil backwaters and houseboat cruises through serene lagoons.</p>
-          <button class="btn-primary" onclick="goToPage('book-alleppey.html')">Book Now</button>
+          <h3>🚤 Alleppey Houseboat</h3>
+          <p>Tranquil backwaters and houseboat stays with traditional food and peaceful village views.</p>
+          <div class="package-meta">
+            Ideal for families & honeymoon · 1–2 nights · <span class="price-tag">Private & sharing options</span>
+          </div>
+          <button class="btn-primary" onclick="goToPage('book-alleppey.html')">View / Book</button>
         </div>
 
         <div class="place-card">
           <img src="https://images.unsplash.com/photo-1586030138336-4a854c6ddb5f?q=80&w=1944&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kovalam Beach" />
           <h3>🏖️ Kovalam</h3>
-          <p>Beautiful palm-lined beaches with golden sands and vibrant local culture.</p>
-          <button class="btn-primary" onclick="goToPage('book-kovalam.html')">Book Now</button>
+          <p>Palm-fringed beaches, lighthouse views, and seaside stays; can be combined with Trivandrum sightseeing.</p>
+          <div class="package-meta">
+            Ideal for relaxation · 1–2 nights · <span class="price-tag">Beach + city combos</span>
+          </div>
+          <button class="btn-primary" onclick="goToPage('book-kovalam.html')">View / Book</button>
         </div>
 
         <div class="place-card">
           <img src="woman-3701713_1280.jpg" alt="Ayurveda" />
-          <h3>🦋 Ayurveda</h3>
-          <p>Authentic Ayurvedic treatments, yoga, detox & rejuvenation in Kerala’s serene surroundings.</p>
-          <button class="btn-primary" onclick="goToPage('book-ayurveda.html')">Book Now</button>
+          <h3>🦋 Ayurveda & Wellness</h3>
+          <p>Authentic Ayurvedic treatments, yoga, detox & rejuvenation programs in peaceful Kerala settings.</p>
+          <div class="package-meta">
+            Ideal for wellness seekers · 3–7+ nights · <span class="price-tag">Program-based pricing</span>
+          </div>
+          <button class="btn-primary" onclick="goToPage('book-ayurveda.html')">View / Book</button>
+        </div>
+      </div>
+      <p style="margin-top:12px;font-size:0.85rem;color:#4a6a54;">*Starting prices vary with season, hotel category, and number of travelers – contact us for a custom quote.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-box reveal">
+      <h2>✨ Our Services</h2>
+      <p class="section-subtitle">We can handle just one part of your trip or the entire journey end-to-end.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="logo-square.png" alt="Expert Guided Tours in Kerala" />
+          </div>
+          <h3>🧭 Guided Tours</h3>
+          <p>Experience Kerala's rich culture, history, and nature with our expert local guides at key destinations and viewpoints.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-image">
+            <img src="7876122[1].jpg" alt="Customized Kerala Tour Itineraries" />
+          </div>
+          <h3>🎯 Custom Itineraries</h3>
+          <p>Tailor-made Kerala tour plans to match your interests, dates, travel pace, and budget – from weekend getaways to long holidays.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-image">
+            <img src="3d-car-with-minimal-background.jpg" alt="Comfortable Transportation in Kerala" />
+          </div>
+          <h3>🚗 Transportation</h3>
+          <p>Comfortable, well-maintained vehicles with professional drivers for airport pickup, intercity travel, and local sightseeing.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/040/519/333/small/indian-kerala-traditional-house-vector.jpg" alt="Best Accommodations in Kerala – Homestays & Resorts" />
+          </div>
+          <h3>🏨 Accommodation</h3>
+          <p>Cozy homestays, boutique resorts, and hotels from budget to premium, carefully chosen for comfort and location.</p>
         </div>
       </div>
     </section>
 
-    <!-- Services Section -->
-<section id="services" class="section-box reveal">
-  <h2>✨ Our Services</h2>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-image">
-        <img src="logo-square.png" alt="Expert Guided Tours in Kerala" />
+    <!-- Testimonials Section -->
+    <section class="section-box reveal">
+      <h2>🌟 Guest experiences</h2>
+      <p class="section-subtitle">A few words from travelers who explored Kerala with us.</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          “We had a smooth 6-day trip covering Munnar and Alleppey. Hotels, driver, and houseboat were all well arranged. The team was available on call throughout.”
+          <div class="testimonial-name">— Family from Bengaluru</div>
+        </div>
+        <div class="testimonial-card">
+          “Perfect honeymoon plan with enough time to relax. They suggested good view rooms and helped us customize the itinerary without any hassle.”
+          <div class="testimonial-name">— Couple from Mumbai</div>
+        </div>
+        <div class="testimonial-card">
+          “Traveling with parents, we needed a relaxed schedule. Mannakuzhil Tours adjusted timings, ensured comfortable stays, and made the trip stress-free.”
+          <div class="testimonial-name">— Group from Chennai</div>
+        </div>
       </div>
-      <h3>🧭 Guided Tours</h3>
-      <p>Experience Kerala's rich culture, history, and nature with our expert local guides.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-image">
-        <img src="7876122[1].jpg" alt="Customized Kerala Tour Itineraries" />
-      </div>
-      <h3>🎯 Custom Itineraries</h3>
-      <p>Tailor-made Kerala tour plans to match your interests, dates and budget.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-image">
-        <img src="3d-car-with-minimal-background.jpg" alt="Comfortable Transportation in Kerala" />
-      </div>
-      <h3>🚗 Transportation</h3>
-      <p>Comfortable, well-maintained vehicles with professional drivers for smooth travel.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-image">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/040/519/333/small/indian-kerala-traditional-house-vector.jpg" alt="Best Accommodations in Kerala – Homestays & Resorts" />
-      </div>
-      <h3>🏨 Accommodation</h3>
-      <p>Cozy homestays, resorts and hotels from budget to premium range.</p>
-    </div>
-  </div>
-</section>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="section-box reveal">
       <h2>❤️ About Us</h2>
-      <p>We are a family-run tour service based in Kerala, dedicated to providing personalized and memorable experiences. With strong local connections and on-ground expertise, we help you discover both famous sights and hidden gems of God's Own Country.</p>
+      <p>
+        We are a family-run tour service based in Mannakuzhil, Kerala, dedicated to providing personalized and memorable experiences across God's Own Country.
+      </p>
+      <p>
+        Our local connections, on-ground knowledge, and hands-on trip coordination help you enjoy both the famous highlights and quiet hidden spots at a relaxed pace.
+      </p>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact + Quick Enquiry Section -->
     <section id="contact" class="section-box reveal">
-      <h2>📞 Contact Us</h2>
-      <div class="contact-info">
-        <p><a href="mailto:booking@mannakuzhiltours.com" class="contact-link">📧 booking@mannakuzhiltours.com</a></p>
-        <p><strong>📞 +91 70068 60319</strong></p>
-        <p><strong>📍 Mannakuzhil, Kerala, India</strong></p>
+      <h2>📞 Contact & Quick Enquiry</h2>
+      <div class="contact-layout">
+        <div>
+          <p class="section-subtitle">Share your dates and rough plan – we’ll reply with a custom itinerary and pricing.</p>
+          <div class="contact-info">
+            <p><a href="mailto:booking@mannakuzhiltours.com" class="contact-link">📧 booking@mannakuzhiltours.com</a></p>
+            <p><strong>📞 +91 70068 60319</strong></p>
+            <p><strong>📍 Mannakuzhil, Kerala, India</strong></p>
+          </div>
+        </div>
+        <div>
+          <div class="enquiry-box">
+            <h3>Plan your Kerala trip</h3>
+            <form onsubmit="handleEnquirySubmit(event)">
+              <div class="enquiry-row">
+                <div class="enquiry-field">
+                  <label for="enqName">Name</label>
+                  <input id="enqName" type="text" required placeholder="Your name" />
+                </div>
+                <div class="enquiry-field">
+                  <label for="enqPhone">Phone / WhatsApp</label>
+                  <input id="enqPhone" type="tel" required placeholder="+91…" />
+                </div>
+              </div>
+              <div class="enquiry-row">
+                <div class="enquiry-field">
+                  <label for="enqDates">Travel dates</label>
+                  <input id="enqDates" type="text" placeholder="Eg. 10–15 March 2026" />
+                </div>
+                <div class="enquiry-field">
+                  <label for="enqPeople">No. of people</label>
+                  <input id="enqPeople" type="number" min="1" placeholder="Eg. 4" />
+                </div>
+              </div>
+              <div class="enquiry-field">
+                <label for="enqPlaces">Places you want to visit</label>
+                <input id="enqPlaces" type="text" placeholder="Eg. Munnar, Alleppey, Kovalam" />
+              </div>
+              <div class="enquiry-field">
+                <label for="enqMessage">Anything else we should know?</label>
+                <textarea id="enqMessage" placeholder="Share your preferences, special requirements, or budget range."></textarea>
+              </div>
+              <button type="submit" class="enquiry-submit">Send via WhatsApp</button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>© 2026 Mannakuzhil Tours. All rights reserved.</footer>
 
+  <!-- Floating WhatsApp -->
+  <a class="whatsapp-float" href="https://wa.me/917006860319?text=Hi%20Mannakuzhil%20Tours%2C%20I%27d%20like%20to%20plan%20a%20Kerala%20trip." target="_blank" rel="noopener">
+    <span>💬</span><span>WhatsApp</span><span>Now</span>
+  </a>
+
   <script>
+    // Smooth scroll helper
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
     // Carousel Logic
     const slides = document.querySelectorAll('.carousel-slide');
     const dots = document.querySelectorAll('.carousel-dot');
@@ -637,6 +1047,28 @@
     }
     window.addEventListener('scroll', updateActiveNav);
     updateActiveNav();
+
+    // Enquiry form -> WhatsApp
+    function handleEnquirySubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('enqName').value.trim();
+      const phone = document.getElementById('enqPhone').value.trim();
+      const dates = document.getElementById('enqDates').value.trim();
+      const people = document.getElementById('enqPeople').value.trim();
+      const places = document.getElementById('enqPlaces').value.trim();
+      const message = document.getElementById('enqMessage').value.trim();
+
+      let text = "Hi Mannakuzhil Tours,%0A%0AI%27d like to plan a Kerala trip.%0A%0A";
+      if (name) text += "Name: " + encodeURIComponent(name) + "%0A";
+      if (phone) text += "Phone/WhatsApp: " + encodeURIComponent(phone) + "%0A";
+      if (dates) text += "Travel dates: " + encodeURIComponent(dates) + "%0A";
+      if (people) text += "Number of people: " + encodeURIComponent(people) + "%0A";
+      if (places) text += "Places: " + encodeURIComponent(places) + "%0A";
+      if (message) text += "%0AExtra details: " + encodeURIComponent(message) + "%0A";
+
+      const waUrl = "https://wa.me/917006860319?text=" + text;
+      window.open(waUrl, "_blank");
+    }
   </script>
 </body>
 </html>
