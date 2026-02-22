@@ -13,8 +13,6 @@
   <link rel="icon" type="image/png" sizes="32x32" href="logo-square.png">
   <link rel="icon" type="image/png" sizes="16x16" href="logo-square.png">
   <link rel="shortcut icon" href="logo-square.png">
-  
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
   <style>
     :root {
@@ -68,33 +66,131 @@
     .reveal { opacity: 0; transform: translateY(40px) scale(0.95); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
     .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
     
-    /* --- PROFESSIONAL REALISTIC MAP STYLES --- */
+    /* --- NEW PROFESSIONAL MAP STYLES --- */
     .tours-layout { display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start; margin-top: 20px; }
     
-    .map-wrapper { 
-      flex: 1 1 400px; 
-      background: radial-gradient(circle at center, #ffffff 0%, var(--ocean-bg) 100%); 
-      border-radius: 20px; 
-      padding: 10px; 
-      border: 1px solid rgba(165,214,167,0.6); 
-      position: sticky; 
-      top: 180px; 
-      box-shadow: inset 0 0 40px rgba(0,120,150,0.1), 0 10px 30px rgba(0,50,0,0.1); 
-      height: 520px;
+    .map-container {
+      flex: 1 1 400px;
+      position: sticky;
+      top: 180px;
+      background: #f0fdf4;
+      border-radius: 24px;
+      padding: 20px;
+      border: 1px solid rgba(165,214,167,0.8);
+      box-shadow: inset 0 0 40px rgba(0,120,150,0.05), 0 10px 30px rgba(0,50,0,0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       overflow: hidden;
     }
-    
-    /* Ensure the Google Chart takes full space and looks clean */
-    #india-map { width: 100%; height: 100%; }
-    path { outline: none !important; cursor: pointer; }
 
+    .map-relative-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    /* Official Map Silhouette - Colored to match your brand */
+    .india-base-map {
+      width: 100%;
+      height: auto;
+      display: block;
+      /* CSS filter to turn the map into your brand green */
+      filter: invert(39%) sepia(87%) saturate(350%) hue-rotate(75deg) brightness(95%) contrast(85%) drop-shadow(0px 8px 12px rgba(0,60,0,0.2));
+      opacity: 0.85;
+    }
+
+    /* Interactive Pulsing Map Pins */
+    .map-pin {
+      position: absolute;
+      transform: translate(-50%, -100%);
+      cursor: pointer;
+      z-index: 10;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .map-pin svg {
+      width: 32px;
+      height: 32px;
+      fill: #d32f2f; /* Red Pin */
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
+      transition: fill 0.3s ease;
+    }
+
+    .pin-pulse {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 12px;
+      background: rgba(211, 47, 47, 0.6);
+      border-radius: 50%;
+      z-index: -1;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: translateX(-50%) scale(1); opacity: 1; }
+      100% { transform: translateX(-50%) scale(4); opacity: 0; }
+    }
+
+    .pin-label {
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--green-dark);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      pointer-events: none;
+    }
+    .pin-label::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 4px 4px 0;
+      border-style: solid;
+      border-color: var(--green-dark) transparent transparent transparent;
+    }
+
+    /* Hover and Active Pin Effects */
+    .map-pin:hover { transform: translate(-50%, -110%) scale(1.15); z-index: 20; }
+    .map-pin:hover svg { fill: var(--accent-gold); }
+    .map-pin:hover .pin-label { opacity: 1; visibility: visible; top: -30px; }
+    .map-pin:hover .pin-pulse { background: rgba(255, 193, 7, 0.6); }
+
+    .map-pin.active-pin { transform: translate(-50%, -110%) scale(1.2); z-index: 20; }
+    .map-pin.active-pin svg { fill: var(--accent-gold); }
+    .map-pin.active-pin .pin-label { opacity: 1; visibility: visible; top: -30px; background: var(--accent-gold); color: #000; }
+    .map-pin.active-pin .pin-label::after { border-color: var(--accent-gold) transparent transparent transparent; }
+    .map-pin.active-pin .pin-pulse { background: rgba(255, 193, 7, 0.6); animation: pulse 1.5s infinite; }
+
+    /* Exact Pin Coordinates for the Map Silhouette */
+    .pin-kashmir { top: 15%; left: 32%; }
+    .pin-rajasthan { top: 44%; left: 24%; }
+    .pin-goa { top: 72%; left: 26%; }
+    .pin-karnataka { top: 76%; left: 34%; }
+    .pin-kerala { top: 88%; left: 35%; }
+
+    /* Packages Display Layout */
     .packages-display { flex: 1.5 1 400px; min-height: 400px; }
     .state-package-group { display: none; animation: slideUpFade 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
     .state-package-group.active { display: block; }
     .empty-state-message { text-align: center; padding: 60px 20px; background: var(--card-bg); border-radius: 20px; border: 2px dashed rgba(46, 125, 50, 0.3); color: var(--green-dark); font-weight: 600; font-size: 1.1rem; }
     @keyframes slideUpFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* Cards & Form */
+    /* Cards & Contact Form */
     .places, .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(18px, 3vw, 24px); justify-content: center; }
     .place-card, .service-card { background: linear-gradient(135deg, var(--card-bg), rgba(208,232,215,0.9)); border-radius: 20px; padding: clamp(20px, 3vw, 28px); text-align: center; box-shadow: 0 8px 32px rgba(0,90,0,0.15); display: flex; flex-direction: column; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); border: 1px solid rgba(165,214,167,0.4); min-height: 420px; cursor: pointer; }
     .place-card:hover, .service-card:hover { transform: translateY(-12px) scale(1.03); box-shadow: 0 20px 50px rgba(0,90,0,0.3); }
@@ -140,7 +236,7 @@
 
     footer { background: linear-gradient(135deg, var(--green-dark), #1b5e20); color: #daf5d6; text-align: center; padding: 24px; font-size: clamp(0.95rem, 2.5vw, 1rem); margin-top: 40px; }
     
-    @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; gap: 30px; } .map-wrapper { position: static; height: 400px; } }
+    @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; gap: 30px; } .map-container { position: static; } }
     @media (max-width: 768px) { main { padding: 20px 12px; padding-top: 150px; } .tours-layout { flex-direction: column; } .form-row { grid-template-columns: 1fr; gap: 0;} }
   </style>
 </head>
@@ -206,18 +302,53 @@
 
     <section id="packages" class="section-box reveal">
       <h2>🗺️ Discover India by State</h2>
-      <p class="section-subtitle">Select a destination on the map to explore our specialized tour packages.</p>
+      <p class="section-subtitle">Select a destination pin on the map to explore our specialized tour packages.</p>
       
       <div class="tours-layout">
         
-        <div class="map-wrapper">
-          <div id="india-map"></div>
+        <div class="map-container">
+          <div class="map-relative-wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/India_political_map_2019_en.svg/800px-India_political_map_2019_en.svg.png" 
+                 alt="Map of India" 
+                 class="india-base-map" />
+
+            <div class="map-pin pin-kashmir" data-target="Kashmir">
+              <div class="pin-pulse"></div>
+              <div class="pin-label">Jammu & Kashmir</div>
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+
+            <div class="map-pin pin-rajasthan" data-target="Rajasthan">
+              <div class="pin-pulse"></div>
+              <div class="pin-label">Rajasthan</div>
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+
+            <div class="map-pin pin-goa" data-target="Goa">
+              <div class="pin-pulse"></div>
+              <div class="pin-label">Goa</div>
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+
+            <div class="map-pin pin-karnataka" data-target="Karnataka">
+              <div class="pin-pulse"></div>
+              <div class="pin-label">Karnataka</div>
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+
+            <div class="map-pin pin-kerala active-pin" data-target="Kerala">
+              <div class="pin-pulse"></div>
+              <div class="pin-label">Kerala</div>
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+
+          </div>
         </div>
 
         <div class="packages-display" id="packagesDisplay">
           
           <div id="default-message" class="state-package-group">
-            <div class="empty-state-message">👈 Click on a highlighted state on the map to view available tours!</div>
+            <div class="empty-state-message">👈 Click on a map pin to view available tours for that destination!</div>
           </div>
 
           <div id="packages-Kerala" class="state-package-group active">
@@ -343,7 +474,6 @@
       <p class="section-subtitle">Reach out with your travel dates and rough plan – we’ll reply with a custom itinerary and pricing within 24 hours.</p>
       
       <div class="contact-layout">
-        
         <div class="contact-info-box">
           <p><strong>📧 Email:</strong> <br> <a href="mailto:booking@mannakuzhiltours.com" class="contact-link">booking@mannakuzhiltours.com</a></p>
           <p><strong>📞 Phone / WhatsApp:</strong> <br> +91 70068 60319</p>
@@ -377,89 +507,60 @@
   <footer>© 2026 Mannakuzhil Tours. All rights reserved.</footer>
 
   <script>
-    // Reveal & Nav Scripts
     function scrollToSection(id) { const el = document.getElementById(id); if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }
+    
+    // Carousel Logic
     const slides = document.querySelectorAll('.carousel-slide'); const dots = document.querySelectorAll('.carousel-dot');
     let currentIndex = 0; const slideInterval = 6000;
     function showSlide(index) { slides.forEach((slide, i) => slide.classList.toggle('active', i === index)); dots.forEach((dot, i) => dot.classList.toggle('active', i === index)); currentIndex = index; }
     function nextSlide() { let next = (currentIndex + 1) % slides.length; showSlide(next); }
     let interval = setInterval(nextSlide, slideInterval);
     dots.forEach(dot => { dot.addEventListener('click', () => { clearInterval(interval); showSlide(parseInt(dot.dataset.index)); interval = setInterval(nextSlide, slideInterval); }); });
+    
+    // Header Scroll Logic
     const headerContainer = document.getElementById('headerContainer');
     window.addEventListener('scroll', () => { headerContainer.classList.toggle('scrolled', window.scrollY > 50); });
+    
+    // Scroll Reveal Logic
     const revealEls = document.querySelectorAll('.reveal');
     function handleReveal() { const triggerBottom = window.innerHeight * 0.8; revealEls.forEach((el, index) => { const rect = el.getBoundingClientRect(); if (rect.top < triggerBottom && !el.classList.contains('visible')) { setTimeout(() => el.classList.add('visible'), index * 100); } }); }
     window.addEventListener('scroll', handleReveal); window.addEventListener('load', handleReveal);
+    
+    // Page Transition
     function goToPage(url) { document.body.classList.add('fade-out'); setTimeout(() => window.location.href = url, 400); }
+    
+    // Active Nav Links Logic
     const navLinks = document.querySelectorAll('nav a'); const sections = document.querySelectorAll('section');
     function updateActiveNav() { let current = 'home'; sections.forEach(section => { const sectionTop = section.offsetTop - 200; if (window.scrollY >= sectionTop) current = section.id; }); navLinks.forEach(link => { link.classList.toggle('active', link.getAttribute('href') === `#${current}`); }); }
     window.addEventListener('scroll', updateActiveNav); updateActiveNav();
 
-    // --- GOOGLE GEOCHART SCRIPT ---
-    google.charts.load('current', { 'packages':['geochart'] });
-    google.charts.setOnLoadCallback(drawRegionsMap);
+    // Map Pin Interactivity Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const mapPins = document.querySelectorAll('.map-pin');
+      const packageGroups = document.querySelectorAll('.state-package-group');
+      const defaultMessage = document.getElementById('default-message');
 
-    function drawRegionsMap() {
-      // 1 = State with Packages, 0 = Coming Soon
-      var data = google.visualization.arrayToDataTable([
-        ['State', 'Status'],
-        ['Andhra Pradesh', 0], ['Arunachal Pradesh', 0], ['Assam', 0], ['Bihar', 0],
-        ['Chhattisgarh', 0], ['Goa', 1], ['Gujarat', 0], ['Haryana', 0],
-        ['Himachal Pradesh', 0], ['Jharkhand', 0], ['Karnataka', 1], ['Kerala', 1],
-        ['Madhya Pradesh', 0], ['Maharashtra', 0], ['Manipur', 0], ['Meghalaya', 0],
-        ['Mizoram', 0], ['Nagaland', 0], ['Odisha', 0], ['Punjab', 0],
-        ['Rajasthan', 1], ['Sikkim', 0], ['Tamil Nadu', 0], ['Telangana', 0],
-        ['Tripura', 0], ['Uttar Pradesh', 0], ['Uttarakhand', 0], ['West Bengal', 0],
-        ['Jammu and Kashmir', 1], ['Delhi', 0]
-      ]);
-
-      var options = {
-        region: 'IN',
-        displayMode: 'regions',
-        resolution: 'provinces',
-        backgroundColor: 'transparent',
-        datalessRegionColor: '#d0e8d7',
-        colorAxis: {colors: ['#a5d6a7', '#2e7d32']}, // 0 = Light Green, 1 = Dark Green
-        tooltip: {textStyle: {color: '#1a3d27'}, showColorCode: false},
-        keepAspectRatio: true,
-      };
-
-      var chart = new google.visualization.GeoChart(document.getElementById('india-map'));
-
-      google.visualization.events.addListener(chart, 'select', function() {
-        var selection = chart.getSelection();
-        if (selection.length > 0) {
-          var stateName = data.getValue(selection[0].row, 0);
+      mapPins.forEach(pin => {
+        pin.addEventListener('click', function() {
           
-          // Map Google's state names to your HTML IDs
-          var stateIdMap = {
-            'Jammu and Kashmir': 'Kashmir',
-            'Rajasthan': 'Rajasthan',
-            'Goa': 'Goa',
-            'Karnataka': 'Karnataka',
-            'Kerala': 'Kerala'
-          };
+          // Reset active states
+          mapPins.forEach(p => p.classList.remove('active-pin'));
+          this.classList.add('active-pin'); 
+          packageGroups.forEach(pg => pg.classList.remove('active'));
           
-          var targetId = stateIdMap[stateName];
+          // Show relevant package
+          const stateId = this.getAttribute('data-target');
+          const targetPackageGroup = document.getElementById('packages-' + stateId);
           
-          // Hide all current packages
-          document.querySelectorAll('.state-package-group').forEach(el => el.classList.remove('active'));
-          
-          // Show the correct package, or a "Coming Soon" message
-          if (targetId && document.getElementById('packages-' + targetId)) {
-             document.getElementById('packages-' + targetId).classList.add('active');
+          if (targetPackageGroup) {
+            targetPackageGroup.classList.add('active');
           } else {
-             const defMessage = document.getElementById('default-message');
-             defMessage.classList.add('active');
-             defMessage.innerHTML = `<div class="empty-state-message">Exciting packages for ${stateName} are launching soon! Contact us to customize a trip.</div>`;
+            defaultMessage.classList.add('active');
+            defaultMessage.innerHTML = `<div class="empty-state-message">Exciting packages for ${stateId} are launching soon! Contact us to customize a trip.</div>`;
           }
-        }
+        });
       });
-
-      // Redraw chart on window resize for responsiveness
-      window.addEventListener('resize', function() { chart.draw(data, options); });
-      chart.draw(data, options);
-    }
+    });
   </script>
 </body>
 </html>
