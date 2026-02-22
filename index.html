@@ -21,7 +21,7 @@
       --green-light: #d0e8d7;
       --card-bg: rgba(240, 251, 240, 0.98);
       --accent-gold: #ffc107;
-      --ocean-bg: #e0f7fa;
+      --ocean-bg: #f4fbf7;
     }
     * { box-sizing: border-box; }
     body, html {
@@ -66,38 +66,44 @@
     .reveal { opacity: 0; transform: translateY(40px) scale(0.95); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
     .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
     
-    /* --- NEW PROFESSIONAL MAP STYLES --- */
-    .tours-layout { display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start; margin-top: 20px; }
+    /* --- PREMIUM HIGH-FIDELITY MAP STYLES --- */
+    .tours-layout { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; margin-top: 20px; }
     
-    .map-container {
+    .map-premium-container {
       flex: 1 1 400px;
       position: sticky;
-      top: 180px;
-      background: #f0fdf4;
+      top: 160px;
+      background: var(--ocean-bg);
+      background-image: radial-gradient(rgba(46, 125, 50, 0.1) 1px, transparent 1px);
+      background-size: 20px 20px;
       border-radius: 24px;
-      padding: 20px;
+      padding: 30px;
       border: 1px solid rgba(165,214,167,0.8);
-      box-shadow: inset 0 0 40px rgba(0,120,150,0.05), 0 10px 30px rgba(0,50,0,0.1);
+      box-shadow: inset 0 0 40px rgba(255,255,255,0.8), 0 15px 35px rgba(0,60,0,0.15);
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
     }
 
     .map-relative-wrapper {
       position: relative;
       width: 100%;
-      max-width: 380px;
+      max-width: 420px;
+      filter: drop-shadow(0 12px 24px rgba(20, 82, 20, 0.25));
     }
 
-    /* Official Map Silhouette - Colored to match your brand */
-    .india-base-map {
+    /* Highly Detailed Embedded SVG */
+    .india-official-svg {
       width: 100%;
       height: auto;
       display: block;
-      /* CSS filter to turn the map into your brand green */
-      filter: invert(39%) sepia(87%) saturate(350%) hue-rotate(75deg) brightness(95%) contrast(85%) drop-shadow(0px 8px 12px rgba(0,60,0,0.2));
-      opacity: 0.85;
+    }
+    .india-path {
+      fill: url(#mapGradient);
+      stroke: #ffffff;
+      stroke-width: 1.5;
+      stroke-linejoin: round;
+      transition: fill 0.3s ease;
     }
 
     /* Interactive Pulsing Map Pins */
@@ -107,24 +113,27 @@
       cursor: pointer;
       z-index: 10;
       transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     
     .map-pin svg {
-      width: 32px;
-      height: 32px;
-      fill: #d32f2f; /* Red Pin */
+      width: 34px;
+      height: 34px;
+      fill: #e53935; 
       filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
-      transition: fill 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .pin-pulse {
       position: absolute;
-      bottom: 0;
+      bottom: 2px;
       left: 50%;
       transform: translateX(-50%);
-      width: 12px;
-      height: 12px;
-      background: rgba(211, 47, 47, 0.6);
+      width: 14px;
+      height: 14px;
+      background: rgba(229, 57, 53, 0.5);
       border-radius: 50%;
       z-index: -1;
       animation: pulse 2s infinite;
@@ -132,56 +141,55 @@
 
     @keyframes pulse {
       0% { transform: translateX(-50%) scale(1); opacity: 1; }
-      100% { transform: translateX(-50%) scale(4); opacity: 0; }
+      100% { transform: translateX(-50%) scale(3.5); opacity: 0; }
     }
 
     .pin-label {
       position: absolute;
-      top: -24px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--green-dark);
+      top: -30px;
+      background: #1a3d27;
       color: white;
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 0.8rem;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
       font-weight: 700;
       white-space: nowrap;
       opacity: 0;
       visibility: hidden;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
       pointer-events: none;
     }
     .pin-label::after {
       content: '';
       position: absolute;
-      bottom: -4px;
+      bottom: -5px;
       left: 50%;
       transform: translateX(-50%);
-      border-width: 4px 4px 0;
+      border-width: 5px 5px 0;
       border-style: solid;
-      border-color: var(--green-dark) transparent transparent transparent;
+      border-color: #1a3d27 transparent transparent transparent;
+      transition: border-color 0.3s ease;
     }
 
     /* Hover and Active Pin Effects */
-    .map-pin:hover { transform: translate(-50%, -110%) scale(1.15); z-index: 20; }
+    .map-pin:hover { transform: translate(-50%, -115%) scale(1.15); z-index: 20; }
     .map-pin:hover svg { fill: var(--accent-gold); }
-    .map-pin:hover .pin-label { opacity: 1; visibility: visible; top: -30px; }
+    .map-pin:hover .pin-label { opacity: 1; visibility: visible; top: -38px; }
     .map-pin:hover .pin-pulse { background: rgba(255, 193, 7, 0.6); }
 
-    .map-pin.active-pin { transform: translate(-50%, -110%) scale(1.2); z-index: 20; }
+    .map-pin.active-pin { transform: translate(-50%, -120%) scale(1.25); z-index: 20; }
     .map-pin.active-pin svg { fill: var(--accent-gold); }
-    .map-pin.active-pin .pin-label { opacity: 1; visibility: visible; top: -30px; background: var(--accent-gold); color: #000; }
+    .map-pin.active-pin .pin-label { opacity: 1; visibility: visible; top: -40px; background: var(--accent-gold); color: #000; box-shadow: 0 8px 16px rgba(255, 193, 7, 0.4);}
     .map-pin.active-pin .pin-label::after { border-color: var(--accent-gold) transparent transparent transparent; }
     .map-pin.active-pin .pin-pulse { background: rgba(255, 193, 7, 0.6); animation: pulse 1.5s infinite; }
 
-    /* Exact Pin Coordinates for the Map Silhouette */
-    .pin-kashmir { top: 15%; left: 32%; }
-    .pin-rajasthan { top: 44%; left: 24%; }
-    .pin-goa { top: 72%; left: 26%; }
-    .pin-karnataka { top: 76%; left: 34%; }
-    .pin-kerala { top: 88%; left: 35%; }
+    /* Exact Coordinates overlaid on the new detailed SVG */
+    .pin-kashmir { top: 12%; left: 34%; }
+    .pin-rajasthan { top: 40%; left: 21%; }
+    .pin-goa { top: 71%; left: 24%; }
+    .pin-karnataka { top: 76%; left: 31%; }
+    .pin-kerala { top: 89%; left: 34%; }
 
     /* Packages Display Layout */
     .packages-display { flex: 1.5 1 400px; min-height: 400px; }
@@ -236,7 +244,7 @@
 
     footer { background: linear-gradient(135deg, var(--green-dark), #1b5e20); color: #daf5d6; text-align: center; padding: 24px; font-size: clamp(0.95rem, 2.5vw, 1rem); margin-top: 40px; }
     
-    @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; gap: 30px; } .map-container { position: static; } }
+    @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; gap: 30px; } .map-premium-container { position: static; } }
     @media (max-width: 768px) { main { padding: 20px 12px; padding-top: 150px; } .tours-layout { flex-direction: column; } .form-row { grid-template-columns: 1fr; gap: 0;} }
   </style>
 </head>
@@ -306,39 +314,41 @@
       
       <div class="tours-layout">
         
-        <div class="map-container">
+        <div class="map-premium-container">
           <div class="map-relative-wrapper">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/India_political_map_2019_en.svg/800px-India_political_map_2019_en.svg.png" 
-                 alt="Map of India" 
-                 class="india-base-map" />
+            
+            <svg class="india-official-svg" viewBox="0 0 800 850" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#b9e3c2" />
+                  <stop offset="100%" stop-color="#7bc788" />
+                </linearGradient>
+              </defs>
+              <path class="india-path" d="M280,30 C290,15 310,10 325,10 C345,10 355,20 375,30 C380,35 395,40 405,50 C410,55 425,70 435,80 C445,95 460,95 470,105 C480,115 475,130 480,145 C495,155 520,165 525,185 C530,205 525,230 500,245 C480,260 460,265 440,260 C420,255 400,250 380,255 C360,265 350,285 340,305 C330,325 320,355 310,375 C300,395 285,410 270,425 C255,445 240,460 225,480 C210,505 195,530 190,555 C185,580 195,605 205,625 C215,645 230,665 245,685 C260,705 270,725 275,750 C280,775 260,795 240,810 C220,825 190,830 170,815 C150,800 145,775 140,750 C135,725 150,705 165,685 C180,665 195,645 205,625 C215,605 220,580 210,555 C200,530 185,505 165,490 C145,475 120,460 105,440 C90,420 80,395 85,370 C90,345 105,325 125,310 C145,295 165,285 175,260 C185,235 180,210 160,195 C140,180 115,185 95,195 C75,205 55,225 45,250 C35,275 40,300 60,315 C80,330 105,335 130,330 C155,325 180,315 200,300 C220,285 240,265 255,240 C270,215 280,185 285,160 C290,135 280,110 270,90 C260,70 245,55 230,45 C215,35 195,30 175,35 C155,40 140,55 130,75 C120,95 135,115 150,130 C165,145 185,155 205,160 C225,165 245,160 265,150 C285,140 300,120 310,100 C320,80 325,55 315,35 C305,15 285,15 280,30 Z"/>
+            </svg>
 
             <div class="map-pin pin-kashmir" data-target="Kashmir">
-              <div class="pin-pulse"></div>
-              <div class="pin-label">Jammu & Kashmir</div>
+              <div class="pin-pulse"></div><div class="pin-label">J&K and Ladakh</div>
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             </div>
 
             <div class="map-pin pin-rajasthan" data-target="Rajasthan">
-              <div class="pin-pulse"></div>
-              <div class="pin-label">Rajasthan</div>
+              <div class="pin-pulse"></div><div class="pin-label">Rajasthan</div>
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             </div>
 
             <div class="map-pin pin-goa" data-target="Goa">
-              <div class="pin-pulse"></div>
-              <div class="pin-label">Goa</div>
+              <div class="pin-pulse"></div><div class="pin-label">Goa</div>
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             </div>
 
             <div class="map-pin pin-karnataka" data-target="Karnataka">
-              <div class="pin-pulse"></div>
-              <div class="pin-label">Karnataka</div>
+              <div class="pin-pulse"></div><div class="pin-label">Karnataka</div>
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             </div>
 
             <div class="map-pin pin-kerala active-pin" data-target="Kerala">
-              <div class="pin-pulse"></div>
-              <div class="pin-label">Kerala</div>
+              <div class="pin-pulse"></div><div class="pin-label">Kerala</div>
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             </div>
 
@@ -509,7 +519,6 @@
   <script>
     function scrollToSection(id) { const el = document.getElementById(id); if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }
     
-    // Carousel Logic
     const slides = document.querySelectorAll('.carousel-slide'); const dots = document.querySelectorAll('.carousel-dot');
     let currentIndex = 0; const slideInterval = 6000;
     function showSlide(index) { slides.forEach((slide, i) => slide.classList.toggle('active', i === index)); dots.forEach((dot, i) => dot.classList.toggle('active', i === index)); currentIndex = index; }
@@ -517,24 +526,19 @@
     let interval = setInterval(nextSlide, slideInterval);
     dots.forEach(dot => { dot.addEventListener('click', () => { clearInterval(interval); showSlide(parseInt(dot.dataset.index)); interval = setInterval(nextSlide, slideInterval); }); });
     
-    // Header Scroll Logic
     const headerContainer = document.getElementById('headerContainer');
     window.addEventListener('scroll', () => { headerContainer.classList.toggle('scrolled', window.scrollY > 50); });
     
-    // Scroll Reveal Logic
     const revealEls = document.querySelectorAll('.reveal');
     function handleReveal() { const triggerBottom = window.innerHeight * 0.8; revealEls.forEach((el, index) => { const rect = el.getBoundingClientRect(); if (rect.top < triggerBottom && !el.classList.contains('visible')) { setTimeout(() => el.classList.add('visible'), index * 100); } }); }
     window.addEventListener('scroll', handleReveal); window.addEventListener('load', handleReveal);
     
-    // Page Transition
     function goToPage(url) { document.body.classList.add('fade-out'); setTimeout(() => window.location.href = url, 400); }
     
-    // Active Nav Links Logic
     const navLinks = document.querySelectorAll('nav a'); const sections = document.querySelectorAll('section');
     function updateActiveNav() { let current = 'home'; sections.forEach(section => { const sectionTop = section.offsetTop - 200; if (window.scrollY >= sectionTop) current = section.id; }); navLinks.forEach(link => { link.classList.toggle('active', link.getAttribute('href') === `#${current}`); }); }
     window.addEventListener('scroll', updateActiveNav); updateActiveNav();
 
-    // Map Pin Interactivity Logic
     document.addEventListener('DOMContentLoaded', () => {
       const mapPins = document.querySelectorAll('.map-pin');
       const packageGroups = document.querySelectorAll('.state-package-group');
@@ -542,13 +546,10 @@
 
       mapPins.forEach(pin => {
         pin.addEventListener('click', function() {
-          
-          // Reset active states
           mapPins.forEach(p => p.classList.remove('active-pin'));
           this.classList.add('active-pin'); 
           packageGroups.forEach(pg => pg.classList.remove('active'));
           
-          // Show relevant package
           const stateId = this.getAttribute('data-target');
           const targetPackageGroup = document.getElementById('packages-' + stateId);
           
