@@ -10,20 +10,11 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.mannakuzhiltours.com/">
   
-  <meta property="og:title" content="Mannakuzhil Tours – Best Kerala & India Tour Packages 2026">
-  <meta property="og:description" content="Experience God's Own Country and beyond with personalized tours. Family-run travel experts.">
-  <meta property="og:image" content="https://www.mannakuzhiltours.com/logo-square.png">
-  <meta property="og:image:alt" content="Mannakuzhil Tours">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.mannakuzhiltours.com">
-  <meta property="og:site_name" content="Mannakuzhil Tours">
-  
   <link rel="icon" type="image/png" sizes="32x32" href="logo-square.png">
   <link rel="icon" type="image/png" sizes="16x16" href="logo-square.png">
   <link rel="shortcut icon" href="logo-square.png">
   
-  <link rel="preconnect" href="https://images.unsplash.com">
-  <link rel="preconnect" href="https://cdn.pixabay.com">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
   <style>
     :root {
@@ -32,222 +23,125 @@
       --green-light: #d0e8d7;
       --card-bg: rgba(240, 251, 240, 0.98);
       --accent-gold: #ffc107;
-      --map-land: #e8f5e9;
-      --map-stroke: #a5d6a7;
       --ocean-bg: #e0f7fa;
     }
     * { box-sizing: border-box; }
     body, html {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #70c1ff 0%, #2e7d32 50%, #145214 100%);
-      color: #1a3d27;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
+      color: #1a3d27; overflow-x: hidden; scroll-behavior: smooth;
     }
-    .page-transition {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .page-transition.fade-out {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-    .carousel {
-      position: relative;
-      width: 100%;
-      height: clamp(320px, 55vh, 520px);
-      overflow: hidden;
-      margin-bottom: 36px;
-      border-radius: 24px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    }
+    .page-transition { opacity: 1; transform: translateY(0); transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .page-transition.fade-out { opacity: 0; transform: translateY(12px); }
+    
+    .carousel { position: relative; width: 100%; height: clamp(320px, 55vh, 520px); overflow: hidden; margin-bottom: 36px; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
     .carousel-slides { position: relative; width: 100%; height: 100%; }
-    .carousel-slide {
-      position: absolute; inset: 0; background-size: cover; background-position: center;
-      opacity: 0; transition: opacity 1.2s ease-in-out;
-    }
+    .carousel-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.2s ease-in-out; }
     .carousel-slide.active { opacity: 1; }
-    .carousel-overlay {
-      position: absolute; inset: 0; background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.4));
-      display: flex; align-items: center; justify-content: center; text-align: center;
-      color: white; padding: 20px; flex-direction: column; gap: 12px;
-    }
-    .carousel-title {
-      font-size: clamp(2rem, 6vw, 3.6rem); font-weight: 900; text-shadow: 3px 3px 12px rgba(0,0,0,0.8);
-      max-width: 90%; line-height: 1.2; margin: 0;
-    }
-    .carousel-subtitle {
-      max-width: 720px; font-size: clamp(0.95rem, 2.4vw, 1.1rem); line-height: 1.6;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.7); margin: 0;
-    }
-    .carousel-controls {
-      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
-      display: flex; gap: 12px; z-index: 10;
-    }
-    .carousel-dot {
-      width: 12px; height: 12px; background: rgba(255,255,255,0.5); border-radius: 50%;
-      cursor: pointer; transition: all 0.3s;
-    }
+    .carousel-overlay { position: absolute; inset: 0; background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.4)); display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 20px; flex-direction: column; gap: 12px; }
+    .carousel-title { font-size: clamp(2rem, 6vw, 3.6rem); font-weight: 900; text-shadow: 3px 3px 12px rgba(0,0,0,0.8); max-width: 90%; line-height: 1.2; margin: 0; }
+    .carousel-subtitle { max-width: 720px; font-size: clamp(0.95rem, 2.4vw, 1.1rem); line-height: 1.6; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); margin: 0; }
+    .carousel-controls { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; z-index: 10; }
+    .carousel-dot { width: 12px; height: 12px; background: rgba(255,255,255,0.5); border-radius: 50%; cursor: pointer; transition: all 0.3s; }
     .carousel-dot.active { background: white; transform: scale(1.3); }
     
-    .header-container {
-      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;
-    }
+    .header-container { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: all 0.3s ease; }
     .header-container.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
-    header {
-      background: linear-gradient(135deg, rgba(46,125,50,0.95), rgba(56,142,60,0.98));
-      color: #daf5d6; padding: 20px 20px; display: flex; align-items: center; gap: 14px;
-      backdrop-filter: blur(12px); transition: padding 0.3s ease; position: relative; overflow: hidden;
-    }
-    header::before {
-      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-      animation: headerShine 8s linear infinite;
-    }
-    @keyframes headerShine {
-      0% { transform: translate(-50%, -50%) rotate(0deg); }
-      100% { transform: translate(-50%, -50%) rotate(360deg); }
-    }
+    header { background: linear-gradient(135deg, rgba(46,125,50,0.95), rgba(56,142,60,0.98)); color: #daf5d6; padding: 20px 20px; display: flex; align-items: center; gap: 14px; backdrop-filter: blur(12px); transition: padding 0.3s ease; position: relative; overflow: hidden; }
+    header::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); animation: headerShine 8s linear infinite; }
+    @keyframes headerShine { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
     .header-container.scrolled header { padding: 14px 20px; }
-    header .logo {
-      width: 52px; height: 52px; border-radius: 12px; object-fit: contain;
-      background: rgba(255,255,255,0.95); box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      border: 2px solid rgba(255,255,255,0.3); transition: all 0.3s ease; position: relative; z-index: 1;
-    }
+    header .logo { width: 52px; height: 52px; border-radius: 12px; object-fit: contain; background: rgba(255,255,255,0.95); box-shadow: 0 4px 12px rgba(0,0,0,0.2); border: 2px solid rgba(255,255,255,0.3); transition: all 0.3s ease; position: relative; z-index: 1; }
     .header-container.scrolled .logo { width: 45px; height: 45px; transform: rotate(360deg); }
     header .logo:hover { transform: scale(1.1) rotate(5deg); }
     .header-text-block { position: relative; z-index: 1; display: flex; flex-direction: column; }
     header .title { font-size: clamp(1.4rem, 3.5vw, 1.7rem); font-weight: 800; letter-spacing: 1.2px; margin: 0; }
     .header-tagline { font-size: clamp(0.82rem, 2.4vw, 0.9rem); margin-top: 2px; opacity: 0.9; }
-    nav {
-      background: rgba(56, 142, 60, 0.97); display: flex; justify-content: center; flex-wrap: wrap; gap: 8px;
-      padding: 14px; backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    nav a {
-      color: #eaf6e0; text-decoration: none; padding: 10px 18px; border-radius: 25px;
-      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); font-size: clamp(0.9rem, 2.5vw, 1rem);
-      font-weight: 700; position: relative; min-width: 80px; text-align: center;
-    }
-    nav a:hover, nav a.active {
-      background: linear-gradient(135deg, #a5d6a7, #81c784); color: var(--green-dark);
-      transform: translateY(-2px) scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
+    nav { background: rgba(56, 142, 60, 0.97); display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; padding: 14px; backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+    nav a { color: #eaf6e0; text-decoration: none; padding: 10px 18px; border-radius: 25px; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); font-size: clamp(0.9rem, 2.5vw, 1rem); font-weight: 700; position: relative; min-width: 80px; text-align: center; }
+    nav a:hover, nav a.active { background: linear-gradient(135deg, #a5d6a7, #81c784); color: var(--green-dark); transform: translateY(-2px) scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    
     main { max-width: 1200px; margin: 0 auto; padding: 24px 16px; padding-top: 160px; }
-    .section-box {
-      background: rgba(255,255,255,0.95); backdrop-filter: blur(16px); padding: clamp(24px, 4vw, 32px);
-      border-radius: 24px; box-shadow: 0 12px 40px rgba(0,60,0,0.2); margin-bottom: 36px;
-      border: 1px solid rgba(255,255,255,0.3);
-    }
+    .section-box { background: rgba(255,255,255,0.95); backdrop-filter: blur(16px); padding: clamp(24px, 4vw, 32px); border-radius: 24px; box-shadow: 0 12px 40px rgba(0,60,0,0.2); margin-bottom: 36px; border: 1px solid rgba(255,255,255,0.3); }
     .section-box h2 { margin-top: 0; margin-bottom: 12px; }
     .section-subtitle { margin-top: 4px; margin-bottom: 18px; color: #446851; font-size: 0.95rem; }
     .reveal { opacity: 0; transform: translateY(40px) scale(0.95); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
     .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
     
+    /* --- PROFESSIONAL REALISTIC MAP STYLES --- */
+    .tours-layout { display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start; margin-top: 20px; }
+    
+    .map-wrapper { 
+      flex: 1 1 400px; 
+      background: radial-gradient(circle at center, #ffffff 0%, var(--ocean-bg) 100%); 
+      border-radius: 20px; 
+      padding: 10px; 
+      border: 1px solid rgba(165,214,167,0.6); 
+      position: sticky; 
+      top: 180px; 
+      box-shadow: inset 0 0 40px rgba(0,120,150,0.1), 0 10px 30px rgba(0,50,0,0.1); 
+      height: 520px;
+      overflow: hidden;
+    }
+    
+    /* Ensure the Google Chart takes full space and looks clean */
+    #india-map { width: 100%; height: 100%; }
+    path { outline: none !important; cursor: pointer; }
+
+    .packages-display { flex: 1.5 1 400px; min-height: 400px; }
+    .state-package-group { display: none; animation: slideUpFade 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .state-package-group.active { display: block; }
+    .empty-state-message { text-align: center; padding: 60px 20px; background: var(--card-bg); border-radius: 20px; border: 2px dashed rgba(46, 125, 50, 0.3); color: var(--green-dark); font-weight: 600; font-size: 1.1rem; }
+    @keyframes slideUpFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Cards & Form */
     .places, .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(18px, 3vw, 24px); justify-content: center; }
-    .place-card, .service-card {
-      background: linear-gradient(135deg, var(--card-bg), rgba(208,232,215,0.9)); border-radius: 20px;
-      padding: clamp(20px, 3vw, 28px); text-align: center; box-shadow: 0 8px 32px rgba(0,90,0,0.15);
-      display: flex; flex-direction: column; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      border: 1px solid rgba(165,214,167,0.4); min-height: 420px; cursor: pointer;
-    }
+    .place-card, .service-card { background: linear-gradient(135deg, var(--card-bg), rgba(208,232,215,0.9)); border-radius: 20px; padding: clamp(20px, 3vw, 28px); text-align: center; box-shadow: 0 8px 32px rgba(0,90,0,0.15); display: flex; flex-direction: column; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); border: 1px solid rgba(165,214,167,0.4); min-height: 420px; cursor: pointer; }
     .place-card:hover, .service-card:hover { transform: translateY(-12px) scale(1.03); box-shadow: 0 20px 50px rgba(0,90,0,0.3); }
-    .place-card img {
-      width: 100%; height: clamp(160px, 25vw, 200px); object-fit: cover; border-radius: 16px;
-      margin-bottom: 16px; border: 4px solid #a5d6a7; transition: all 0.4s;
-    }
+    .place-card img { width: 100%; height: clamp(160px, 25vw, 200px); object-fit: cover; border-radius: 16px; margin-bottom: 16px; border: 4px solid #a5d6a7; transition: all 0.4s; }
     .place-card:hover img { transform: scale(1.08) rotate(1deg); }
     .place-card h3, .service-card h3 { margin: 12px 0 8px; color: #1a3d27; font-size: clamp(1.15rem, 3vw, 1.4rem); font-weight: 800; }
     .place-card p, .service-card p { color: #2e4d30; font-size: clamp(0.95rem, 2.5vw, 1rem); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
     .package-meta { font-size: 0.9rem; color: #355540; margin-bottom: 10px; }
     .price-tag { font-weight: 800; color: var(--green-dark); }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--green-main), var(--green-dark)); color: white; border: none;
-      border-radius: 50px; padding: 16px 32px; font-size: 1.05rem; font-weight: 800; cursor: pointer;
-      transition: all 0.3s; box-shadow: 0 8px 24px rgba(46,125,50,0.4); width: 100%; margin-top: auto;
-    }
+    .btn-primary { background: linear-gradient(135deg, var(--green-main), var(--green-dark)); color: white; border: none; border-radius: 50px; padding: 16px 32px; font-size: 1.05rem; font-weight: 800; cursor: pointer; transition: all 0.3s; box-shadow: 0 8px 24px rgba(46,125,50,0.4); width: 100%; margin-top: auto; }
     .btn-primary:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 12px 32px rgba(46,125,50,0.5); }
     
-    /* --- POLISHED INTERACTIVE MAP STYLES --- */
-    .tours-layout { display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start; margin-top: 20px; }
-    .map-wrapper {
-      flex: 1 1 350px; 
-      background: radial-gradient(circle at center, #ffffff 0%, var(--ocean-bg) 100%);
-      border-radius: 20px; padding: 20px; border: 1px solid rgba(165,214,167,0.6); 
-      display: flex; justify-content: center; align-items: center; position: sticky; top: 180px; 
-      box-shadow: inset 0 0 40px rgba(0,120,150,0.1), 0 10px 30px rgba(0,50,0,0.1);
-      background-image: linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px);
-      background-size: 20px 20px;
-    }
-    .map-svg { width: 100%; height: auto; max-height: 520px; filter: drop-shadow(0 15px 25px rgba(0,40,0,0.25)); }
-    
-    .base-india {
-      fill: var(--map-land); stroke: var(--map-stroke); stroke-width: 2; stroke-linejoin: round;
-    }
-    .state-group { cursor: pointer; }
-    .state-shape {
-      fill: var(--green-light); stroke: #ffffff; stroke-width: 1.5; stroke-linejoin: round;
-      transition: fill 0.3s ease, filter 0.3s ease;
-    }
-    
-    /* Pin Animations */
-    .pin-icon {
-      fill: #d32f2f; filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
-      transform-origin: bottom center; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .pin-dot { fill: #ffffff; }
-    .state-label {
-      font-family: 'Segoe UI', sans-serif; font-size: 14px; font-weight: 800; fill: var(--green-dark);
-      text-anchor: middle; pointer-events: none; opacity: 0; transform: translateY(10px);
-      transition: all 0.3s ease;
-      text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 0 0 8px rgba(255,255,255,1);
-    }
-    
-    /* Hover & Active States */
-    .state-group:hover .state-shape { fill: var(--accent-gold); }
-    .state-group:hover .pin-icon { transform: scale(1.2) translateY(-5px); fill: #e53935; }
-    .state-group:hover .state-label { opacity: 1; transform: translateY(0); }
-    
-    .state-group.active-state .state-shape { fill: var(--green-main); }
-    .state-group.active-state .pin-icon { transform: scale(1.3) translateY(-8px); fill: var(--accent-gold); }
-    .state-group.active-state .state-label { opacity: 1; transform: translateY(0); fill: var(--green-dark); }
-
-    .packages-display { flex: 1.5 1 400px; min-height: 400px; }
-    .state-package-group { display: none; animation: slideUpFade 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-    .state-package-group.active { display: block; }
-    .empty-state-message {
-      text-align: center; padding: 60px 20px; background: var(--card-bg); border-radius: 20px;
-      border: 2px dashed rgba(46, 125, 50, 0.3); color: var(--green-dark); font-weight: 600; font-size: 1.1rem;
-    }
-    @keyframes slideUpFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* --- Existing Services Styles --- */
     .service-card { min-height: 380px; }
-    .service-image {
-      width: 180px; height: 180px; overflow: hidden; border-radius: 16px; margin: 0 auto 16px;
-      border: 4px solid #a5d6a7; box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
+    .service-image { width: 180px; height: 180px; overflow: hidden; border-radius: 16px; margin: 0 auto 16px; border: 4px solid #a5d6a7; box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
     .service-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.4s ease; }
     .service-card:hover .service-image img { transform: scale(1.12); }
+    
     .why-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 12px; }
     .why-item { background: rgba(240, 251, 240, 0.95); border-radius: 16px; padding: 14px 16px; border: 1px dashed rgba(76,175,80,0.5); font-size: 0.9rem; }
     .why-item-title { font-weight: 700; margin-bottom: 4px; }
+    
     .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 10px; }
     .step-card { background: rgba(240, 251, 240, 0.98); border-radius: 18px; padding: 18px 18px 16px; border: 1px solid rgba(165,214,167,0.7); box-shadow: 0 6px 20px rgba(0,60,0,0.15); font-size: 0.95rem; }
     .step-number { display: inline-block; width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, var(--green-main), var(--green-dark)); color: #fff; text-align: center; line-height: 26px; font-weight: 700; margin-bottom: 6px; font-size: 0.9rem; }
     .step-title { font-weight: 700; margin-bottom: 4px; color: #1a3d27; }
-    .contact-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 24px; align-items: flex-start; }
-    .contact-info p { margin: 6px 0; }
-    .contact-link { color: var(--green-dark); font-weight: 600; text-decoration: none; }
-    .contact-link:hover { text-decoration: underline; }
-    .contact-note { margin-top: 10px; font-size: 0.9rem; color: #4a6a54; }
+    
+    .contact-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 40px; align-items: stretch; margin-top: 20px;}
+    .contact-info-box { padding-right: 20px; }
+    .contact-info-box p { margin: 10px 0; font-size: 1.05rem; }
+    .contact-link { color: var(--green-dark); font-weight: 700; text-decoration: none; transition: color 0.3s;}
+    .contact-link:hover { color: var(--accent-gold); }
+    .contact-note { margin-top: 20px; font-size: 0.95rem; color: #4a6a54; line-height: 1.6; background: rgba(208,232,215,0.4); padding: 16px; border-radius: 12px; border-left: 4px solid var(--green-main);}
+    
+    .contact-form-box { background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid rgba(165,214,167,0.5); }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; margin-bottom: 6px; font-weight: 600; color: #2e4d30; font-size: 0.9rem; }
+    .form-control { width: 100%; padding: 12px 16px; border: 2px solid #d0e8d7; border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.3s; background: #fafdfa; color: #1a3d27; }
+    .form-control:focus { outline: none; border-color: var(--green-main); box-shadow: 0 0 0 4px rgba(46,125,50,0.1); background: white; }
+    textarea.form-control { resize: vertical; min-height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .btn-submit { width: 100%; background: linear-gradient(135deg, var(--accent-gold), #ff8f00); color: white; border: none; padding: 16px; border-radius: 10px; font-size: 1.1rem; font-weight: 800; cursor: pointer; transition: all 0.3s; box-shadow: 0 6px 15px rgba(255, 143, 0, 0.3); margin-top: 10px; }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 143, 0, 0.4); }
+
     footer { background: linear-gradient(135deg, var(--green-dark), #1b5e20); color: #daf5d6; text-align: center; padding: 24px; font-size: clamp(0.95rem, 2.5vw, 1rem); margin-top: 40px; }
     
-    @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; } .map-wrapper { position: static; } }
-    @media (max-width: 768px) { main { padding: 20px 12px; padding-top: 150px; } .tours-layout { flex-direction: column; } }
+    @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; gap: 30px; } .map-wrapper { position: static; height: 400px; } }
+    @media (max-width: 768px) { main { padding: 20px 12px; padding-top: 150px; } .tours-layout { flex-direction: column; } .form-row { grid-template-columns: 1fr; gap: 0;} }
   </style>
 </head>
 <body class="page-transition">
@@ -312,69 +206,18 @@
 
     <section id="packages" class="section-box reveal">
       <h2>🗺️ Discover India by State</h2>
-      <p class="section-subtitle">Select a destination pin on the map to explore our specialized tour packages.</p>
+      <p class="section-subtitle">Select a destination on the map to explore our specialized tour packages.</p>
       
       <div class="tours-layout">
         
         <div class="map-wrapper">
-          <svg class="map-svg" viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg">
-            
-            <path class="base-india" d="M 170,80 C 170,50 190,20 220,20 C 250,20 280,40 280,70 C 280,90 260,110 250,120 C 280,130 320,140 350,150 C 360,140 370,140 380,150 C 420,130 460,150 450,190 C 440,230 400,240 380,230 C 370,220 360,210 350,230 C 340,260 320,300 300,350 C 280,400 260,450 240,500 C 220,540 190,540 170,500 C 150,450 130,400 120,350 C 110,320 100,290 90,260 C 80,260 40,250 30,220 C 20,190 50,170 80,180 C 100,190 110,200 120,190 C 110,160 120,120 140,100 C 150,90 160,80 170,80 Z" />
-            
-            <g class="state-group" id="Kashmir">
-              <path class="state-shape" d="M 170,80 C 170,50 190,20 220,20 C 250,20 280,40 280,70 C 280,90 260,110 250,120 C 220,110 190,100 170,80 Z" />
-              <svg x="210" y="45" width="28" height="28" viewBox="0 0 24 24" class="pin-icon">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                <circle class="pin-dot" cx="12" cy="9" r="2.5" />
-              </svg>
-              <text x="224" y="90" class="state-label">Kashmir</text>
-            </g>
-
-            <g class="state-group" id="Rajasthan">
-              <path class="state-shape" d="M 140,100 C 150,110 160,140 160,170 C 160,200 150,220 130,220 C 100,220 80,190 80,180 C 100,190 110,200 120,190 C 110,160 120,120 140,100 Z" />
-              <svg x="110" y="145" width="28" height="28" viewBox="0 0 24 24" class="pin-icon">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                <circle class="pin-dot" cx="12" cy="9" r="2.5" />
-              </svg>
-              <text x="124" y="190" class="state-label">Rajasthan</text>
-            </g>
-
-            <g class="state-group" id="Goa">
-              <circle class="state-shape" cx="100" cy="330" r="10" />
-              <svg x="86" y="295" width="28" height="28" viewBox="0 0 24 24" class="pin-icon">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                <circle class="pin-dot" cx="12" cy="9" r="2.5" />
-              </svg>
-              <text x="65" y="335" class="state-label">Goa</text>
-            </g>
-
-            <g class="state-group" id="Karnataka">
-              <path class="state-shape" d="M 110,340 C 130,340 150,360 160,400 C 170,440 160,460 150,470 C 130,460 120,440 115,400 C 110,380 100,360 110,340 Z" />
-              <svg x="125" y="375" width="28" height="28" viewBox="0 0 24 24" class="pin-icon">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                <circle class="pin-dot" cx="12" cy="9" r="2.5" />
-              </svg>
-              <text x="175" y="405" class="state-label">Karnataka</text>
-            </g>
-
-            <g class="state-group active-state" id="Kerala">
-              <path class="state-shape" d="M 150,470 C 160,490 180,520 190,535 C 180,540 160,520 145,490 C 140,480 145,475 150,470 Z" />
-              <svg x="155" y="475" width="28" height="28" viewBox="0 0 24 24" class="pin-icon">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                <circle class="pin-dot" cx="12" cy="9" r="2.5" />
-              </svg>
-              <text x="205" y="505" class="state-label">Kerala</text>
-            </g>
-
-          </svg>
+          <div id="india-map"></div>
         </div>
 
         <div class="packages-display" id="packagesDisplay">
           
           <div id="default-message" class="state-package-group">
-            <div class="empty-state-message">
-              👈 Click on a map pin to view available tours for that destination!
-            </div>
+            <div class="empty-state-message">👈 Click on a highlighted state on the map to view available tours!</div>
           </div>
 
           <div id="packages-Kerala" class="state-package-group active">
@@ -384,32 +227,31 @@
                 <img src="https://cdn.pixabay.com/photo/2025/06/09/14/30/tea-plantation-9650105_1280.jpg" alt="Munnar" loading="lazy"/>
                 <h3>🌿 Munnar</h3>
                 <p>Rolling hills, tea plantations, viewpoints, waterfalls, and cool weather ideal for 2–3 night stays.</p>
-                <div class="package-meta">Ideal for couples & families · 2–3 nights · <span class="price-tag">From ₹X,XXX per person*</span></div>
+                <div class="package-meta">Ideal for couples & families · 2–3 nights</div>
                 <button class="btn-primary" onclick="goToPage('book-munnar.html')">View / Book</button>
               </div>
               <div class="place-card">
                 <img src="https://images.unsplash.com/photo-1677475455506-1e429162f44f?w=600&auto=format&fit=crop&q=60" alt="Alleppey" loading="lazy"/>
                 <h3>🚤 Alleppey Houseboat</h3>
                 <p>Tranquil backwaters and houseboat stays with traditional food and peaceful village views.</p>
-                <div class="package-meta">Ideal for families & honeymoon · 1–2 nights · <span class="price-tag">Private & sharing options</span></div>
+                <div class="package-meta">Ideal for families & honeymoon · 1–2 nights</div>
                 <button class="btn-primary" onclick="goToPage('book-alleppey.html')">View / Book</button>
               </div>
               <div class="place-card">
                 <img src="https://images.unsplash.com/photo-1586030138336-4a854c6ddb5f?q=80&w=1944&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kovalam" loading="lazy"/>
                 <h3>🏖️ Kovalam</h3>
                 <p>Palm-fringed beaches, lighthouse views, and seaside stays; can be combined with Trivandrum sightseeing.</p>
-                <div class="package-meta">Ideal for relaxation · 1–2 nights · <span class="price-tag">Beach + city combos</span></div>
+                <div class="package-meta">Ideal for relaxation · 1–2 nights</div>
                 <button class="btn-primary" onclick="goToPage('book-kovalam.html')">View / Book</button>
               </div>
               <div class="place-card">
                 <img src="woman-3701713_1280.jpg" alt="Ayurveda" loading="lazy"/>
                 <h3>🦋 Ayurveda & Wellness</h3>
                 <p>Authentic Ayurvedic treatments, yoga, detox & rejuvenation programs in peaceful Kerala settings.</p>
-                <div class="package-meta">Ideal for wellness seekers · 3–7+ nights · <span class="price-tag">Program-based pricing</span></div>
+                <div class="package-meta">Ideal for wellness seekers · 3–7+ nights</div>
                 <button class="btn-primary" onclick="goToPage('book-ayurveda.html')">View / Book</button>
               </div>
             </div>
-            <p style="margin-top:12px;font-size:0.85rem;color:#4a6a54;">*Starting prices vary with season, hotel category, and number of travelers – contact us for a custom quote.</p>
           </div>
 
           <div id="packages-Karnataka" class="state-package-group">
@@ -419,7 +261,7 @@
                 <img src="https://images.unsplash.com/photo-1626014903706-5b0fa2a9f5d3?w=600&auto=format&fit=crop&q=60" alt="Coorg" loading="lazy"/>
                 <h3>☕ Coorg & Mysore</h3>
                 <p>Coffee plantations, lush green hills, majestic palaces, and the rich heritage of South India.</p>
-                <div class="package-meta"><span class="price-tag">4-5 Nights Packages</span></div>
+                <div class="package-meta">4-5 Nights Packages</div>
                 <button class="btn-primary" onclick="goToPage('book-karnataka.html')">View / Book</button>
               </div>
             </div>
@@ -432,7 +274,7 @@
                 <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=600&auto=format&fit=crop&q=60" alt="Goa Beaches" loading="lazy"/>
                 <h3>🌴 North Goa Explorer</h3>
                 <p>Vibrant beaches, historic forts, water sports, and lively sunset cruises.</p>
-                <div class="package-meta"><span class="price-tag">3-4 Nights Packages</span></div>
+                <div class="package-meta">3-4 Nights Packages</div>
                 <button class="btn-primary" onclick="goToPage('book-goa.html')">View / Book</button>
               </div>
             </div>
@@ -445,7 +287,7 @@
                 <img src="https://images.unsplash.com/photo-1595815771614-ade9d652a65d?w=600&auto=format&fit=crop&q=60" alt="Kashmir Shikara" loading="lazy"/>
                 <h3>🛶 Paradise on Earth</h3>
                 <p>Experience Dal Lake Shikara rides, Gulmarg gondolas, and the stunning valleys of Pahalgam.</p>
-                <div class="package-meta"><span class="price-tag">5-6 Nights Packages</span></div>
+                <div class="package-meta">5-6 Nights Packages</div>
                 <button class="btn-primary" onclick="goToPage('book-kashmir.html')">View / Book</button>
               </div>
             </div>
@@ -458,7 +300,7 @@
                 <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?w=600&auto=format&fit=crop&q=60" alt="Rajasthan Fort" loading="lazy"/>
                 <h3>🐪 Royal Rajputana</h3>
                 <p>Explore the majestic forts of Jaipur, lakes of Udaipur, and the golden sands of Jaisalmer.</p>
-                <div class="package-meta"><span class="price-tag">Customizable 7-Day Tour</span></div>
+                <div class="package-meta">Customizable 7-Day Tour</div>
                 <button class="btn-primary" onclick="goToPage('book-rajasthan.html')">View / Book</button>
               </div>
             </div>
@@ -483,7 +325,7 @@
       <h2>📝 How booking with us works</h2>
       <p class="section-subtitle">Simple steps to plan and confirm your trip through Mannakuzhil Tours.</p>
       <div class="steps-grid">
-        <div class="step-card"><div class="step-number">1</div><div class="step-title">Fill the Form</div><div>Fill the form in the packages and enter your travel dates, number of travelers, etc.</div></div>
+        <div class="step-card"><div class="step-number">1</div><div class="step-title">Fill the Form</div><div>Submit the contact form below with your travel dates and requirements.</div></div>
         <div class="step-card"><div class="step-number">2</div><div class="step-title">Get a custom itinerary</div><div>We will contact you within 24 hours and suggest a rate and route with suitable stays.</div></div>
         <div class="step-card"><div class="step-number">3</div><div class="step-title">Confirm your booking</div><div>Once you are happy with the plan, confirm by paying an advance as discussed.</div></div>
         <div class="step-card"><div class="step-number">4</div><div class="step-title">Just Chillax 😎</div><div>Once decided, sit back and enjoy the real beauty of incredible India.</div></div>
@@ -497,20 +339,36 @@
     </section>
 
     <section id="contact" class="section-box reveal">
-      <h2>📞 Contact Us</h2>
+      <h2>📞 Contact Us to Book</h2>
+      <p class="section-subtitle">Reach out with your travel dates and rough plan – we’ll reply with a custom itinerary and pricing within 24 hours.</p>
+      
       <div class="contact-layout">
-        <div>
-          <p class="section-subtitle">Reach out with your travel dates and rough plan – we’ll reply with a custom itinerary and pricing.</p>
-          <div class="contact-info">
-            <p><a href="mailto:booking@mannakuzhiltours.com" class="contact-link">📧 booking@mannakuzhiltours.com</a></p>
-            <p><strong>📞 +91 70068 60319</strong></p>
-            <p><strong>📍 Mannakuzhil, Kerala, India</strong></p>
+        
+        <div class="contact-info-box">
+          <p><strong>📧 Email:</strong> <br> <a href="mailto:booking@mannakuzhiltours.com" class="contact-link">booking@mannakuzhiltours.com</a></p>
+          <p><strong>📞 Phone / WhatsApp:</strong> <br> +91 70068 60319</p>
+          <p><strong>📍 Office Address:</strong> <br> Mannakuzhil, Kerala, India</p>
+          <div class="contact-note">
+            <strong>💡 Quick Tip:</strong> If you already know which package you want, you can simply click the <strong>"View / Book"</strong> button under any specific tour above to go directly to that package's dedicated page!
           </div>
-          <p class="contact-note">You can also send a simple email with dates, number of people, preferred places, and requirements.</p>
         </div>
-        <div>
-          <p class="contact-note">Prefer booking package-wise? Use the “View / Book” buttons under each package to see details and confirm your trip.</p>
+        
+        <div class="contact-form-box">
+          <form action="#" method="POST">
+            <div class="form-row">
+              <div class="form-group"><label for="name">Full Name *</label><input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required></div>
+              <div class="form-group"><label for="phone">Phone / WhatsApp Number *</label><input type="tel" id="phone" name="phone" class="form-control" placeholder="+91 XXXXX XXXXX" required></div>
+            </div>
+            <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" name="email" class="form-control" placeholder="john@example.com" required></div>
+            <div class="form-row">
+              <div class="form-group"><label for="dates">Expected Travel Dates</label><input type="text" id="dates" name="dates" class="form-control" placeholder="e.g. Mid-October"></div>
+              <div class="form-group"><label for="guests">Number of Guests</label><input type="number" id="guests" name="guests" class="form-control" placeholder="2" min="1"></div>
+            </div>
+            <div class="form-group"><label for="message">Your Plan or Preferred Places *</label><textarea id="message" name="message" class="form-control" placeholder="Tell us about the trip you want..." required></textarea></div>
+            <button type="submit" class="btn-submit">Submit Inquiry</button>
+          </form>
         </div>
+
       </div>
     </section>
 
@@ -519,79 +377,89 @@
   <footer>© 2026 Mannakuzhil Tours. All rights reserved.</footer>
 
   <script>
+    // Reveal & Nav Scripts
     function scrollToSection(id) { const el = document.getElementById(id); if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }
-    
-    // Carousel Logic
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.carousel-dot');
+    const slides = document.querySelectorAll('.carousel-slide'); const dots = document.querySelectorAll('.carousel-dot');
     let currentIndex = 0; const slideInterval = 6000;
-    function showSlide(index) {
-      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-      currentIndex = index;
-    }
+    function showSlide(index) { slides.forEach((slide, i) => slide.classList.toggle('active', i === index)); dots.forEach((dot, i) => dot.classList.toggle('active', i === index)); currentIndex = index; }
     function nextSlide() { let next = (currentIndex + 1) % slides.length; showSlide(next); }
     let interval = setInterval(nextSlide, slideInterval);
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => { clearInterval(interval); showSlide(parseInt(dot.dataset.index)); interval = setInterval(nextSlide, slideInterval); });
-    });
-    
-    // Header Scroll Logic
+    dots.forEach(dot => { dot.addEventListener('click', () => { clearInterval(interval); showSlide(parseInt(dot.dataset.index)); interval = setInterval(nextSlide, slideInterval); }); });
     const headerContainer = document.getElementById('headerContainer');
     window.addEventListener('scroll', () => { headerContainer.classList.toggle('scrolled', window.scrollY > 50); });
-    
-    // Scroll Reveal Logic
     const revealEls = document.querySelectorAll('.reveal');
-    function handleReveal() {
-      const triggerBottom = window.innerHeight * 0.8;
-      revealEls.forEach((el, index) => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < triggerBottom && !el.classList.contains('visible')) { setTimeout(() => el.classList.add('visible'), index * 100); }
-      });
-    }
+    function handleReveal() { const triggerBottom = window.innerHeight * 0.8; revealEls.forEach((el, index) => { const rect = el.getBoundingClientRect(); if (rect.top < triggerBottom && !el.classList.contains('visible')) { setTimeout(() => el.classList.add('visible'), index * 100); } }); }
     window.addEventListener('scroll', handleReveal); window.addEventListener('load', handleReveal);
-    
-    // Page Transition
     function goToPage(url) { document.body.classList.add('fade-out'); setTimeout(() => window.location.href = url, 400); }
-    
-    // Active Nav Links Logic
     const navLinks = document.querySelectorAll('nav a'); const sections = document.querySelectorAll('section');
-    function updateActiveNav() {
-      let current = 'home';
-      sections.forEach(section => { const sectionTop = section.offsetTop - 200; if (window.scrollY >= sectionTop) current = section.id; });
-      navLinks.forEach(link => { link.classList.toggle('active', link.getAttribute('href') === `#${current}`); });
-    }
+    function updateActiveNav() { let current = 'home'; sections.forEach(section => { const sectionTop = section.offsetTop - 200; if (window.scrollY >= sectionTop) current = section.id; }); navLinks.forEach(link => { link.classList.toggle('active', link.getAttribute('href') === `#${current}`); }); }
     window.addEventListener('scroll', updateActiveNav); updateActiveNav();
 
-    // Map Pin Interactivity Logic
-    document.addEventListener('DOMContentLoaded', () => {
-      const stateGroups = document.querySelectorAll('.state-group');
-      const packageGroups = document.querySelectorAll('.state-package-group');
-      const defaultMessage = document.getElementById('default-message');
+    // --- GOOGLE GEOCHART SCRIPT ---
+    google.charts.load('current', { 'packages':['geochart'] });
+    google.charts.setOnLoadCallback(drawRegionsMap);
 
-      stateGroups.forEach(group => {
-        group.addEventListener('click', function() {
-          // Remove active styles from map
-          stateGroups.forEach(g => g.classList.remove('active-state'));
-          this.classList.add('active-state'); // Add to clicked
+    function drawRegionsMap() {
+      // 1 = State with Packages, 0 = Coming Soon
+      var data = google.visualization.arrayToDataTable([
+        ['State', 'Status'],
+        ['Andhra Pradesh', 0], ['Arunachal Pradesh', 0], ['Assam', 0], ['Bihar', 0],
+        ['Chhattisgarh', 0], ['Goa', 1], ['Gujarat', 0], ['Haryana', 0],
+        ['Himachal Pradesh', 0], ['Jharkhand', 0], ['Karnataka', 1], ['Kerala', 1],
+        ['Madhya Pradesh', 0], ['Maharashtra', 0], ['Manipur', 0], ['Meghalaya', 0],
+        ['Mizoram', 0], ['Nagaland', 0], ['Odisha', 0], ['Punjab', 0],
+        ['Rajasthan', 1], ['Sikkim', 0], ['Tamil Nadu', 0], ['Telangana', 0],
+        ['Tripura', 0], ['Uttar Pradesh', 0], ['Uttarakhand', 0], ['West Bengal', 0],
+        ['Jammu and Kashmir', 1], ['Delhi', 0]
+      ]);
+
+      var options = {
+        region: 'IN',
+        displayMode: 'regions',
+        resolution: 'provinces',
+        backgroundColor: 'transparent',
+        datalessRegionColor: '#d0e8d7',
+        colorAxis: {colors: ['#a5d6a7', '#2e7d32']}, // 0 = Light Green, 1 = Dark Green
+        tooltip: {textStyle: {color: '#1a3d27'}, showColorCode: false},
+        keepAspectRatio: true,
+      };
+
+      var chart = new google.visualization.GeoChart(document.getElementById('india-map'));
+
+      google.visualization.events.addListener(chart, 'select', function() {
+        var selection = chart.getSelection();
+        if (selection.length > 0) {
+          var stateName = data.getValue(selection[0].row, 0);
           
-          // Hide all package groups
-          packageGroups.forEach(pg => pg.classList.remove('active'));
+          // Map Google's state names to your HTML IDs
+          var stateIdMap = {
+            'Jammu and Kashmir': 'Kashmir',
+            'Rajasthan': 'Rajasthan',
+            'Goa': 'Goa',
+            'Karnataka': 'Karnataka',
+            'Kerala': 'Kerala'
+          };
           
-          // Get target ID
-          const stateId = this.getAttribute('id');
-          const targetPackageGroup = document.getElementById('packages-' + stateId);
+          var targetId = stateIdMap[stateName];
           
-          // Show correct group or default message
-          if (targetPackageGroup) {
-            targetPackageGroup.classList.add('active');
+          // Hide all current packages
+          document.querySelectorAll('.state-package-group').forEach(el => el.classList.remove('active'));
+          
+          // Show the correct package, or a "Coming Soon" message
+          if (targetId && document.getElementById('packages-' + targetId)) {
+             document.getElementById('packages-' + targetId).classList.add('active');
           } else {
-            defaultMessage.classList.add('active');
-            defaultMessage.innerHTML = `<div class="empty-state-message">Exciting packages for ${stateId} are launching soon! Contact us to customize a trip.</div>`;
+             const defMessage = document.getElementById('default-message');
+             defMessage.classList.add('active');
+             defMessage.innerHTML = `<div class="empty-state-message">Exciting packages for ${stateName} are launching soon! Contact us to customize a trip.</div>`;
           }
-        });
+        }
       });
-    });
+
+      // Redraw chart on window resize for responsiveness
+      window.addEventListener('resize', function() { chart.draw(data, options); });
+      chart.draw(data, options);
+    }
   </script>
 </body>
 </html>
