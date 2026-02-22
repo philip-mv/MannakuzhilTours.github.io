@@ -21,7 +21,7 @@
       --green-light: #d0e8d7;
       --card-bg: rgba(240, 251, 240, 0.98);
       --accent-gold: #ffc107;
-      --ocean-bg: #f4fbf7;
+      --ocean-bg: #e0f7fa;
     }
     * { box-sizing: border-box; }
     body, html {
@@ -66,20 +66,18 @@
     .reveal { opacity: 0; transform: translateY(40px) scale(0.95); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
     .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
     
-    /* --- PREMIUM HIGH-FIDELITY MAP STYLES --- */
+    /* --- CUSTOM IMAGE MAP STYLES --- */
     .tours-layout { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; margin-top: 20px; }
     
     .map-premium-container {
       flex: 1 1 400px;
       position: sticky;
       top: 160px;
-      background: var(--ocean-bg);
-      background-image: radial-gradient(rgba(46, 125, 50, 0.1) 1px, transparent 1px);
-      background-size: 20px 20px;
+      background: radial-gradient(circle at center, #ffffff 40%, var(--ocean-bg) 100%);
       border-radius: 24px;
-      padding: 30px;
+      padding: 20px;
       border: 1px solid rgba(165,214,167,0.8);
-      box-shadow: inset 0 0 40px rgba(255,255,255,0.8), 0 15px 35px rgba(0,60,0,0.15);
+      box-shadow: inset 0 0 30px rgba(0,100,130,0.05), 0 15px 35px rgba(0,50,0,0.15);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -88,22 +86,17 @@
     .map-relative-wrapper {
       position: relative;
       width: 100%;
-      max-width: 420px;
-      filter: drop-shadow(0 12px 24px rgba(20, 82, 20, 0.25));
+      max-width: 480px;
     }
 
-    /* Highly Detailed Embedded SVG */
-    .india-official-svg {
+    /* Your custom image map styling */
+    .india-official-map {
       width: 100%;
       height: auto;
       display: block;
-    }
-    .india-path {
-      fill: url(#mapGradient);
-      stroke: #ffffff;
-      stroke-width: 1.5;
-      stroke-linejoin: round;
-      transition: fill 0.3s ease;
+      /* Just a nice shadow to make it pop, no color filters */
+      filter: drop-shadow(0 8px 20px rgba(20, 82, 20, 0.25));
+      border-radius: 12px;
     }
 
     /* Interactive Pulsing Map Pins */
@@ -119,10 +112,10 @@
     }
     
     .map-pin svg {
-      width: 34px;
-      height: 34px;
-      fill: #e53935; 
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
+      width: 36px;
+      height: 36px;
+      fill: #e53935; /* Red Pin */
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
       transition: all 0.3s ease;
     }
 
@@ -131,8 +124,8 @@
       bottom: 2px;
       left: 50%;
       transform: translateX(-50%);
-      width: 14px;
-      height: 14px;
+      width: 16px;
+      height: 16px;
       background: rgba(229, 57, 53, 0.5);
       border-radius: 50%;
       z-index: -1;
@@ -157,8 +150,9 @@
       opacity: 0;
       visibility: hidden;
       transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
       pointer-events: none;
+      z-index: 30;
     }
     .pin-label::after {
       content: '';
@@ -184,12 +178,12 @@
     .map-pin.active-pin .pin-label::after { border-color: var(--accent-gold) transparent transparent transparent; }
     .map-pin.active-pin .pin-pulse { background: rgba(255, 193, 7, 0.6); animation: pulse 1.5s infinite; }
 
-    /* Exact Coordinates overlaid on the new detailed SVG */
-    .pin-kashmir { top: 12%; left: 34%; }
-    .pin-rajasthan { top: 40%; left: 21%; }
-    .pin-goa { top: 71%; left: 24%; }
-    .pin-karnataka { top: 76%; left: 31%; }
-    .pin-kerala { top: 89%; left: 34%; }
+    /* Exactly Calibrated Coordinates for "india map.webp" */
+    .pin-kashmir { top: 16%; left: 38%; }
+    .pin-rajasthan { top: 41%; left: 27%; }
+    .pin-goa { top: 71%; left: 30%; }
+    .pin-karnataka { top: 75%; left: 36%; }
+    .pin-kerala { top: 88%; left: 39%; }
 
     /* Packages Display Layout */
     .packages-display { flex: 1.5 1 400px; min-height: 400px; }
@@ -243,6 +237,7 @@
     .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 143, 0, 0.4); }
 
     footer { background: linear-gradient(135deg, var(--green-dark), #1b5e20); color: #daf5d6; text-align: center; padding: 24px; font-size: clamp(0.95rem, 2.5vw, 1rem); margin-top: 40px; }
+    footer p { margin: 5px 0; font-size: 0.85rem; opacity: 0.8; }
     
     @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; gap: 30px; } .map-premium-container { position: static; } }
     @media (max-width: 768px) { main { padding: 20px 12px; padding-top: 150px; } .tours-layout { flex-direction: column; } .form-row { grid-template-columns: 1fr; gap: 0;} }
@@ -317,15 +312,7 @@
         <div class="map-premium-container">
           <div class="map-relative-wrapper">
             
-            <svg class="india-official-svg" viewBox="0 0 800 850" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#b9e3c2" />
-                  <stop offset="100%" stop-color="#7bc788" />
-                </linearGradient>
-              </defs>
-              <path class="india-path" d="M280,30 C290,15 310,10 325,10 C345,10 355,20 375,30 C380,35 395,40 405,50 C410,55 425,70 435,80 C445,95 460,95 470,105 C480,115 475,130 480,145 C495,155 520,165 525,185 C530,205 525,230 500,245 C480,260 460,265 440,260 C420,255 400,250 380,255 C360,265 350,285 340,305 C330,325 320,355 310,375 C300,395 285,410 270,425 C255,445 240,460 225,480 C210,505 195,530 190,555 C185,580 195,605 205,625 C215,645 230,665 245,685 C260,705 270,725 275,750 C280,775 260,795 240,810 C220,825 190,830 170,815 C150,800 145,775 140,750 C135,725 150,705 165,685 C180,665 195,645 205,625 C215,605 220,580 210,555 C200,530 185,505 165,490 C145,475 120,460 105,440 C90,420 80,395 85,370 C90,345 105,325 125,310 C145,295 165,285 175,260 C185,235 180,210 160,195 C140,180 115,185 95,195 C75,205 55,225 45,250 C35,275 40,300 60,315 C80,330 105,335 130,330 C155,325 180,315 200,300 C220,285 240,265 255,240 C270,215 280,185 285,160 C290,135 280,110 270,90 C260,70 245,55 230,45 C215,35 195,30 175,35 C155,40 140,55 130,75 C120,95 135,115 150,130 C165,145 185,155 205,160 C225,165 245,160 265,150 C285,140 300,120 310,100 C320,80 325,55 315,35 C305,15 285,15 280,30 Z"/>
-            </svg>
+            <img src="india map.webp" alt="Map of India" class="india-official-map">
 
             <div class="map-pin pin-kashmir" data-target="Kashmir">
               <div class="pin-pulse"></div><div class="pin-label">J&K and Ladakh</div>
@@ -514,7 +501,9 @@
 
   </main>
 
-  <footer>© 2026 Mannakuzhil Tours. All rights reserved.</footer>
+  <footer>
+    <p>© 2026 Mannakuzhil Tours. All rights reserved.</p>
+  </footer>
 
   <script>
     function scrollToSection(id) { const el = document.getElementById(id); if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }
