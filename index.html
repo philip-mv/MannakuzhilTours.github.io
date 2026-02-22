@@ -89,17 +89,14 @@
       max-width: 480px;
     }
 
-    /* Your custom image map styling */
     .india-official-map {
       width: 100%;
       height: auto;
       display: block;
-      /* Just a nice shadow to make it pop, no color filters */
       filter: drop-shadow(0 8px 20px rgba(20, 82, 20, 0.25));
       border-radius: 12px;
     }
 
-    /* Interactive Pulsing Map Pins */
     .map-pin {
       position: absolute;
       transform: translate(-50%, -100%);
@@ -114,7 +111,7 @@
     .map-pin svg {
       width: 36px;
       height: 36px;
-      fill: #e53935; /* Red Pin */
+      fill: #e53935;
       filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
       transition: all 0.3s ease;
     }
@@ -166,7 +163,6 @@
       transition: border-color 0.3s ease;
     }
 
-    /* Hover and Active Pin Effects */
     .map-pin:hover { transform: translate(-50%, -115%) scale(1.15); z-index: 20; }
     .map-pin:hover svg { fill: var(--accent-gold); }
     .map-pin:hover .pin-label { opacity: 1; visibility: visible; top: -38px; }
@@ -178,21 +174,20 @@
     .map-pin.active-pin .pin-label::after { border-color: var(--accent-gold) transparent transparent transparent; }
     .map-pin.active-pin .pin-pulse { background: rgba(255, 193, 7, 0.6); animation: pulse 1.5s infinite; }
 
-    /* Exactly Calibrated Coordinates for "india map.webp" */
+    /* Calibrated Coordinates for "india map.webp" */
     .pin-kashmir { top: 16%; left: 38%; }
     .pin-rajasthan { top: 41%; left: 27%; }
     .pin-goa { top: 71%; left: 30%; }
     .pin-karnataka { top: 75%; left: 36%; }
     .pin-kerala { top: 88%; left: 39%; }
 
-    /* Packages Display Layout */
     .packages-display { flex: 1.5 1 400px; min-height: 400px; }
     .state-package-group { display: none; animation: slideUpFade 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
     .state-package-group.active { display: block; }
     .empty-state-message { text-align: center; padding: 60px 20px; background: var(--card-bg); border-radius: 20px; border: 2px dashed rgba(46, 125, 50, 0.3); color: var(--green-dark); font-weight: 600; font-size: 1.1rem; }
     @keyframes slideUpFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* Cards & Contact Form */
+    /* Cards */
     .places, .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(18px, 3vw, 24px); justify-content: center; }
     .place-card, .service-card { background: linear-gradient(135deg, var(--card-bg), rgba(208,232,215,0.9)); border-radius: 20px; padding: clamp(20px, 3vw, 28px); text-align: center; box-shadow: 0 8px 32px rgba(0,90,0,0.15); display: flex; flex-direction: column; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); border: 1px solid rgba(165,214,167,0.4); min-height: 420px; cursor: pointer; }
     .place-card:hover, .service-card:hover { transform: translateY(-12px) scale(1.03); box-shadow: 0 20px 50px rgba(0,90,0,0.3); }
@@ -219,28 +214,18 @@
     .step-number { display: inline-block; width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, var(--green-main), var(--green-dark)); color: #fff; text-align: center; line-height: 26px; font-weight: 700; margin-bottom: 6px; font-size: 0.9rem; }
     .step-title { font-weight: 700; margin-bottom: 4px; color: #1a3d27; }
     
-    .contact-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 40px; align-items: stretch; margin-top: 20px;}
-    .contact-info-box { padding-right: 20px; }
-    .contact-info-box p { margin: 10px 0; font-size: 1.05rem; }
+    /* Contact Section Layout */
+    .contact-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 24px; align-items: flex-start; margin-top: 20px;}
+    .contact-info p { margin: 6px 0; font-size: 1.05rem; }
     .contact-link { color: var(--green-dark); font-weight: 700; text-decoration: none; transition: color 0.3s;}
-    .contact-link:hover { color: var(--accent-gold); }
-    .contact-note { margin-top: 20px; font-size: 0.95rem; color: #4a6a54; line-height: 1.6; background: rgba(208,232,215,0.4); padding: 16px; border-radius: 12px; border-left: 4px solid var(--green-main);}
-    
-    .contact-form-box { background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid rgba(165,214,167,0.5); }
-    .form-group { margin-bottom: 16px; }
-    .form-group label { display: block; margin-bottom: 6px; font-weight: 600; color: #2e4d30; font-size: 0.9rem; }
-    .form-control { width: 100%; padding: 12px 16px; border: 2px solid #d0e8d7; border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.3s; background: #fafdfa; color: #1a3d27; }
-    .form-control:focus { outline: none; border-color: var(--green-main); box-shadow: 0 0 0 4px rgba(46,125,50,0.1); background: white; }
-    textarea.form-control { resize: vertical; min-height: 100px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .btn-submit { width: 100%; background: linear-gradient(135deg, var(--accent-gold), #ff8f00); color: white; border: none; padding: 16px; border-radius: 10px; font-size: 1.1rem; font-weight: 800; cursor: pointer; transition: all 0.3s; box-shadow: 0 6px 15px rgba(255, 143, 0, 0.3); margin-top: 10px; }
-    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 143, 0, 0.4); }
+    .contact-link:hover { color: var(--accent-gold); text-decoration: underline;}
+    .contact-note { margin-top: 15px; font-size: 0.95rem; color: #4a6a54; line-height: 1.6; background: rgba(208,232,215,0.4); padding: 16px; border-radius: 12px; border-left: 4px solid var(--green-main);}
 
     footer { background: linear-gradient(135deg, var(--green-dark), #1b5e20); color: #daf5d6; text-align: center; padding: 24px; font-size: clamp(0.95rem, 2.5vw, 1rem); margin-top: 40px; }
     footer p { margin: 5px 0; font-size: 0.85rem; opacity: 0.8; }
     
     @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; gap: 30px; } .map-premium-container { position: static; } }
-    @media (max-width: 768px) { main { padding: 20px 12px; padding-top: 150px; } .tours-layout { flex-direction: column; } .form-row { grid-template-columns: 1fr; gap: 0;} }
+    @media (max-width: 768px) { main { padding: 20px 12px; padding-top: 150px; } .tours-layout { flex-direction: column; } }
   </style>
 </head>
 <body class="page-transition">
@@ -250,7 +235,7 @@
       <img src="logo-square.png" alt="Mannakuzhil Tours Logo" class="logo">
       <div class="header-text-block">
         <div class="title">Mannakuzhil Tours</div>
-        <div class="header-tagline">Family-run Kerala tour operator – backwaters, hills & beaches</div>
+        <div class="header-tagline">Family-run tour operator – Discover India & Kerala</div>
       </div>
     </header>
     <nav id="nav">
@@ -266,22 +251,34 @@
 
     <div class="carousel" id="carousel">
       <div class="carousel-slides">
-       <div class="carousel-slide active" style="background-image: url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1600&auto=format&fit=crop&q=90');">
+        <div class="carousel-slide active" style="background-image: url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1600&auto=format&fit=crop&q=80');">
           <div class="carousel-overlay">
             <h1 class="carousel-title">Explore Kerala & Beyond</h1>
             <p class="carousel-subtitle">Customized holidays 2026 across Munnar, Alleppey, Kashmir, Goa, and more.</p>
           </div>
         </div>
-        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=1600&auto=format&fit=crop&q=90')">
+        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=1600&auto=format&fit=crop&q=80')">
           <div class="carousel-overlay">
             <h1 class="carousel-title">Serene Kerala Backwaters</h1>
             <p class="carousel-subtitle">Glide through quiet canals and village life on curated houseboat experiences.</p>
           </div>
         </div>
-        <div class="carousel-slide" style="background-image: url('https://cdn.pixabay.com/photo/2025/06/09/14/30/tea-plantation-9650105_1280.jpg');">
+        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1595815771614-ade9d652a65d?w=1600&auto=format&fit=crop&q=80');">
           <div class="carousel-overlay">
-            <h1 class="carousel-title">Misty Tea Gardens & Hills</h1>
-            <p class="carousel-subtitle">Wake up to cool mountain air, tea estates, waterfalls, and viewpoints.</p>
+            <h1 class="carousel-title">Paradise on Earth: Kashmir</h1>
+            <p class="carousel-subtitle">Experience Shikara rides on Dal Lake and the snow-capped peaks of Gulmarg.</p>
+          </div>
+        </div>
+        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1477587458883-47145ed94245?w=1600&auto=format&fit=crop&q=80');">
+          <div class="carousel-overlay">
+            <h1 class="carousel-title">Royal Rajputana Heritage</h1>
+            <p class="carousel-subtitle">Step back in time through the majestic forts and golden deserts of Rajasthan.</p>
+          </div>
+        </div>
+        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1599661559892-8068715bd7f0?w=1600&auto=format&fit=crop&q=80');">
+          <div class="carousel-overlay">
+            <h1 class="carousel-title">The Heritage of Karnataka</h1>
+            <p class="carousel-subtitle">From the misty coffee hills of Coorg to the grand royal palaces of Mysore.</p>
           </div>
         </div>
       </div>
@@ -289,6 +286,8 @@
         <span class="carousel-dot active" data-index="0"></span>
         <span class="carousel-dot" data-index="1"></span>
         <span class="carousel-dot" data-index="2"></span>
+        <span class="carousel-dot" data-index="3"></span>
+        <span class="carousel-dot" data-index="4"></span>
       </div>
     </div>
 
@@ -315,7 +314,7 @@
             <img src="india map.webp" alt="Map of India" class="india-official-map">
 
             <div class="map-pin pin-kashmir" data-target="Kashmir">
-              <div class="pin-pulse"></div><div class="pin-label">J&K</div>
+              <div class="pin-pulse"></div><div class="pin-label">J&K & Ladakh</div>
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             </div>
 
@@ -373,7 +372,7 @@
                 <button class="btn-primary" onclick="goToPage('book-kovalam.html')">View / Book</button>
               </div>
               <div class="place-card">
-                <img src="woman-3701713_1280.jpg" alt="Ayurveda" loading="lazy"/>
+                <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&auto=format&fit=crop&q=60" alt="Ayurveda" loading="lazy"/>
                 <h3>🦋 Ayurveda & Wellness</h3>
                 <p>Authentic Ayurvedic treatments, yoga, detox & rejuvenation programs in peaceful Kerala settings.</p>
                 <div class="package-meta">Ideal for wellness seekers · 3–7+ nights</div>
@@ -453,7 +452,7 @@
       <h2>📝 How booking with us works</h2>
       <p class="section-subtitle">Simple steps to plan and confirm your trip through Mannakuzhil Tours.</p>
       <div class="steps-grid">
-        <div class="step-card"><div class="step-number">1</div><div class="step-title">Fill the Form</div><div>Submit the contact form below with your travel dates and requirements.</div></div>
+        <div class="step-card"><div class="step-number">1</div><div class="step-title">Reach Out</div><div>Send us an email or WhatsApp message with your travel dates and requirements.</div></div>
         <div class="step-card"><div class="step-number">2</div><div class="step-title">Get a custom itinerary</div><div>We will contact you within 24 hours and suggest a rate and route with suitable stays.</div></div>
         <div class="step-card"><div class="step-number">3</div><div class="step-title">Confirm your booking</div><div>Once you are happy with the plan, confirm by paying an advance as discussed.</div></div>
         <div class="step-card"><div class="step-number">4</div><div class="step-title">Just Chillax 😎</div><div>Once decided, sit back and enjoy the real beauty of incredible India.</div></div>
@@ -467,17 +466,23 @@
     </section>
 
     <section id="contact" class="section-box reveal">
-      <h2>📞 Contact Us to Book</h2>
-      <p class="section-subtitle">Reach out with your travel dates and rough plan – we’ll reply with a custom itinerary and pricing within 24 hours.</p>
-      
+      <h2>📞 Contact Us</h2>
       <div class="contact-layout">
-        <div class="contact-info-box">
-          <p><strong>📧 Email:</strong> <br> <a href="mailto:booking@mannakuzhiltours.com" class="contact-link">booking@mannakuzhiltours.com</a></p>
-          <p><strong>📞 Phone / WhatsApp:</strong> <br> +91 70068 60319</p>
-          <p><strong>📍 Office Address:</strong> <br> Mannakuzhil, Kerala, India</p>
-          <div class="contact-note">
-            <strong>💡 Quick Tip:</strong> If you already know which package you want, you can simply click the <strong>"View / Book"</strong> button under any specific tour above to go directly to that package's dedicated page!
+        <div>
+          <p class="section-subtitle">Reach out with your travel dates and rough plan – we’ll reply with a custom itinerary and pricing within 24 hours.</p>
+          <div class="contact-info">
+            <p><strong>📧 Email:</strong> <a href="mailto:booking@mannakuzhiltours.com" class="contact-link">booking@mannakuzhiltours.com</a></p>
+            <p><strong>📞 Phone / WhatsApp:</strong> +91 70068 60319</p>
+            <p><strong>📍 Office Address:</strong> Mannakuzhil, Kerala, India</p>
           </div>
+          <p class="contact-note">
+            You can send a simple email with: dates, number of people, preferred places, and any special requirements.
+          </p>
+        </div>
+        <div>
+          <p class="contact-note">
+            <strong>💡 Quick Tip:</strong> Prefer booking package-wise? Use the <strong>"View / Book"</strong> buttons under each package to see details and confirm your trip from those dedicated pages!
+          </p>
         </div>
       </div>
     </section>
