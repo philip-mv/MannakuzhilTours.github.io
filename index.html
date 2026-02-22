@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mannakuzhil Tours – Best Kerala & India Tour Packages 2026</title>
-  <meta name="description" content="Book authentic tour packages 2026 with Mannakuzhil Tours: Alleppey houseboat cruises, Munnar hill station, Goa beaches, Kashmir valleys & customized itineraries.">
-  <meta name="keywords" content="Kerala tour packages 2026, India tour packages, Alleppey houseboat booking, Munnar tour package, Goa holiday package, Kashmir tour">
+  <meta name="description" content="Book authentic tour packages 2026 with Mannakuzhil Tours: Alleppey houseboat cruises, Munnar hill station, Goa beaches, Kashmir valleys, Karnataka tours & customized itineraries.">
+  <meta name="keywords" content="Kerala tour packages 2026, India tour packages, Alleppey houseboat booking, Munnar tour package, Goa holiday package, Kashmir tour, Karnataka tours">
   
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.mannakuzhiltours.com/">
@@ -370,23 +370,27 @@
       justify-content: center;
       align-items: center;
       position: sticky;
-      top: 180px; /* Keeps map visible while scrolling packages */
+      top: 180px;
     }
     .map-svg {
       width: 100%;
       height: auto;
-      max-height: 450px;
+      max-height: 480px;
       filter: drop-shadow(0 8px 16px rgba(0,60,0,0.15));
     }
+    
+    /* Improved curved map base */
     .base-india {
       fill: #e8f5e9;
       stroke: #a5d6a7;
-      stroke-width: 2;
+      stroke-width: 2.5;
+      stroke-linejoin: round;
     }
     .state-hotspot {
       fill: var(--green-light);
       stroke: #ffffff;
       stroke-width: 2;
+      stroke-linejoin: round;
       cursor: pointer;
       transition: fill 0.3s ease, transform 0.2s ease;
     }
@@ -398,10 +402,12 @@
     }
     .state-label {
       font-family: sans-serif;
-      font-size: 14px;
-      font-weight: bold;
+      font-size: 15px;
+      font-weight: 800;
       fill: var(--green-dark);
       pointer-events: none;
+      /* Adds a white glow around the text for readability */
+      text-shadow: 1px 1px 3px rgba(255,255,255,0.9), -1px -1px 3px rgba(255,255,255,0.9), 0px 0px 5px rgba(255,255,255,1);
     }
     .packages-display {
       flex: 1.5 1 400px;
@@ -536,7 +542,7 @@
         grid-template-columns: 1fr;
       }
       .map-wrapper {
-        position: static; /* Disable sticky on mobile */
+        position: static;
       }
     }
     @media (max-width: 768px) {
@@ -644,20 +650,23 @@
       <div class="tours-layout">
         
         <div class="map-wrapper">
-          <svg class="map-svg" viewBox="0 0 300 350" xmlns="http://www.w3.org/2000/svg">
-            <path class="base-india" d="M120,20 L150,10 L180,30 L200,60 L230,90 L280,110 L290,140 L260,160 L240,190 L210,230 L180,270 L160,320 L140,320 L110,260 L90,200 L60,160 L30,130 L40,90 L80,70 L100,50 Z" />
+          <svg class="map-svg" viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg">
+            <path class="base-india" d="M145,25 C160,10 180,5 190,20 C200,35 220,15 240,30 C250,50 240,70 260,80 C280,90 320,110 350,130 C360,160 380,180 370,210 C350,230 320,220 300,240 C280,260 270,300 250,340 C230,380 210,420 190,450 C170,450 160,420 140,380 C120,340 100,300 80,260 C60,220 30,190 20,150 C30,130 50,110 70,120 C90,130 110,100 120,80 C130,60 130,40 145,25 Z" />
             
-            <path id="Kashmir" class="state-hotspot" d="M120,20 L150,10 L180,30 L200,60 L160,70 L110,50 Z" />
-            <text x="150" y="45" class="state-label" text-anchor="middle">J&K</text>
+            <path id="Kashmir" class="state-hotspot" d="M145,25 C160,10 180,5 190,20 C200,35 220,15 240,30 C250,50 240,70 260,80 C240,90 200,100 170,90 C150,80 130,60 145,25 Z" />
+            <text x="195" y="65" class="state-label" text-anchor="middle">Kashmir</text>
             
-            <path id="Rajasthan" class="state-hotspot" d="M40,90 L80,70 L110,120 L80,150 L50,130 Z" />
-            <text x="75" y="115" class="state-label" text-anchor="middle">Raj</text>
+            <path id="Rajasthan" class="state-hotspot" d="M70,120 C90,130 110,100 120,80 C130,100 140,140 130,170 C110,190 80,200 60,180 C40,160 50,130 70,120 Z" />
+            <text x="95" y="150" class="state-label" text-anchor="middle">Rajasthan</text>
             
-            <circle id="Goa" class="state-hotspot" cx="80" cy="210" r="12" />
-            <text x="105" y="215" class="state-label" text-anchor="middle">Goa</text>
+            <circle id="Goa" class="state-hotspot" cx="100" cy="270" r="10" />
+            <text x="65" y="275" class="state-label" text-anchor="middle">Goa</text>
+
+            <path id="Karnataka" class="state-hotspot" d="M100,280 C120,280 140,300 150,330 C130,360 110,380 120,400 C100,380 90,340 80,300 C90,290 100,280 100,280 Z" />
+            <text x="145" y="325" class="state-label" text-anchor="middle">Karnataka</text>
             
-            <path id="Kerala" class="state-hotspot active-state" d="M110,260 L130,280 L140,320 L120,310 Z" />
-            <text x="150" y="300" class="state-label" text-anchor="middle">Kerala</text>
+            <path id="Kerala" class="state-hotspot active-state" d="M120,400 C130,420 140,440 160,450 C180,450 190,460 180,470 C160,470 140,450 120,430 C110,410 120,400 120,400 Z" />
+            <text x="175" y="440" class="state-label" text-anchor="middle">Kerala</text>
           </svg>
         </div>
 
@@ -704,6 +713,19 @@
             <p style="margin-top:12px;font-size:0.85rem;color:#4a6a54;">*Starting prices vary with season, hotel category, and number of travelers – contact us for a custom quote.</p>
           </div>
 
+          <div id="packages-Karnataka" class="state-package-group">
+            <h3 style="margin-top:0; color: var(--green-dark);">🐅 Karnataka Tour Packages</h3>
+            <div class="places">
+              <div class="place-card">
+                <img src="https://images.unsplash.com/photo-1626014903706-5b0fa2a9f5d3?w=600&auto=format&fit=crop&q=60" alt="Coorg" loading="lazy"/>
+                <h3>☕ Coorg & Mysore</h3>
+                <p>Coffee plantations, lush green hills, majestic palaces, and the rich heritage of South India.</p>
+                <div class="package-meta"><span class="price-tag">4-5 Nights Packages</span></div>
+                <button class="btn-primary" onclick="goToPage('book-karnataka.html')">View / Book</button>
+              </div>
+            </div>
+          </div>
+
           <div id="packages-Goa" class="state-package-group">
             <h3 style="margin-top:0; color: var(--green-dark);">🏖️ Goa Tour Packages</h3>
             <div class="places">
@@ -718,7 +740,7 @@
           </div>
 
           <div id="packages-Kashmir" class="state-package-group">
-            <h3 style="margin-top:0; color: var(--green-dark);">🏔️ Jammu & Kashmir Packages</h3>
+            <h3 style="margin-top:0; color: var(--green-dark);">🏔️ Kashmir Packages</h3>
             <div class="places">
               <div class="place-card">
                 <img src="https://images.unsplash.com/photo-1595815771614-ade9d652a65d?w=600&auto=format&fit=crop&q=60" alt="Kashmir Shikara" loading="lazy"/>
@@ -804,7 +826,7 @@
         <div class="step-card">
           <div class="step-number">4</div>
           <div class="step-title">Just Chillax 😎 and Enjoy the trip.</div>
-          <div>Once you have the perfect tour decided with us, you can sit back and enjoy the real beauty of God's own country, Kerala.</div>
+          <div>Once you have the perfect tour decided with us, you can sit back and enjoy the real beauty of God's own country.</div>
         </div>
       </div>
     </section>
