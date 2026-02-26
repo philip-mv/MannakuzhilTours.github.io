@@ -224,8 +224,16 @@
     footer { background: linear-gradient(135deg, var(--green-dark), #1b5e20); color: #daf5d6; text-align: center; padding: 24px; font-size: clamp(0.95rem, 2.5vw, 1rem); margin-top: 40px; }
     footer p { margin: 5px 0; font-size: 0.85rem; opacity: 0.8; }
     
-    @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; gap: 30px; } .map-premium-container { position: static; } }
-    @media (max-width: 768px) { main { padding: 20px 12px; padding-top: 150px; } .tours-layout { flex-direction: column; } }
+    /* Responsive Mobile Adjustments */
+    @media (max-width: 900px) { 
+      .contact-layout { grid-template-columns: 1fr; gap: 30px; } 
+      .map-premium-container { position: static; } 
+    }
+    @media (max-width: 768px) { 
+      main { padding: 20px 12px; padding-top: 150px; } 
+      .tours-layout { flex-direction: column; } 
+      .places { grid-template-columns: 1fr; } /* Ensures cards stack neatly on mobile */
+    }
   </style>
 </head>
 <body class="page-transition">
@@ -385,7 +393,7 @@
             <h3 style="margin-top:0; color: var(--green-dark);">🐅 Karnataka Tour Packages</h3>
             <div class="places">
               <div class="place-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Magnificient_Majestic_Mysore_Palace.JPG/1600px-Magnificient_Majestic_Mysore_Palace.JPG"/>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Magnificient_Majestic_Mysore_Palace.JPG/1600px-Magnificient_Majestic_Mysore_Palace.JPG" alt="Mysore Palace" loading="lazy"/>
                 <h3>☕ Coorg & Mysore</h3>
                 <p>Coffee plantations, lush green hills, majestic palaces, and the rich heritage of South India.</p>
                 <div class="package-meta">4-5 Nights Packages</div>
@@ -532,6 +540,14 @@
           
           if (targetPackageGroup) {
             targetPackageGroup.classList.add('active');
+            
+            // Mobile Auto-Scroll Feature
+            if (window.innerWidth <= 768) {
+              setTimeout(() => {
+                targetPackageGroup.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }, 100);
+            }
+            
           } else {
             defaultMessage.classList.add('active');
             defaultMessage.innerHTML = `<div class="empty-state-message">Exciting packages for ${stateId} are launching soon! Contact us to customize a trip.</div>`;
