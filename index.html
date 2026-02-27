@@ -1,3 +1,13 @@
+Here's the fixed version of your HTML code. I identified the likely causes of the issues on mobile devices:
+
+- The Kerala packages (all 4 cards) not fully displaying was probably due to the `.packages-display` container having a fixed `min-height: 400px`, which could cause content clipping or improper expansion when the flex layout shrinks on smaller screens. I removed the `min-height` entirely.
+- For states with only one package (e.g., Goa, Karnataka), the card appearing to "overlay under the box and out of it" was likely related to flex shrinking allowing overflow or misalignment on mobile. I added `flex-shrink: 0` and `flex-basis: auto` to both the map and packages containers in the mobile media query to ensure they size based on content without shrinking/compressing.
+- I also explicitly added `overflow: visible; height: auto;` to `.state-package-group.active` to prevent any hidden overflow when switching states.
+- No other major changes were needed, as the grid already stacks to one column on mobile via your existing media query. This should ensure all cards display fully, stacked vertically, without clipping or overlay issues on phones.
+
+Test this on a mobile device or emulator. If images or external resources are missing, ensure they're available in your setup.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +16,13 @@
   <title>Mannakuzhil Tours – Best Kerala & India Tour Packages 2026</title>
   <meta name="description" content="Book authentic tour packages 2026 with Mannakuzhil Tours: Alleppey houseboat cruises, Munnar hill station, Goa beaches, Kashmir valleys, Karnataka tours & customized itineraries.">
   <meta name="keywords" content="Kerala tour packages 2026, India tour packages, Alleppey houseboat booking, Munnar tour package, Goa holiday package, Kashmir tour, Karnataka tours">
-  
+ 
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.mannakuzhiltours.com/">
-  
+ 
   <link rel="icon" type="image/png" sizes="32x32" href="logo-square.png">
   <link rel="icon" type="image/png" sizes="16x16" href="logo-square.png">
   <link rel="shortcut icon" href="logo-square.png">
-
   <style>
     :root {
       --green-main: #2e7d32;
@@ -31,7 +40,7 @@
     }
     .page-transition { opacity: 1; transform: translateY(0); transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
     .page-transition.fade-out { opacity: 0; transform: translateY(12px); }
-    
+   
     .carousel { position: relative; width: 100%; height: clamp(320px, 55vh, 520px); overflow: hidden; margin-bottom: 36px; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
     .carousel-slides { position: relative; width: 100%; height: 100%; }
     .carousel-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.2s ease-in-out; }
@@ -42,7 +51,7 @@
     .carousel-controls { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; z-index: 10; }
     .carousel-dot { width: 12px; height: 12px; background: rgba(255,255,255,0.5); border-radius: 50%; cursor: pointer; transition: all 0.3s; }
     .carousel-dot.active { background: white; transform: scale(1.3); }
-    
+   
     .header-container { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: all 0.3s ease; }
     .header-container.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
     header { background: linear-gradient(135deg, rgba(46,125,50,0.95), rgba(56,142,60,0.98)); color: #daf5d6; padding: 20px 20px; display: flex; align-items: center; gap: 14px; backdrop-filter: blur(12px); transition: padding 0.3s ease; position: relative; overflow: hidden; }
@@ -58,17 +67,17 @@
     nav { background: rgba(56, 142, 60, 0.97); display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; padding: 14px; backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.1); }
     nav a { color: #eaf6e0; text-decoration: none; padding: 10px 18px; border-radius: 25px; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); font-size: clamp(0.9rem, 2.5vw, 1rem); font-weight: 700; position: relative; min-width: 80px; text-align: center; }
     nav a:hover, nav a.active { background: linear-gradient(135deg, #a5d6a7, #81c784); color: var(--green-dark); transform: translateY(-2px) scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-    
+   
     main { max-width: 1200px; margin: 0 auto; padding: 24px 16px; padding-top: 160px; }
     .section-box { background: rgba(255,255,255,0.95); backdrop-filter: blur(16px); padding: clamp(24px, 4vw, 32px); border-radius: 24px; box-shadow: 0 12px 40px rgba(0,60,0,0.2); margin-bottom: 36px; border: 1px solid rgba(255,255,255,0.3); }
     .section-box h2 { margin-top: 0; margin-bottom: 12px; }
     .section-subtitle { margin-top: 4px; margin-bottom: 18px; color: #446851; font-size: 0.95rem; }
     .reveal { opacity: 0; transform: translateY(40px) scale(0.95); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
     .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
-    
+   
     /* --- CUSTOM IMAGE MAP STYLES --- */
     .tours-layout { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; margin-top: 20px; }
-    
+   
     .map-premium-container {
       flex: 1 1 400px;
       position: sticky;
@@ -82,13 +91,11 @@
       justify-content: center;
       align-items: center;
     }
-
     .map-relative-wrapper {
       position: relative;
       width: 100%;
       max-width: 480px;
     }
-
     .india-official-map {
       width: 100%;
       height: auto;
@@ -96,7 +103,6 @@
       filter: drop-shadow(0 8px 20px rgba(20, 82, 20, 0.25));
       border-radius: 12px;
     }
-
     .map-pin {
       position: absolute;
       transform: translate(-50%, -100%);
@@ -107,7 +113,7 @@
       flex-direction: column;
       align-items: center;
     }
-    
+   
     .map-pin svg {
       width: 36px;
       height: 36px;
@@ -115,7 +121,6 @@
       filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
       transition: all 0.3s ease;
     }
-
     .pin-pulse {
       position: absolute;
       bottom: 2px;
@@ -128,12 +133,10 @@
       z-index: -1;
       animation: pulse 2s infinite;
     }
-
     @keyframes pulse {
       0% { transform: translateX(-50%) scale(1); opacity: 1; }
       100% { transform: translateX(-50%) scale(3.5); opacity: 0; }
     }
-
     .pin-label {
       position: absolute;
       top: -30px;
@@ -162,31 +165,26 @@
       border-color: #1a3d27 transparent transparent transparent;
       transition: border-color 0.3s ease;
     }
-
     .map-pin:hover { transform: translate(-50%, -115%) scale(1.15); z-index: 20; }
     .map-pin:hover svg { fill: var(--accent-gold); }
     .map-pin:hover .pin-label { opacity: 1; visibility: visible; top: -38px; }
     .map-pin:hover .pin-pulse { background: rgba(255, 193, 7, 0.6); }
-
     .map-pin.active-pin { transform: translate(-50%, -120%) scale(1.25); z-index: 20; }
     .map-pin.active-pin svg { fill: var(--accent-gold); }
     .map-pin.active-pin .pin-label { opacity: 1; visibility: visible; top: -40px; background: var(--accent-gold); color: #000; box-shadow: 0 8px 16px rgba(255, 193, 7, 0.4);}
     .map-pin.active-pin .pin-label::after { border-color: var(--accent-gold) transparent transparent transparent; }
     .map-pin.active-pin .pin-pulse { background: rgba(255, 193, 7, 0.6); animation: pulse 1.5s infinite; }
-
     /* Calibrated Coordinates for "india map.webp" */
     .pin-kashmir { top: 16%; left: 38%; }
     .pin-rajasthan { top: 41%; left: 27%; }
     .pin-goa { top: 71%; left: 30%; }
     .pin-karnataka { top: 75%; left: 36%; }
     .pin-kerala { top: 88%; left: 39%; }
-
-    .packages-display { flex: 1.5 1 400px; min-height: 400px; }
+    .packages-display { flex: 1.5 1 400px; }
     .state-package-group { display: none; animation: slideUpFade 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-    .state-package-group.active { display: block; }
+    .state-package-group.active { display: block; overflow: visible; height: auto; }
     .empty-state-message { text-align: center; padding: 60px 20px; background: var(--card-bg); border-radius: 20px; border: 2px dashed rgba(46, 125, 50, 0.3); color: var(--green-dark); font-weight: 600; font-size: 1.1rem; }
     @keyframes slideUpFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
     /* Cards */
     .places, .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(18px, 3vw, 24px); justify-content: center; }
     .place-card, .service-card { background: linear-gradient(135deg, var(--card-bg), rgba(208,232,215,0.9)); border-radius: 20px; padding: clamp(20px, 3vw, 28px); text-align: center; box-shadow: 0 8px 32px rgba(0,90,0,0.15); display: flex; flex-direction: column; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); border: 1px solid rgba(165,214,167,0.4); min-height: 420px; cursor: pointer; }
@@ -199,45 +197,45 @@
     .price-tag { font-weight: 800; color: var(--green-dark); }
     .btn-primary { background: linear-gradient(135deg, var(--green-main), var(--green-dark)); color: white; border: none; border-radius: 50px; padding: 16px 32px; font-size: 1.05rem; font-weight: 800; cursor: pointer; transition: all 0.3s; box-shadow: 0 8px 24px rgba(46,125,50,0.4); width: 100%; margin-top: auto; }
     .btn-primary:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 12px 32px rgba(46,125,50,0.5); }
-    
+   
     .service-card { min-height: 380px; }
     .service-image { width: 180px; height: 180px; overflow: hidden; border-radius: 16px; margin: 0 auto 16px; border: 4px solid #a5d6a7; box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
     .service-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.4s ease; }
     .service-card:hover .service-image img { transform: scale(1.12); }
-    
+   
     .why-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 12px; }
     .why-item { background: rgba(240, 251, 240, 0.95); border-radius: 16px; padding: 14px 16px; border: 1px dashed rgba(76,175,80,0.5); font-size: 0.9rem; }
     .why-item-title { font-weight: 700; margin-bottom: 4px; }
-    
+   
     .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 10px; }
     .step-card { background: rgba(240, 251, 240, 0.98); border-radius: 18px; padding: 18px 18px 16px; border: 1px solid rgba(165,214,167,0.7); box-shadow: 0 6px 20px rgba(0,60,0,0.15); font-size: 0.95rem; }
     .step-number { display: inline-block; width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, var(--green-main), var(--green-dark)); color: #fff; text-align: center; line-height: 26px; font-weight: 700; margin-bottom: 6px; font-size: 0.9rem; }
     .step-title { font-weight: 700; margin-bottom: 4px; color: #1a3d27; }
-    
+   
     /* Contact Section Layout */
     .contact-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 24px; align-items: flex-start; margin-top: 20px;}
     .contact-info p { margin: 6px 0; font-size: 1.05rem; }
     .contact-link { color: var(--green-dark); font-weight: 700; text-decoration: none; transition: color 0.3s;}
     .contact-link:hover { color: var(--accent-gold); text-decoration: underline;}
     .contact-note { margin-top: 15px; font-size: 0.95rem; color: #4a6a54; line-height: 1.6; background: rgba(208,232,215,0.4); padding: 16px; border-radius: 12px; border-left: 4px solid var(--green-main);}
-
     footer { background: linear-gradient(135deg, var(--green-dark), #1b5e20); color: #daf5d6; text-align: center; padding: 24px; font-size: clamp(0.95rem, 2.5vw, 1rem); margin-top: 40px; }
     footer p { margin: 5px 0; font-size: 0.85rem; opacity: 0.8; }
-    
+   
     /* Responsive Mobile Adjustments */
-    @media (max-width: 900px) { 
-      .contact-layout { grid-template-columns: 1fr; gap: 30px; } 
-      .map-premium-container { position: static; } 
+    @media (max-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr; gap: 30px; }
+      .map-premium-container { position: static; }
     }
-    @media (max-width: 768px) { 
-      main { padding: 20px 12px; padding-top: 150px; } 
-      .tours-layout { flex-direction: column; } 
+    @media (max-width: 768px) {
+      main { padding: 20px 12px; padding-top: 150px; }
+      .tours-layout { flex-direction: column; }
       .places { grid-template-columns: 1fr; } /* Ensures cards stack neatly on mobile */
+      .map-premium-container { flex-basis: auto; flex-shrink: 0; }
+      .packages-display { flex-basis: auto; flex-shrink: 0; }
     }
   </style>
 </head>
 <body class="page-transition">
-
   <div class="header-container" id="headerContainer">
     <header id="header">
       <img src="logo-square.png" alt="Mannakuzhil Tours Logo" class="logo">
@@ -254,9 +252,7 @@
       <a href="#contact">Contact</a>
     </nav>
   </div>
-
   <main id="home">
-
     <div class="carousel" id="carousel">
       <div class="carousel-slides">
         <div class="carousel-slide active" style="background-image: url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1600&auto=format&fit=crop&q=80');">
@@ -298,7 +294,6 @@
         <span class="carousel-dot" data-index="4"></span>
       </div>
     </div>
-
     <section class="section-box reveal">
       <h2>💚 Why travel with Mannakuzhil Tours</h2>
       <p class="section-subtitle">Local expertise, personal care, and flexible planning for every type of traveler.</p>
@@ -309,52 +304,43 @@
         <div class="why-item"><div class="why-item-title">Transparent pricing</div><div>Clear inclusions, no hidden charges, easy communication.</div></div>
       </div>
     </section>
-
     <section id="packages" class="section-box reveal">
       <h2>🗺️ Discover India by State</h2>
       <p class="section-subtitle">Select a destination pin on the map to explore our specialized tour packages.</p>
-      
+     
       <div class="tours-layout">
-        
+       
         <div class="map-premium-container">
           <div class="map-relative-wrapper">
-            
+           
             <img src="india map.webp" alt="Map of India" class="india-official-map">
-
             <div class="map-pin pin-kashmir" data-target="Kashmir">
               <div class="pin-pulse"></div><div class="pin-label">J&K</div>
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             </div>
-
             <div class="map-pin pin-rajasthan" data-target="Rajasthan">
               <div class="pin-pulse"></div><div class="pin-label">Rajasthan</div>
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             </div>
-
             <div class="map-pin pin-goa" data-target="Goa">
               <div class="pin-pulse"></div><div class="pin-label">Goa</div>
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             </div>
-
             <div class="map-pin pin-karnataka" data-target="Karnataka">
               <div class="pin-pulse"></div><div class="pin-label">Karnataka</div>
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             </div>
-
             <div class="map-pin pin-kerala active-pin" data-target="Kerala">
               <div class="pin-pulse"></div><div class="pin-label">Kerala</div>
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             </div>
-
           </div>
         </div>
-
         <div class="packages-display" id="packagesDisplay">
-          
+         
           <div id="default-message" class="state-package-group">
             <div class="empty-state-message">👈 Click on a map pin to view available tours for that destination!</div>
           </div>
-
           <div id="packages-Kerala" class="state-package-group active">
             <h3 style="margin-top:0; color: var(--green-dark);">🌴 Kerala Tour Packages</h3>
             <div class="places">
@@ -388,7 +374,6 @@
               </div>
             </div>
           </div>
-
           <div id="packages-Karnataka" class="state-package-group">
             <h3 style="margin-top:0; color: var(--green-dark);">🐅 Karnataka Tour Packages</h3>
             <div class="places">
@@ -401,7 +386,6 @@
               </div>
             </div>
           </div>
-
           <div id="packages-Goa" class="state-package-group">
             <h3 style="margin-top:0; color: var(--green-dark);">🏖️ Goa Tour Packages</h3>
             <div class="places">
@@ -414,7 +398,6 @@
               </div>
             </div>
           </div>
-
           <div id="packages-Kashmir" class="state-package-group">
             <h3 style="margin-top:0; color: var(--green-dark);">🏔️ Kashmir Packages</h3>
             <div class="places">
@@ -427,7 +410,7 @@
               </div>
             </div>
           </div>
-          
+         
           <div id="packages-Rajasthan" class="state-package-group">
             <h3 style="margin-top:0; color: var(--green-dark);">🏰 Rajasthan Heritage Tours</h3>
             <div class="places">
@@ -440,11 +423,9 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
-
     <section id="services" class="section-box reveal">
       <h2>✨ Our Services</h2>
       <p class="section-subtitle">We can handle just one part of your trip or the entire journey end-to-end.</p>
@@ -455,7 +436,6 @@
         <div class="service-card"><div class="service-image"><img src="https://static.vecteezy.com/system/resources/thumbnails/040/519/333/small/indian-kerala-traditional-house-vector.jpg" alt="Accommodations" loading="lazy"/></div><h3>🏨 Accommodation</h3><p>Cozy homestays, boutique resorts, and premium hotels carefully chosen for comfort.</p></div>
       </div>
     </section>
-
     <section class="section-box reveal">
       <h2>📝 How booking with us works</h2>
       <p class="section-subtitle">Simple steps to plan and confirm your trip through Mannakuzhil Tours.</p>
@@ -466,13 +446,11 @@
         <div class="step-card"><div class="step-number">4</div><div class="step-title">Just Chillax 😎</div><div>Once decided, sit back and enjoy the real beauty of incredible India.</div></div>
       </div>
     </section>
-
     <section id="about" class="section-box reveal">
       <h2>❤️ About Us</h2>
       <p>We are a family-run tour service based in Mannakuzhil, Kerala, dedicated to providing personalized and memorable experiences.</p>
       <p>Our local connections, on-ground knowledge, and hands-on trip coordination help you enjoy both the famous highlights and quiet hidden spots at a relaxed pace.</p>
     </section>
-
     <section id="contact" class="section-box reveal">
       <h2>📞 Contact Us</h2>
       <div class="contact-layout">
@@ -494,60 +472,55 @@
         </div>
       </div>
     </section>
-
   </main>
-
   <footer>
     <p>© 2026 Mannakuzhil Tours. All rights reserved.</p>
   </footer>
-
   <script>
     function scrollToSection(id) { const el = document.getElementById(id); if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }
-    
+   
     const slides = document.querySelectorAll('.carousel-slide'); const dots = document.querySelectorAll('.carousel-dot');
     let currentIndex = 0; const slideInterval = 6000;
     function showSlide(index) { slides.forEach((slide, i) => slide.classList.toggle('active', i === index)); dots.forEach((dot, i) => dot.classList.toggle('active', i === index)); currentIndex = index; }
     function nextSlide() { let next = (currentIndex + 1) % slides.length; showSlide(next); }
     let interval = setInterval(nextSlide, slideInterval);
     dots.forEach(dot => { dot.addEventListener('click', () => { clearInterval(interval); showSlide(parseInt(dot.dataset.index)); interval = setInterval(nextSlide, slideInterval); }); });
-    
+   
     const headerContainer = document.getElementById('headerContainer');
     window.addEventListener('scroll', () => { headerContainer.classList.toggle('scrolled', window.scrollY > 50); });
-    
+   
     const revealEls = document.querySelectorAll('.reveal');
     function handleReveal() { const triggerBottom = window.innerHeight * 0.8; revealEls.forEach((el, index) => { const rect = el.getBoundingClientRect(); if (rect.top < triggerBottom && !el.classList.contains('visible')) { setTimeout(() => el.classList.add('visible'), index * 100); } }); }
     window.addEventListener('scroll', handleReveal); window.addEventListener('load', handleReveal);
-    
+   
     function goToPage(url) { document.body.classList.add('fade-out'); setTimeout(() => window.location.href = url, 400); }
-    
+   
     const navLinks = document.querySelectorAll('nav a'); const sections = document.querySelectorAll('section');
     function updateActiveNav() { let current = 'home'; sections.forEach(section => { const sectionTop = section.offsetTop - 200; if (window.scrollY >= sectionTop) current = section.id; }); navLinks.forEach(link => { link.classList.toggle('active', link.getAttribute('href') === `#${current}`); }); }
     window.addEventListener('scroll', updateActiveNav); updateActiveNav();
-
     document.addEventListener('DOMContentLoaded', () => {
       const mapPins = document.querySelectorAll('.map-pin');
       const packageGroups = document.querySelectorAll('.state-package-group');
       const defaultMessage = document.getElementById('default-message');
-
       mapPins.forEach(pin => {
         pin.addEventListener('click', function() {
           mapPins.forEach(p => p.classList.remove('active-pin'));
-          this.classList.add('active-pin'); 
+          this.classList.add('active-pin');
           packageGroups.forEach(pg => pg.classList.remove('active'));
-          
+         
           const stateId = this.getAttribute('data-target');
           const targetPackageGroup = document.getElementById('packages-' + stateId);
-          
+         
           if (targetPackageGroup) {
             targetPackageGroup.classList.add('active');
-            
+           
             // Mobile Auto-Scroll Feature
             if (window.innerWidth <= 768) {
               setTimeout(() => {
                 targetPackageGroup.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }, 100);
             }
-            
+           
           } else {
             defaultMessage.classList.add('active');
             defaultMessage.innerHTML = `<div class="empty-state-message">Exciting packages for ${stateId} are launching soon! Contact us to customize a trip.</div>`;
