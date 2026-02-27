@@ -1,13 +1,4 @@
-Here's the fixed version of your HTML code. I identified the likely causes of the issues on mobile devices:
 
-- The Kerala packages (all 4 cards) not fully displaying was probably due to the `.packages-display` container having a fixed `min-height: 400px`, which could cause content clipping or improper expansion when the flex layout shrinks on smaller screens. I removed the `min-height` entirely.
-- For states with only one package (e.g., Goa, Karnataka), the card appearing to "overlay under the box and out of it" was likely related to flex shrinking allowing overflow or misalignment on mobile. I added `flex-shrink: 0` and `flex-basis: auto` to both the map and packages containers in the mobile media query to ensure they size based on content without shrinking/compressing.
-- I also explicitly added `overflow: visible; height: auto;` to `.state-package-group.active` to prevent any hidden overflow when switching states.
-- No other major changes were needed, as the grid already stacks to one column on mobile via your existing media query. This should ensure all cards display fully, stacked vertically, without clipping or overlay issues on phones.
-
-Test this on a mobile device or emulator. If images or external resources are missing, ensure they're available in your setup.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
